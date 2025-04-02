@@ -1,0 +1,29 @@
+:root {
+  --primary-color: #1C3553;
+  --secondary-color: #E8DCCB;
+  --white-color: #FFFFFF;
+  --text-color: #333333;
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Libre Baskerville', serif;
+  color: var(--text-color);
+  background-color: var(--white-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Libre Baskerville', serif;
+}
