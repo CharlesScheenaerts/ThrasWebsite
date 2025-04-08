@@ -20,7 +20,7 @@
   .formGroup input,
   .formGroup textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 0.8rem; 
     border: 1px solid rgba(28, 53, 83, 0.2);
     font-family: 'Libre Baskerville', serif;
     font-size: 0.9rem;
