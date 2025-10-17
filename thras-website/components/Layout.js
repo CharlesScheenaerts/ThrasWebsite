@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollGauge from './ScrollGauge';
 import { useEffect, useState } from 'react';
@@ -27,7 +26,6 @@ export default function Layout({ children }) {
         <meta name="description" content="IT Services Consulting" />
       </Head>
       <ScrollGauge percentage={scrollPercentage} />
-      <Navbar />
       <main>{children}</main>
       <Footer />
     </>
