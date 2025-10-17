@@ -205,7 +205,7 @@ export default function Home() {
       <footer className={styles.footer}>
         <p className={styles.footerDescription}>
           Le mot grec θράσος (thrasos) signifie courage, audace ou témérité, selon le contexte. 
-          Dans la mythologie grecque, Thrasos est aussi la personnification de l'insolence et de la témérité excessive.
+          Dans la mythologie grecque, Thrasos est aussi la personnification de l&apos;insolence et de la témérité excessive.
         </p>
       </footer>
 
