@@ -4,12 +4,6 @@ import styles from '../styles/Footer.module.css';
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.helpSection}>
-        <h2 className={styles.helpTitle}>HOW CAN WE HELP YOU</h2>
-        <Link href="/contact" className={styles.contactButton}>
-          GET IN TOUCH WITH US
-        </Link>
-      </div>
       <div className={styles.footerContent}>
         <div className={styles.footerLogo}>Thras</div>
         <div className={styles.footerLinks}>
