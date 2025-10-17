@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css';
 import { useEffect, useState } from 'react';
 
-let externalScrollUpVisible = null;
+export let externalScrollUpVisible = null;
 
 export function Header() {
     const [scrollPercentage, setScrollPercentage] = useState(0);

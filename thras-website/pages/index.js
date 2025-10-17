@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css';
-import { externalScrollUpVisible, externalScrollToSection } from '@/components/Header';
+import { externalScrollUpVisible } from '../components/Header';
 
 export default function Home() {
 
