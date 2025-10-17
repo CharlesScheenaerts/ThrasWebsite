@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Footer from './Footer';
 import ScrollGauge from './ScrollGauge';
 import { useEffect, useState } from 'react';
-import { Header } from './header';
+import { Header } from './Header';
 
 export default function Layout({ children }) {
   const [scrollPercentage, setScrollPercentage] = useState(0);
