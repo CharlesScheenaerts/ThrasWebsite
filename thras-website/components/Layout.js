@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Footer from './Footer';
 import ScrollGauge from './ScrollGauge';
 import { useEffect, useState } from 'react';
+import { Header } from './header';
 
 export default function Layout({ children }) {
   const [scrollPercentage, setScrollPercentage] = useState(0);
@@ -24,6 +25,7 @@ export default function Layout({ children }) {
         <title>Thras - IT Services Consulting</title>
         <meta name="description" content="IT Services Consulting" />
       </Head>
+      <Header />
       <ScrollGauge percentage={scrollPercentage} />
       <main>{children}</main>
       <Footer />

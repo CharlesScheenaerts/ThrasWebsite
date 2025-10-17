@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 let externalScrollUpVisible = null;
-
 
 export function Header() {
     const [scrollPercentage, setScrollPercentage] = useState(0);
@@ -26,15 +25,8 @@ export function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (selector) => {
-        document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
-    };
     return (
         <>
-        <Head>
-            <title>Thras - IT Services Consulting</title>
-            <meta name="description" content="IT Services Consulting" />
-        </Head>
 
       {/* Scroll Gauge */}
       <div className={styles.gaugeContainer}>

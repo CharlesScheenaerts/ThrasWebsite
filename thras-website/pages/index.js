@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
-import ContactForm from '@/components/ContactForm';
-import { Header, externalScrollUpVisible } from '@/components/header';
+import { externalScrollUpVisible, externalScrollToSection } from '@/components/header';
 
 export default function Home() {
 
