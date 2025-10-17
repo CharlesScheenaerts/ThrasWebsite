@@ -30,8 +30,6 @@ export default function Home() {
     <>
       <Head>
         <title>Thras - IT Services Consulting</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" />
         <meta name="description" content="IT Services Consulting" />
       </Head>
 
