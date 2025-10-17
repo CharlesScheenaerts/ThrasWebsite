@@ -22,7 +22,6 @@ export default function Layout({ children }) {
     <>
       <Head>
         <title>Thras - IT Services Consulting</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" />
         <meta name="description" content="IT Services Consulting" />
       </Head>
       <ScrollGauge percentage={scrollPercentage} />
