@@ -12,8 +12,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>IT Solutions For Your Business</h1>
-          <p>Empowering businesses through innovative technology solutions</p>
+          <h1>IT Solutions<br/>For Your Business</h1>
+          <p>Empowering businesses through innovative technology</p>
           <div className={styles.heroCta}>
             <a href="#" className={styles.primaryButton}>Explore our services</a>
             <a href="#" className={styles.primaryButton}>Contact us</a>
@@ -64,20 +64,13 @@ export default function Home() {
           </div>
 
           <div className={styles.serviceCard}>
-            <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="14" width="32" height="22" rx="2" fill="none" stroke="url(#purpleGradient)" strokeWidth="3.5"/>
-              <line x1="4" y1="20" x2="36" y2="20" stroke="url(#purpleGradient)" strokeWidth="3"/>
-              <circle cx="10" cy="17" r="1.5" fill="#2D1054"/>
-              <circle cx="15" cy="17" r="1.5" fill="#2D1054"/>
-              <circle cx="20" cy="17" r="1.5" fill="#2D1054"/>
-              <path d="M16 36 L20 40 L24 36" stroke="url(#purpleGradient)" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-              <rect x="30" y="24" width="18" height="26" rx="1.5" fill="none" stroke="url(#purpleGradient)" strokeWidth="3.5"/>
-              <circle cx="39" cy="47" r="1.5" fill="#2D1054"/>
-              <line x1="34" y1="29" x2="44" y2="29" stroke="url(#purpleGradient)" strokeWidth="2"/>
-              <rect x="44" y="32" width="14" height="20" rx="1.5" fill="none" stroke="url(#purpleGradient)" strokeWidth="3.5"/>
-              <circle cx="51" cy="49" r="1.2" fill="#2D1054"/>
-              <line x1="48" y1="36" x2="54" y2="36" stroke="url(#purpleGradient)" strokeWidth="1.5"/>
-            </svg>
+<svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="16" width="44" height="36" rx="2" fill="none" stroke="url(#purpleGradient)" strokeWidth="4"/>
+  <circle cx="17" cy="23" r="1.8" fill="#2D1054"/>
+  <circle cx="24" cy="23" r="1.8" fill="#2D1054"/>
+  <circle cx="31" cy="23" r="1.8" fill="#2D1054"/>
+  <line x1="10" y1="30" x2="54" y2="30" stroke="url(#purpleGradient)" strokeWidth="2"/>
+</svg>
             <h3>Website Creation</h3>
             <p>Build modern, responsive websites that drive results</p>
           </div>
@@ -118,19 +111,16 @@ export default function Home() {
           </div>
 
           <div className={styles.serviceCard}>
-            <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 16 Q28 12 34 16 Q38 20 38 28 Q38 34 34 38 L34 44 Q34 48 30 50 L24 50 Q20 48 20 44 L20 38 Q16 34 16 28 Q16 20 20 16" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="26" cy="24" r="2.5" fill="#2D1054"/>
-              <circle cx="32" cy="26" r="2.5" fill="#2D1054"/>
-              <circle cx="28" cy="30" r="2.5" fill="#2D1054"/>
-              <circle cx="24" cy="34" r="2.5" fill="#2D1054"/>
-              <circle cx="30" cy="34" r="2.5" fill="#2D1054"/>
-              <line x1="26" y1="24" x2="32" y2="26" stroke="url(#purpleGradient)" strokeWidth="2"/>
-              <line x1="32" y1="26" x2="28" y2="30" stroke="url(#purpleGradient)" strokeWidth="2"/>
-              <line x1="28" y1="30" x2="24" y2="34" stroke="url(#purpleGradient)" strokeWidth="2"/>
-              <line x1="28" y1="30" x2="30" y2="34" stroke="url(#purpleGradient)" strokeWidth="2"/>
-              <line x1="26" y1="24" x2="28" y2="30" stroke="url(#purpleGradient)" strokeWidth="2"/>
-            </svg>
+<svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 14 Q28 10 34 14 Q38 18 40 24 L40 32 Q40 36 38 38 L38 44 Q38 46 40 48 L40 52 L34 52 L34 48 Q32 46 32 44 L32 38 Q30 36 28 36 L24 36 Q22 34 22 32 L22 24 Q22 18 22 14" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+  <circle cx="30" cy="26" r="3" fill="#2D1054"/>
+  <circle cx="24" cy="30" r="2.5" fill="#2D1054"/>
+  <circle cx="36" cy="30" r="2.5" fill="#2D1054"/>
+  <circle cx="30" cy="34" r="2.5" fill="#2D1054"/>
+  <line x1="30" y1="26" x2="24" y2="30" stroke="url(#purpleGradient)" strokeWidth="2"/>
+  <line x1="30" y1="26" x2="36" y2="30" stroke="url(#purpleGradient)" strokeWidth="2"/>
+  <line x1="30" y1="26" x2="30" y2="34" stroke="url(#purpleGradient)" strokeWidth="2"/>
+</svg>
             <h3>Machine Learning</h3>
             <p>Implement intelligent systems that learn and improve over time</p>
           </div>
@@ -156,12 +146,12 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className={styles.footer}>
-        <p className={styles.footerDescription}>
-          Le mot grec θράσος (thrasos) signifie courage, audace ou témérité, selon le contexte. 
-          Dans la mythologie grecque, Thrasos est aussi la personnification de l&apos;insolence et de la témérité excessive.
-        </p>
-      </footer>
+<footer className={styles.footer}>
+  <p className={styles.footerDescription}>
+    The Greek word <strong>θράσος</strong> (thrasos) means courage, boldness, or recklessness.<br/>
+    In Greek mythology, Thrasos is also the personification of insolence and excessive daring.
+  </p>
+</footer>
 
       {/* Scroll to Top Button */}
       <div className={`${styles.scrollUp} ${externalScrollUpVisible ? styles.visible : ''}`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>

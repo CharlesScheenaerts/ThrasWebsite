@@ -1,7 +1,7 @@
 .footer {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  padding: 2rem 0 1rem;
+  background-color: #3D3D3D;
+  color: #FFFFFF;
+  padding: 3rem 5%;
 }
 
 .helpSection {
@@ -33,50 +33,58 @@
 }
 
 .footerContent {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1200px;
+ max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding-bottom: 2rem;
 }
 
 .footerLogo {
-  font-size: 2rem;
+ font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  flex: 1 1 100%;
   margin-bottom: 2rem;
 }
 
 .footerLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-  width: 100%;
+    display: flex;
+  gap: 4rem;
+  margin-bottom: 3rem;
 }
 
 .linkColumn {
   flex: 1;
-  min-width: 200px;
 }
 
 .linkColumn h3 {
+   font-family: 'Ubuntu', sans-serif;
   margin-bottom: 1rem;
   font-size: 1rem;
   letter-spacing: 0.05em;
+  color: #FFFFFF;
 }
 
 .linkColumn a, .linkColumn p {
-  display: block;
+ display: block;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
   opacity: 0.8;
-  transition: opacity var(--transition-speed);
+  transition: opacity 0.3s ease;
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 .linkColumn a:hover {
   opacity: 1;
+}
+
+.footerDescription {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .copyright {
