@@ -1,7 +1,37 @@
 import styles from '../styles/Home.module.css';
 import { externalScrollUpVisible } from '../components/Header';
+import { useEffect } from 'react';
 
 export default function Home() {
+  
+  useEffect(() => {
+    // Observer pour les animations au scroll
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.animate);
+        }
+      });
+    }, observerOptions);
+    
+    // Animation des cartes de services
+    const serviceCards = document.querySelectorAll(`.${styles.serviceCard}`);
+    serviceCards.forEach((card, index) => {
+      card.style.transitionDelay = `${index * 0.15}s`;
+      observer.observe(card);
+    });
+    
+    // Animation About section
+    const aboutContainer = document.querySelector(`.${styles.aboutContainer}`);
+    if (aboutContainer) {
+      observer.observe(aboutContainer);
+    }
+  }, []);
 
   const scrollToSection = (selector) => {
     document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
