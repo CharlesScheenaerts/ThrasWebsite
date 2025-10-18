@@ -1,7 +1,7 @@
 .footer {
-  background-color: #3D3D3D;
+  background-color: #272727;
   color: #FFFFFF;
-  padding: 3rem 5%;
+  padding: 1rem 5%;
 }
 
 .helpSection {
@@ -35,7 +35,7 @@
 .footerContent {
  max-width: 1200px;
   margin: 0 auto;
-  padding-bottom: 2rem;
+  padding-bottom: 0rem;
 }
 
 .footerLogo {

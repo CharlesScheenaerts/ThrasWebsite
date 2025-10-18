@@ -100,6 +100,8 @@ export default function Home() {
   <circle cx="24" cy="23" r="1.8" fill="#2D1054"/>
   <circle cx="31" cy="23" r="1.8" fill="#2D1054"/>
   <line x1="10" y1="30" x2="54" y2="30" stroke="url(#purpleGradient)" strokeWidth="2"/>
+  <line x1="18" y1="38" x2="46" y2="38" stroke="url(#purpleGradient)" strokeWidth="2" strokeLinecap="round"/>
+  <line x1="18" y1="44" x2="38" y2="44" stroke="url(#purpleGradient)" strokeWidth="2" strokeLinecap="round"/>
 </svg>
             <h3>Website Creation</h3>
             <p>Build modern, responsive websites that drive results</p>
@@ -142,14 +144,43 @@ export default function Home() {
 
           <div className={styles.serviceCard}>
 <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 14 Q28 10 34 14 Q38 18 40 24 L40 32 Q40 36 38 38 L38 44 Q38 46 40 48 L40 52 L34 52 L34 48 Q32 46 32 44 L32 38 Q30 36 28 36 L24 36 Q22 34 22 32 L22 24 Q22 18 22 14" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-  <circle cx="30" cy="26" r="3" fill="#2D1054"/>
-  <circle cx="24" cy="30" r="2.5" fill="#2D1054"/>
-  <circle cx="36" cy="30" r="2.5" fill="#2D1054"/>
-  <circle cx="30" cy="34" r="2.5" fill="#2D1054"/>
-  <line x1="30" y1="26" x2="24" y2="30" stroke="url(#purpleGradient)" strokeWidth="2"/>
-  <line x1="30" y1="26" x2="36" y2="30" stroke="url(#purpleGradient)" strokeWidth="2"/>
-  <line x1="30" y1="26" x2="30" y2="34" stroke="url(#purpleGradient)" strokeWidth="2"/>
+  {/* Réseau neural avec 3 couches */}
+  {/* Couche entrée (gauche) */}
+  <circle cx="16" cy="20" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+  <circle cx="16" cy="32" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+  <circle cx="16" cy="44" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+  
+  {/* Couche cachée (milieu) */}
+  <circle cx="32" cy="16" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+  <circle cx="32" cy="28" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+  <circle cx="32" cy="40" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+  <circle cx="32" cy="52" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+  
+  {/* Couche sortie (droite) */}
+  <circle cx="48" cy="24" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+  <circle cx="48" cy="40" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+  
+  {/* Connexions */}
+  <line x1="20" y1="20" x2="28" y2="16" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  <line x1="20" y1="20" x2="28" y2="28" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  <line x1="20" y1="32" x2="28" y2="28" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  <line x1="20" y1="32" x2="28" y2="40" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  <line x1="20" y1="44" x2="28" y2="40" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  <line x1="20" y1="44" x2="28" y2="52" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  
+  <line x1="36" y1="16" x2="44" y2="24" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  <line x1="36" y1="28" x2="44" y2="24" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  <line x1="36" y1="28" x2="44" y2="40" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  <line x1="36" y1="40" x2="44" y2="40" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  <line x1="36" y1="52" x2="44" y2="40" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.5"/>
+  
+  {/* Points centraux remplis */}
+  <circle cx="16" cy="20" r="2" fill="#2D1054"/>
+  <circle cx="16" cy="32" r="2" fill="#2D1054"/>
+  <circle cx="16" cy="44" r="2" fill="#2D1054"/>
+  <circle cx="32" cy="28" r="2.5" fill="#2D1054"/>
+  <circle cx="48" cy="24" r="2" fill="#2D1054"/>
+  <circle cx="48" cy="40" r="2" fill="#2D1054"/>
 </svg>
             <h3>Machine Learning</h3>
             <p>Implement intelligent systems that learn and improve over time</p>
