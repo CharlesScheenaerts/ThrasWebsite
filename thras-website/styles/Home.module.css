@@ -271,7 +271,7 @@
 }
 
 .about {
-  padding: 6rem 5%;
+  padding: 0rem 0 0rem 8%;
   background: linear-gradient(135deg, #9CA3AF 0%, #D1D5DB 50%, #E5E7EB 100%);
 }
 
@@ -280,8 +280,17 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 4rem 0;
   align-items: center;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  padding-right: 0;
+}
+
+.aboutContainer.animate {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .aboutContent {
@@ -298,17 +307,19 @@
 .aboutContent p {
   font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: 2rem;
+  margin-bottom: 02rem;
   color: #2D1054;
   font-weight: 700;
 }
 
 .aboutImage {
   width: 100%;
-  height: 500px;
-  background-image: url('https://images.unsplash.com/photo-1559113513-d5e1a5a15e2a?w=800&q=80');
+  height: 100%;
+  min-height: 500px;
+  background-image: url(../../b9a740de-c078-41ab-a5d4-542c64c1d623.png);
   background-size: cover;
   background-position: center;
+  margin-right: 0;
 }
 
 .textLink {
@@ -349,13 +360,20 @@
   opacity: 1;
 }
 
+.helpWrapper {
+  background-color: #FFC0CB;
+  padding: 1rem 5%;
+
+}
+
 .helpSection {
   text-align: center;
   padding: 4rem 2rem;
   background-color: #FFFFFF;
-  margin: 0 auto;
+  margin: 4rem auto;
   max-width: 800px;
-  border-radius: 50px;
+  border-radius: 60px;
+  border: 3px solid #1E4A8A;
 }
 
 .helpTitle {
