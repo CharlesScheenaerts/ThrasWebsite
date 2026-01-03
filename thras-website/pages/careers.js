@@ -108,7 +108,7 @@ export default function Careers() {
         <div className={styles.introContent}>
           <h2>Why Thras?</h2>
           <p>
-            At Thras, we believe that great technology is built by great people. We're looking for passionate 
+            At Thras, we believe that great technology is built by great people. We&apos;re looking for passionate 
             individuals who want to make a real impact. Join a team where your ideas matter, your growth is 
             supported, and your work transforms businesses across Europe.
           </p>
@@ -177,7 +177,7 @@ export default function Careers() {
           <div className={styles.cultureGrid}>
             <div className={styles.cultureItem}>
               <h3>Innovation First</h3>
-              <p>We encourage experimentation and aren't afraid to try new approaches.</p>
+              <p>We encourage experimentation and aren&apos;t afraid to try new approaches.</p>
             </div>
             <div className={styles.cultureItem}>
               <h3>Collaborative Spirit</h3>
@@ -197,8 +197,8 @@ export default function Careers() {
 
       {/* CTA Section */}
       <section className={styles.cta}>
-        <h2>Don't See Your Perfect Role?</h2>
-        <p>We're always looking for talented people. Send us your CV and let's talk!</p>
+        <h2>Don&apos;t See Your Perfect Role?</h2>
+        <p>We&apos;re always looking for talented people. Send us your CV and let&apos;s talk!</p>
         <Link href="/contact" className={styles.ctaButton}>Get in Touch</Link>
       </section>
     </>

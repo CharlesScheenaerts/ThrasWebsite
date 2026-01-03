@@ -171,7 +171,7 @@ export default function About() {
       {/* CTA Section */}
       <section className={styles.cta}>
         <h2>Ready to Work Together?</h2>
-        <p>Let's discuss how Thras can help transform your business</p>
+        <p>Let&apos;s discuss how Thras can help transform your business</p>
         <Link href="/contact" className={styles.ctaButton}>Get in Touch</Link>
       </section>
     </>

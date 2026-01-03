@@ -93,7 +93,7 @@ export default function Contact() {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <h1>Get in Touch</h1>
-          <p>Let's discuss how we can help your business grow</p>
+          <p>Let&apos;s discuss how we can help your business grow</p>
         </div>
       </section>
 
@@ -118,7 +118,7 @@ export default function Contact() {
           {/* Form */}
           <div className={styles.formWrapper}>
             <h2>Send Us a Message</h2>
-            <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+            <p>Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
             
             {submitted ? (
               <div className={styles.successMessage}>
@@ -127,7 +127,7 @@ export default function Contact() {
                   <path d="M20 32 L28 40 L44 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 <h3>Thank You!</h3>
-                <p>Your message has been sent successfully. We'll be in touch soon.</p>
+                <p>Your message has been sent successfully. We&apos;ll be in touch soon.</p>
               </div>
             ) : (
               <form className={styles.contactForm} onSubmit={handleSubmit}>

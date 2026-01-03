@@ -6,7 +6,7 @@ export default function Expertise() {
     {
       id: 'software-development',
       title: 'Software Development',
-      description: 'We design, build, and maintain custom applications tailored to your business processes from internal tools and dashboards to customer-facing platforms. Our team handles the full development lifecycle: requirements analysis, architecture design, coding, testing, and deployment.',
+      description: 'We design, build, and maintain custom applications tailored to your business processes — from internal tools and dashboards to customer-facing platforms. Our team handles the full development lifecycle: requirements analysis, architecture design, coding, testing, and deployment.',
       deliverables: [
         'Web & mobile applications',
         'API development & third-party integrations',
@@ -190,9 +190,9 @@ export default function Expertise() {
       <section className={styles.intro}>
         <div className={styles.introContent}>
           <p>
-            We don't just advise, we execute. From initial assessment to final deployment, 
+            We don&apos;t just advise — we execute. From initial assessment to final deployment, 
             our team works hands-on to deliver solutions that solve your specific problems. 
-            Here's what we can do for you.
+            Here&apos;s what we can do for you.
           </p>
         </div>
       </section>
@@ -252,7 +252,7 @@ export default function Expertise() {
       {/* CTA Section */}
       <section className={styles.cta}>
         <h2>Have a project in mind?</h2>
-        <p>Tell us what you're trying to achieve and we'll show you how we can help.</p>
+        <p>Tell us what you&apos;re trying to achieve and we&apos;ll show you how we can help.</p>
         <div className={styles.ctaButtons}>
           <Link href="/contact" className={styles.ctaButtonPrimary}>Start a conversation</Link>
           <Link href="/about" className={styles.ctaButtonSecondary}>Learn about our team</Link>
