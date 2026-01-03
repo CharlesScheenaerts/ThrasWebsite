@@ -1,0 +1,455 @@
+.hero {
+  height: 50vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2D1054 0%, #4C1D95 50%, #1E4A8A 100%);
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(30, 74, 138, 0.3) 0%, transparent 50%);
+}
+
+.heroContent {
+  z-index: 1;
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.heroContent p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+/* Intro Section */
+.intro {
+  padding: 4rem 5%;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.introContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.introContent p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Services Sections */
+.services {
+  background: #f8f9fa;
+}
+
+.serviceSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.serviceSection.reversed {
+  direction: rtl;
+}
+
+.serviceSection.reversed > * {
+  direction: ltr;
+}
+
+/* Service Image */
+.serviceImage {
+  position: relative;
+  overflow: hidden;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  background: linear-gradient(135deg, #1E4A8A 0%, #2D1054 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.imagePlaceholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+}
+
+/* Icon Wrapper */
+.iconWrapper {
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  transition: all 0.4s ease;
+  box-shadow: 
+    0 0 60px rgba(255, 255, 255, 0.1),
+    inset 0 0 60px rgba(255, 255, 255, 0.05);
+}
+
+.serviceSection:hover .iconWrapper {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 0 80px rgba(255, 255, 255, 0.15),
+    inset 0 0 60px rgba(255, 255, 255, 0.08);
+}
+
+.serviceIcon {
+  width: 90px;
+  height: 90px;
+  color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: all 0.4s ease;
+}
+
+.serviceSection:hover .serviceIcon {
+  color: #FFFFFF;
+  transform: scale(1.05);
+}
+
+/* Alternate colors for variety */
+.serviceSection:nth-child(2) .imagePlaceholder {
+  background: linear-gradient(135deg, #4C1D95 0%, #1E4A8A 100%);
+}
+
+.serviceSection:nth-child(3) .imagePlaceholder {
+  background: linear-gradient(135deg, #1E4A8A 0%, #0F766E 100%);
+}
+
+.serviceSection:nth-child(4) .imagePlaceholder {
+  background: linear-gradient(135deg, #2D1054 0%, #4C1D95 100%);
+}
+
+.serviceSection:nth-child(5) .imagePlaceholder {
+  background: linear-gradient(135deg, #1E4A8A 0%, #1E3A5F 100%);
+}
+
+.serviceSection:nth-child(6) .imagePlaceholder {
+  background: linear-gradient(135deg, #4C1D95 0%, #6D28D9 100%);
+}
+
+.serviceSection:nth-child(7) .imagePlaceholder {
+  background: linear-gradient(135deg, #2D1054 0%, #1E4A8A 100%);
+}
+
+/* Service Content */
+.serviceContent {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #FFFFFF;
+}
+
+.serviceSection:nth-child(even) .serviceContent {
+  background: #f8f9fa;
+}
+
+.serviceContent h2 {
+  font-size: 2rem;
+  color: #1E4A8A;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.serviceContent h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #4C1D95, #1E4A8A);
+  border-radius: 2px;
+}
+
+.serviceDescription {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+/* Deliverables */
+.deliverables {
+  margin-bottom: 2rem;
+}
+
+.deliverables h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.9rem;
+  color: #4C1D95;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.deliverables ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.deliverables li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.deliverables li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #4C1D95, #1E4A8A);
+  border-radius: 50%;
+}
+
+.serviceButton {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #4C1D95 0%, #1E4A8A 100%);
+  color: #FFFFFF;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.serviceButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(76, 29, 149, 0.3);
+}
+
+/* Process Section */
+.process {
+  padding: 6rem 5%;
+  background: linear-gradient(135deg, #1E4A8A 0%, #2D1054 100%);
+  color: #FFFFFF;
+}
+
+.process h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.processSteps {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.processStep {
+  flex: 1;
+  text-align: center;
+  padding: 0 1.5rem;
+  position: relative;
+}
+
+.stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.processStep h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.processStep p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.stepConnector {
+  position: absolute;
+  top: 30px;
+  right: -10%;
+  width: 20%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.stepConnector::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid rgba(255, 255, 255, 0.3);
+}
+
+/* CTA Section */
+.cta {
+  padding: 5rem 5%;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.cta h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  color: #1E4A8A;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.ctaButtonPrimary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #4C1D95 0%, #1E4A8A 100%);
+  color: #FFFFFF;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.ctaButtonPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(76, 29, 149, 0.3);
+}
+
+.ctaButtonSecondary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: #1E4A8A;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  border-radius: 30px;
+  border: 2px solid #1E4A8A;
+  transition: all 0.3s ease;
+}
+
+.ctaButtonSecondary:hover {
+  background: #1E4A8A;
+  color: #FFFFFF;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .serviceSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .serviceSection.reversed {
+    direction: ltr;
+  }
+  
+  .imagePlaceholder {
+    min-height: 300px;
+  }
+  
+  .serviceContent {
+    padding: 3rem 2rem;
+  }
+  
+  .processSteps {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .processStep {
+    flex: 0 0 calc(33.333% - 1.5rem);
+  }
+  
+  .stepConnector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+  
+  .processStep {
+    flex: 0 0 100%;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .serviceContent h2 {
+    font-size: 1.75rem;
+  }
+}

@@ -326,7 +326,7 @@
 
 .textLink {
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 400;
+  font-weight: 525;
   color: #1E4A8A;
   border: 2px solid rgba(30, 74, 138, 0.5);
   padding: 0.5rem 1rem;
@@ -391,7 +391,7 @@
   background: linear-gradient(135deg, rgba(76, 29, 149, 0.3) 0%, rgba(76, 29, 149, 0.5) 100%);
   color: #FFFFFF;
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 400;
+  font-weight: 525;
   border: 2px solid rgba(76, 29, 149, 0.6);
   border-radius: 25px;
   transition: all 0.3s ease;
