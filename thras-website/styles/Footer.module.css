@@ -95,3 +95,24 @@
   font-size: 0.8rem;
   opacity: 0.6;
 }
+
+@media (max-width: 768px) {
+  .footerLinks {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .linkColumn {
+    flex: none;
+    width: 100%;
+  }
+  
+  .footerLogo {
+    text-align: center;
+  }
+  
+  .footerContent {
+    padding: 0 1rem;
+  }
+}

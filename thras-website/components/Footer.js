@@ -10,14 +10,9 @@ export default function Footer() {
           <div className={styles.linkColumn}>
             <h3>COMPANY</h3>
             <Link href="/about">About Us</Link>
+            <Link href="/expertise">Our Expertise</Link>
             <Link href="/careers">Careers</Link>
             <Link href="/news">News</Link>
-          </div>
-          <div className={styles.linkColumn}>
-            <h3>SERVICES</h3>
-            <Link href="/expertise">Our Expertise</Link>
-            <Link href="/expertise/digital-transformation">Digital Transformation</Link>
-            <Link href="/expertise/cloud-services">Cloud Services</Link>
           </div>
           <div className={styles.linkColumn}>
             <h3>CONTACT</h3>
