@@ -1,0 +1,392 @@
+.hero {
+  height: 40vh;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1E4A8A 0%, #2D1054 100%);
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+}
+
+.heroContent {
+  z-index: 1;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Info Section */
+.infoSection {
+  padding: 4rem 5%;
+  background: #FFFFFF;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.infoGrid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.infoCard {
+  background: #FFFFFF;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.infoCard:hover {
+  transform: translateY(-5px);
+}
+
+.infoIcon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 1.5rem;
+  color: #4C1D95;
+}
+
+.infoIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.infoCard h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.1rem;
+  color: #1E4A8A;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.infoCard p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0.25rem 0;
+}
+
+/* Contact Section */
+.contactSection {
+  padding: 5rem 5%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.contactContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+}
+
+/* Form */
+.formWrapper {
+  background: #FFFFFF;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.formWrapper h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2rem;
+  color: #1E4A8A;
+  margin-bottom: 0.5rem;
+}
+
+.formWrapper > p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.85rem;
+  color: #1E4A8A;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 0.9rem 1rem;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.95rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #4C1D95;
+  box-shadow: 0 0 0 3px rgba(76, 29, 149, 0.1);
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #aaa;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.submitButton {
+  padding: 1rem 2.5rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #4C1D95 0%, #1E4A8A 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(76, 29, 149, 0.3);
+}
+
+/* Success Message */
+.successMessage {
+  text-align: center;
+  padding: 3rem;
+}
+
+.successMessage svg {
+  width: 80px;
+  height: 80px;
+  color: #10B981;
+  margin-bottom: 1.5rem;
+}
+
+.successMessage h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5rem;
+  color: #1E4A8A;
+  margin-bottom: 0.75rem;
+}
+
+.successMessage p {
+  color: #666;
+  font-size: 1.05rem;
+}
+
+/* Map Section */
+.mapWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mapPlaceholder {
+  background: linear-gradient(135deg, #9CA3AF 0%, #6B7280 100%);
+  border-radius: 20px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mapContent {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.mapContent svg {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.mapContent h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.mapContent p {
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.mapLink {
+  display: inline-block;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.mapLink:hover {
+  opacity: 1;
+}
+
+.quickInfo {
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.quickInfo h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.1rem;
+  color: #1E4A8A;
+  margin-bottom: 0.5rem;
+}
+
+.quickInfo h3:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.quickInfo p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.scheduleLink {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  color: #4C1D95;
+  transition: color 0.3s ease;
+}
+
+.scheduleLink:hover {
+  color: #1E4A8A;
+}
+
+/* FAQ Section */
+.faq {
+  padding: 5rem 5%;
+  background: #FFFFFF;
+}
+
+.faq h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2rem;
+  color: #1E4A8A;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faqGrid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.faqItem {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #4C1D95;
+}
+
+.faqItem h3 {
+  font-size: 1.1rem;
+  color: #1E4A8A;
+  margin-bottom: 0.75rem;
+}
+
+.faqItem p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contactContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .mapWrapper {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+  
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .formWrapper {
+    padding: 2rem;
+  }
+}

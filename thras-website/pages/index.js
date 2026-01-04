@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css';
-import { externalScrollUpVisible } from '../components/Header';
+import Link from 'next/link';
 import { useEffect } from 'react';
 
 export default function Home() {
@@ -45,8 +45,8 @@ export default function Home() {
           <h1>IT Solutions<br/>For Your Business</h1>
           <p>Empowering businesses through innovative technology</p>
           <div className={styles.heroCta}>
-            <a href="#" className={styles.primaryButton}>Explore our services</a>
-            <a href="#" className={styles.primaryButton}>Contact us</a>
+            <Link href="/expertise" className={styles.primaryButton}>Explore our services</Link>
+            <Link href="/contact" className={styles.primaryButton}>Contact us</Link>
           </div>
         </div>
         <div className={styles.scrollDown} onClick={() => scrollToSection('.services')}>
@@ -193,7 +193,7 @@ export default function Home() {
           <div className={styles.aboutContent}>
             <h2>ABOUT THRAS</h2>
             <p>Based in Brussels, at the heart of Europe, we are a team of dedicated professionals committed to delivering exceptional IT services. With years of industry experience, we understand the challenges businesses face in the digital landscape and provide innovative solutions to overcome them.</p>
-            <a href="#" className={styles.textLink}>Learn more about us</a>
+            <Link href="/about" className={styles.textLink}>Learn more about us</Link>
           </div>
           <div className={styles.aboutImage}></div>
         </div>
@@ -202,7 +202,7 @@ export default function Home() {
       {/* Help Section */}
       <section className={styles.helpSection}>
         <h2 className={styles.helpTitle}>HOW CAN WE HELP YOU</h2>
-        <a href="#" className={styles.contactButton}>Get in touch with us</a>
+        <Link href="/contact" className={styles.contactButton}>Get in touch with us</Link>
       </section>
 
       {/* Footer */}
@@ -213,12 +213,6 @@ export default function Home() {
   </p>
 </footer>
 
-      {/* Scroll to Top Button */}
-      <div className={`${styles.scrollUp} ${externalScrollUpVisible ? styles.visible : ''}`} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-        <div className={styles.scrollUpButton}>
-          <div className={styles.scrollUpArrow}></div>
-        </div>
-      </div>
     </>
   );
 }

@@ -1,0 +1,407 @@
+.hero {
+  height: 50vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1E4A8A 0%, #4C1D95 100%);
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 30% 70%, rgba(139, 92, 246, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(30, 74, 138, 0.4) 0%, transparent 60%);
+}
+
+.heroContent {
+  z-index: 1;
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.heroContent p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+/* Intro Section */
+.intro {
+  padding: 5rem 5%;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.introContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.introContent h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  color: #1E4A8A;
+  margin-bottom: 1.5rem;
+}
+
+.introContent p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Benefits Section */
+.benefits {
+  padding: 6rem 5%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.benefits h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  color: #1E4A8A;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefitCard {
+  background: #FFFFFF;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+}
+
+.benefitIcon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  color: #4C1D95;
+}
+
+.benefitIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.benefitCard h3 {
+  font-size: 1.2rem;
+  color: #1E4A8A;
+  margin-bottom: 0.75rem;
+}
+
+.benefitCard p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Jobs Section */
+.jobs {
+  padding: 6rem 5%;
+  background: #FFFFFF;
+}
+
+.jobsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.jobsHeader h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  color: #1E4A8A;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter label {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.filter select {
+  padding: 0.75rem 1.5rem;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.95rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter select:focus {
+  outline: none;
+  border-color: #4C1D95;
+}
+
+.jobsList {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.jobCard {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 2rem;
+  border-left: 4px solid #4C1D95;
+  transition: box-shadow 0.3s ease;
+}
+
+.jobCard:hover {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.jobMain h3 {
+  font-size: 1.4rem;
+  color: #1E4A8A;
+  margin-bottom: 0.75rem;
+}
+
+.jobMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.jobLocation,
+.jobType,
+.jobDept {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  background: rgba(76, 29, 149, 0.1);
+  color: #2D1054;
+}
+
+.jobMain p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.jobSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.jobRequirements h4 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.85rem;
+  color: #1E4A8A;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.jobRequirements ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.jobRequirements li {
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0.25rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.jobRequirements li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4C1D95;
+  font-weight: bold;
+}
+
+.applyButton {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #4C1D95 0%, #1E4A8A 100%);
+  color: #FFFFFF;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.applyButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 29, 149, 0.3);
+}
+
+.noJobs {
+  text-align: center;
+  padding: 4rem;
+  background: #f8f9fa;
+  border-radius: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.noJobs p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/* Culture Section */
+.culture {
+  padding: 6rem 5%;
+  background: linear-gradient(135deg, #9CA3AF 0%, #D1D5DB 50%, #E5E7EB 100%);
+}
+
+.cultureContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cultureContent h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  color: #1E4A8A;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.cultureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.cultureItem {
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.cultureItem h3 {
+  font-size: 1.3rem;
+  color: #1E4A8A;
+  margin-bottom: 0.75rem;
+}
+
+.cultureItem p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.cta {
+  padding: 5rem 5%;
+  background: linear-gradient(135deg, #1E4A8A 0%, #2D1054 100%);
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.cta h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: #FFFFFF;
+  color: #1E4A8A;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: transparent;
+  color: #FFFFFF;
+  box-shadow: inset 0 0 0 2px #FFFFFF;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .jobCard {
+    grid-template-columns: 1fr;
+  }
+  
+  .cultureGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .jobsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
