@@ -103,7 +103,7 @@ export default function About() {
               our society through reliable, efficient IT systems.
             </p>
             <p className={styles.visionText}>
-              Our vision is to be the most caring and reliable IT company on the marketplace — 
+              Our vision is to be the most caring and reliable IT company on the marketplace, 
               for both our clients and our people.
             </p>
             <p className={styles.valuesIntro}>

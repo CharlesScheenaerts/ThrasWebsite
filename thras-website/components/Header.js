@@ -48,7 +48,7 @@ export function Header() {
             {/* Navbar */}
             <nav className={`${styles.navbar} ${navbarScrolled ? styles.scrolled : ''}`}>
                 <div className={styles.navContainer}>
-                    <div className={styles.logo}>Thras</div>
+                    <Link href="/" className={styles.logo}>Thras</Link>
                     
                     {/* Menu Desktop */}
                     <div className={styles.menuItems}>

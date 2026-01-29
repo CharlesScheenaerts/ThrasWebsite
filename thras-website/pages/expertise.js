@@ -6,7 +6,7 @@ export default function Expertise() {
     {
       id: 'software-development',
       title: 'Software Development',
-      description: 'We design, build, and maintain custom applications tailored to your business processes — from internal tools and dashboards to customer-facing platforms. Our team handles the full development lifecycle: requirements analysis, architecture design, coding, testing, and deployment.',
+      description: 'We design, build, and maintain custom applications tailored to your business processes. From internal tools and dashboards to customer-facing platforms. Our team handles the full development lifecycle: requirements analysis, architecture design, coding, testing, and deployment.',
       deliverables: [
         'Web & mobile applications',
         'API development & third-party integrations',
@@ -73,7 +73,7 @@ export default function Expertise() {
     {
       id: 'website-creation',
       title: 'Website Creation',
-      description: 'We create professional websites that represent your brand and convert visitors into customers. From corporate sites to e-commerce platforms, we handle design, development, content integration, SEO setup, and launch — delivering a fully functional site ready to go live.',
+      description: 'We create professional websites that represent your brand and convert visitors into customers. From corporate sites to e-commerce platforms, we handle design, development, content integration, SEO setup, and launch. You get a fully functional site ready to go live.',
       deliverables: [
         'Custom website design & development',
         'E-commerce platforms with payment integration',
@@ -190,7 +190,7 @@ export default function Expertise() {
       <section className={styles.intro}>
         <div className={styles.introContent}>
           <p>
-            We don&apos;t just advise — we execute. From initial assessment to final deployment, 
+            We don&apos;t just advise, we execute. From initial assessment to final deployment, 
             our team works hands-on to deliver solutions that solve your specific problems. 
             Here&apos;s what we can do for you.
           </p>
