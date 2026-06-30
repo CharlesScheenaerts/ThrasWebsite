@@ -1,6 +1,7 @@
 import styles from '../styles/Home.module.css';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export let externalScrollUpVisible = null;
 
@@ -48,7 +49,10 @@ export function Header() {
             {/* Navbar */}
             <nav className={`${styles.navbar} ${navbarScrolled ? styles.scrolled : ''}`}>
                 <div className={styles.navContainer}>
-                    <Link href="/" className={styles.logo}>Thras</Link>
+                    <Link href="/" className={styles.logo}>
+                        <Image src="/thras-logo-white.png" alt="" width={28} height={40} priority />
+                        <span>Thras</span>
+                    </Link>
                     
                     {/* Menu Desktop */}
                     <div className={styles.menuItems}>
