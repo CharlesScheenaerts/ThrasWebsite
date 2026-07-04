@@ -140,13 +140,14 @@ export default function Expertise() {
     },
     {
       id: 'machine-learning',
-      title: 'Machine Learning',
-      description: 'We develop and deploy AI models that automate decisions and predictions. From chatbots and recommendation engines to image recognition and fraud detection, we build intelligent systems that learn from your data and improve over time.',
+      title: 'AI Solutions',
+      description: 'We design and deploy AI systems that automate decisions, processes, and repetitive tasks. From intelligent chatbots and recommendation engines to end-to-end workflow automation, we build practical AI solutions that learn from your data and free up your team to focus on higher-value work.',
       deliverables: [
-        'Custom ML model development',
+        'Custom AI & ML model development',
         'Natural Language Processing (chatbots, text analysis)',
-        'Computer vision & image recognition',
+        'Process & workflow automation',
         'Recommendation systems',
+        'AI adoption & team training',
         'Model deployment & maintenance'
       ],
       icon: (

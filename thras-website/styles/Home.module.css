@@ -89,6 +89,42 @@
   overflow: hidden;
 }
 
+.heroLogoBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(420px, 45vw, 680px);
+  height: clamp(420px, 45vw, 680px);
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.heroLogoArc1 {
+  animation: spinClockwise 100s linear infinite;
+}
+
+.heroLogoArc2 {
+  animation: spinCounterClockwise 130s linear infinite;
+}
+
+@keyframes spinClockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spinCounterClockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
 /*.hero::after {
   content: '';
   position: absolute;

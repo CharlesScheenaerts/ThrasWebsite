@@ -41,6 +41,8 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <img src="/thras-logo-arc1.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc1}`} />
+        <img src="/thras-logo-arc2.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc2}`} />
         <div className={styles.heroContent}>
           <h1>IT Solutions<br/>For Your Business</h1>
           <p>Empowering businesses through innovative technology</p>
@@ -181,8 +183,8 @@ export default function Home() {
   <circle cx="48" cy="32" r="2" fill="#2D1054"/>
 </svg>
             
-            <h3>Machine Learning</h3>
-            <p>Implement intelligent systems that learn and improve over time</p>
+            <h3>AI Solutions</h3>
+            <p>Implement intelligent systems that automate work and adapt over time</p>
           </div>
         </div>
       </section>
