@@ -36,6 +36,7 @@ export default function Layout({ children }) {
       <Head>
         <title>Thras - IT Services Consulting</title>
         <meta name="description" content="IT Services Consulting" />
+        <meta name="google-site-verification" content="ahLOcAyxCQF73OjO3WV4jkbkvnFBxE90kWFcU2fDTDc" />
       </Head>
       <Header />
       <ScrollGauge percentage={scrollPercentage} />

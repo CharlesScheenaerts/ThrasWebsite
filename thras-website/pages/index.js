@@ -1,9 +1,10 @@
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useEffect } from 'react';
 
 export default function Home() {
-  
+
   useEffect(() => {
     // Observer pour les animations au scroll
     const observerOptions = {
@@ -39,6 +40,10 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Thras | Software Development &amp; AI Solutions in Brussels</title>
+        <meta name="description" content="Thras helps businesses across Europe with software development, digital transformation, website creation, IT consulting, data science, and AI solutions." />
+      </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
         <img src="/thras-logo-arc1.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc1}`} />

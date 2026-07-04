@@ -1,4 +1,5 @@
 import styles from '../styles/Contact.module.css';
+import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -78,17 +79,20 @@ export default function Contact() {
     { value: '', label: 'Select a service' },
     { value: 'software', label: 'Software Development' },
     { value: 'digital', label: 'Digital Transformation' },
-    { value: 'cloud', label: 'Cloud Services' },
     { value: 'web', label: 'Website Creation' },
     { value: 'consulting', label: 'IT Consulting' },
     { value: 'data', label: 'Data Science' },
-    { value: 'ml', label: 'Machine Learning' },
+    { value: 'ai', label: 'AI Solutions' },
     { value: 'careers', label: 'Careers / Job Application' },
     { value: 'other', label: 'Other' }
   ];
 
   return (
     <>
+      <Head>
+        <title>Contact Us | Thras</title>
+        <meta name="description" content="Get in touch with Thras for software development, digital transformation, AI solutions, or IT consulting inquiries. We reply within 24 hours." />
+      </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>

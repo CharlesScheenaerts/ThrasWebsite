@@ -1,5 +1,6 @@
 import styles from '../styles/News.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function News() {
   const featuredArticle = {
@@ -88,6 +89,10 @@ export default function News() {
 
   return (
     <>
+      <Head>
+        <title>News &amp; Insights | Thras</title>
+        <meta name="description" content="Stay up to date with Thras news, product launches, and insights on software development, AI solutions, and the IT industry." />
+      </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>

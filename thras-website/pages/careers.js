@@ -1,5 +1,6 @@
 import styles from '../styles/Careers.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useState } from 'react';
 
 export default function Careers() {
@@ -95,6 +96,10 @@ export default function Careers() {
 
   return (
     <>
+      <Head>
+        <title>Careers | Thras</title>
+        <meta name="description" content="Thras is hiring across software development, data science, and AI solutions. Explore open positions and join our growing IT consulting team in Europe." />
+      </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>

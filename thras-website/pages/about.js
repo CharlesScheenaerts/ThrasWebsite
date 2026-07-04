@@ -1,5 +1,6 @@
 import styles from '../styles/About.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function About() {
   const team = [
@@ -85,6 +86,10 @@ export default function About() {
 
   return (
     <>
+      <Head>
+        <title>About Us | Thras IT Consulting</title>
+        <meta name="description" content="Thras is a Brussels-based IT services company delivering software development, digital transformation, and AI solutions across Europe." />
+      </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>

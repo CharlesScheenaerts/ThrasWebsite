@@ -1,5 +1,6 @@
 import styles from '../styles/Expertise.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function Expertise() {
   const services = [
@@ -179,6 +180,10 @@ export default function Expertise() {
 
   return (
     <>
+      <Head>
+        <title>Our Expertise | Thras</title>
+        <meta name="description" content="Explore Thras' expertise: software development, digital transformation, website creation, IT consulting, data science, and AI solutions for your business." />
+      </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
