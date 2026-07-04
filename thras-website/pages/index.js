@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Thras | Software Development &amp; AI Solutions in Brussels</title>
+        <title>Thras | IT Services Consulting &amp; AI Solutions</title>
         <meta name="description" content="Thras helps businesses across Europe with software development, digital transformation, website creation, IT consulting, data science, and AI solutions." />
       </Head>
       {/* Hero Section */}
