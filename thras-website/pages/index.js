@@ -42,7 +42,7 @@ export default function Home() {
     <>
       <Head>
         <title>Thras | IT Services Consulting &amp; AI Solutions</title>
-        <meta name="description" content="Thras helps businesses across Europe with software development, digital transformation, website creation, IT consulting, data science, and AI solutions." />
+        <meta name="description" content="Software Development · Digital Transformation · Website Creation · IT Consulting · Data Science · AI Solutions" />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
