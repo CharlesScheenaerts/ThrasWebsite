@@ -102,6 +102,9 @@ export default function Careers() {
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <svg className={styles.heroLine} viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-50 320 C 300 380, 500 40, 820 120 S 1300 60, 1500 180" fill="none" stroke="white" strokeWidth="1.5" />
+        </svg>
         <div className={styles.heroContent}>
           <h1>Join Our Team</h1>
           <p>We are growing and constantly recruiting for various positions all across Europe. Would you like to join in?</p>
