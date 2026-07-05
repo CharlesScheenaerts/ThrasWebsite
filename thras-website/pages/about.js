@@ -35,11 +35,7 @@ export default function About() {
       description: 'We adapt quickly to change, embracing flexibility to meet evolving challenges.',
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 44 Q20 44 24 36 Q28 28 36 28 Q44 28 48 20 Q52 12 56 12" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-          <path d="M48 12 L56 12 L56 20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-          <circle cx="12" cy="44" r="4" fill="currentColor"/>
-          <path d="M8 52 L20 52" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-          <path d="M12 48 L12 56" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+          <path d="M35 6 L16 36 L28 36 L24 58 L48 26 L34 26 Z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round"/>
         </svg>
       )
     },
@@ -48,8 +44,9 @@ export default function About() {
       description: 'We pursue the highest standards in everything we do, delivering outstanding results.',
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="32,8 38,24 56,24 42,36 47,52 32,42 17,52 22,36 8,24 26,24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/>
-          <circle cx="32" cy="30" r="6" fill="none" stroke="currentColor" strokeWidth="2"/>
+          <circle cx="32" cy="24" r="14" fill="none" stroke="currentColor" strokeWidth="3"/>
+          <path d="M25 24 L30 29 L39 17" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M24 36 L20 58 L32 50 L44 58 L40 36" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       )
     },
@@ -58,15 +55,13 @@ export default function About() {
       description: 'We embrace new ideas and technologies to create forward-thinking solutions.',
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="24" r="14" fill="none" stroke="currentColor" strokeWidth="3"/>
-          <path d="M24 38 L24 48 L40 48 L40 38" fill="none" stroke="currentColor" strokeWidth="3"/>
-          <line x1="24" y1="43" x2="40" y2="43" stroke="currentColor" strokeWidth="2"/>
-          <line x1="28" y1="48" x2="28" y2="54" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-          <line x1="36" y1="48" x2="36" y2="54" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-          <line x1="24" y1="54" x2="40" y2="54" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-          <path d="M32 10 L32 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-          <path d="M24 16 L28 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-          <path d="M40 16 L36 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M25 38 Q19 33 19 25 Q19 12 32 12 Q45 12 45 25 Q45 33 39 38 L39 44 Q39 46 37 46 L27 46 Q25 46 25 44 Z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/>
+          <path d="M27 52 L37 52" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+          <path d="M29 57 L35 57" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+          <path d="M27 26 L31 32 L37 22" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M32 2 L32 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+          <path d="M9 25 L14 25" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+          <path d="M50 25 L55 25" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
         </svg>
       )
     },
@@ -137,11 +132,11 @@ export default function About() {
       <section className={styles.stats}>
         <div className={styles.statsGrid}>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>50+</span>
+            <span className={styles.statNumber}>25+</span>
             <span className={styles.statLabel}>Projects Delivered</span>
           </div>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>30+</span>
+            <span className={styles.statNumber}>20+</span>
             <span className={styles.statLabel}>Happy Clients</span>
           </div>
           <div className={styles.stat}>
@@ -149,7 +144,7 @@ export default function About() {
             <span className={styles.statLabel}>Years Experience</span>
           </div>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>25+</span>
+            <span className={styles.statNumber}>5+</span>
             <span className={styles.statLabel}>Team Members</span>
           </div>
         </div>
