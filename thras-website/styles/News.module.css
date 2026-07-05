@@ -63,12 +63,15 @@
   justify-content: center;
 }
 
-.imagePlaceholder span {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.3);
-  letter-spacing: 0.3em;
+.placeholderIcon {
+  width: 96px;
+  height: 96px;
+  opacity: 0.9;
+}
+
+.placeholderIcon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .featuredCategory {
@@ -105,18 +108,6 @@
   font-size: 0.9rem;
   color: #888;
   margin-bottom: 1.5rem;
-}
-
-.readMore {
-  display: inline-block;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 600;
-  color: #4C1D95;
-  transition: color 0.3s ease;
-}
-
-.readMore:hover {
-  color: #1E4A8A;
 }
 
 /* Categories */
@@ -177,12 +168,10 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
 
 .articleCard:hover {
-  transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
@@ -194,11 +183,24 @@
   justify-content: center;
 }
 
-.articleImagePlaceholder span {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.2);
+.placeholderIconSmall {
+  width: 56px;
+  height: 56px;
+  opacity: 0.9;
+}
+
+.placeholderIconSmall svg {
+  width: 100%;
+  height: 100%;
+}
+
+.noArticles {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #888;
+  font-size: 1.1rem;
+  padding: 2rem 0;
 }
 
 .articleContent {

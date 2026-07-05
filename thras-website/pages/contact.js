@@ -55,7 +55,7 @@ export default function Contact() {
   const contactInfo = [
     {
       title: 'Email Us',
-      content: ['info@thras.be', 'careers@thras.be', 'support@thras.be'],
+      content: ['contact@thras.tech'],
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <rect x="8" y="16" width="48" height="32" rx="2" fill="none" stroke="currentColor" strokeWidth="3"/>
@@ -65,7 +65,7 @@ export default function Contact() {
     },
     {
       title: 'Call Us',
-      content: ['+32 2 123 45 67', 'Mon - Fri: 9:00 - 18:00', 'CET Timezone'],
+      content: ['+32 2 123 45 67'],
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <path d="M24 8 L24 16 L16 16 C12 16 8 20 8 24 L8 40 C8 44 12 48 16 48 L24 48 L24 56 L40 56 L40 48 L48 48 C52 48 56 44 56 40 L56 24 C56 20 52 16 48 16 L40 16 L40 8 Z" fill="none" stroke="currentColor" strokeWidth="3"/>
@@ -246,7 +246,7 @@ export default function Contact() {
                   <circle cx="32" cy="28" r="6" fill="currentColor"/>
                 </svg>
                 <h3>Brussels, Belgium</h3>
-                <p>Avenue Louise 123</p>
+                <p>New offices coming soon</p>
                 <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className={styles.mapLink}>
                   Open in Google Maps →
                 </a>

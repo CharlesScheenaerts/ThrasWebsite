@@ -17,8 +17,8 @@ export default function Footer() {
           <div className={styles.linkColumn}>
             <h3>CONTACT</h3>
             <Link href="/contact">Get in Touch</Link>
-            <p>info@thras.com</p>
-            <p>+1 (123) 456-7890</p>
+            <p>contact@thras.tech</p>
+            <p>+32 2 123 45 67</p>
           </div>
         </div>
       </div>
