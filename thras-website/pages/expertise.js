@@ -186,6 +186,8 @@ export default function Expertise() {
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <img src="/thras-logo-arc1.png" alt="" className={styles.heroDecorRing1} />
+        <img src="/thras-logo-arc2.png" alt="" className={styles.heroDecorRing2} />
         <div className={styles.heroContent}>
           <h1>Our Expertise</h1>
           <p>We help our clients unleash their growth potential by taking care of their IT projects</p>
