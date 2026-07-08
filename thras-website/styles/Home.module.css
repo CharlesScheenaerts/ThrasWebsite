@@ -336,6 +336,36 @@
   text-align: center;
     padding-left: 5%;
   padding-right: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutRingDecor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+  animation: aboutRingSpin 140s linear infinite;
+}
+
+@keyframes aboutRingSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.aboutContent h2,
+.aboutContent p,
+.aboutContent a {
+  position: relative;
+  z-index: 1;
 }
 
 .aboutContent h2 {

@@ -198,6 +198,7 @@ export default function Home() {
       <section className={styles.about}>
         <div className={styles.aboutContainer}>
           <div className={styles.aboutContent}>
+            <img src="/thras-logo-ring.png" alt="" className={styles.aboutRingDecor} />
             <h2>ABOUT THRAS</h2>
             <p>Based in Brussels, at the heart of Europe, we are a team of dedicated professionals committed to delivering exceptional IT services. With years of industry experience, we understand the challenges businesses face in the digital landscape and provide innovative solutions to overcome them.</p>
             <Link href="/about" className={styles.textLink}>Learn more about us</Link>
