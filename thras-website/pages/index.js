@@ -43,26 +43,15 @@ export default function Home() {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // Hero entrance: words rise into place, then subtitle and buttons follow
-      const words = gsap.utils.toArray(`.${styles.heroWord}`);
+      // Hero entrance: title, subtitle and buttons fade up together
+      const title = document.querySelector(`.${styles.heroContent} h1`);
       const subtitle = document.querySelector(`.${styles.heroContent} p`);
       const ctaLinks = gsap.utils.toArray(`.${styles.heroCta} a`);
 
       const tl = gsap.timeline({ delay: 0.2 });
-      tl.fromTo(words,
-        { yPercent: 110 },
-        { yPercent: 0, duration: 0.8, ease: 'expo.out', stagger: 0.06 }
-      )
-        .fromTo(subtitle,
-          { opacity: 0, y: 16 },
-          { opacity: 0.9, y: 0, duration: 0.6, ease: 'power2.out' },
-          '-=0.4'
-        )
-        .fromTo(ctaLinks,
-          { opacity: 0, y: 16, scale: 0.92 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.7)', stagger: 0.1 },
-          '-=0.3'
-        );
+      tl.fromTo(title, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0)
+        .fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 0.9, y: 0, duration: 0.8, ease: 'power3.out' }, 0.15)
+        .fromTo(ctaLinks, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.1 }, 0.3);
 
       // Subtle mouse parallax on the two floating rings
       const quickX1 = gsap.quickTo(ring1Ref.current, 'x', { duration: 0.8, ease: 'power3.out' });
@@ -163,14 +152,7 @@ export default function Home() {
           <img src="/thras-logo-arc2.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc2}`} />
         </div>
         <div className={styles.heroContent}>
-          <h1>
-            <span className={styles.heroWordWrap}><span className={styles.heroWord}>IT</span></span>{' '}
-            <span className={styles.heroWordWrap}><span className={styles.heroWord}>Solutions</span></span>
-            <br/>
-            <span className={styles.heroWordWrap}><span className={styles.heroWord}>For</span></span>{' '}
-            <span className={styles.heroWordWrap}><span className={styles.heroWord}>Your</span></span>{' '}
-            <span className={styles.heroWordWrap}><span className={styles.heroWord}>Business</span></span>
-          </h1>
+          <h1>IT Solutions<br/>For Your Business</h1>
           <p>Empowering businesses through innovative technology</p>
           <div className={styles.heroCta}>
             <Link href="/expertise" className={styles.primaryButton}>Explore our services</Link>

@@ -157,18 +157,6 @@
   max-width: 700px;
 }
 
-.heroWordWrap {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
-  padding-bottom: 0.1em;
-  margin-bottom: -0.1em;
-}
-
-.heroWord {
-  display: inline-block;
-}
-
 .heroContent p {
   font-size: 1.2rem;
   max-width: 600px;
