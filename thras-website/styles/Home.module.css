@@ -451,41 +451,50 @@
 }
 
 .helpSection {
+  position: relative;
+  overflow: hidden;
   text-align: center;
-  padding: 2rem 2rem;
-  background-color: #FFFFFF;
+  padding: 3.5rem 2rem;
   margin: 3rem auto;
-  max-width: 800px;
-  border-radius: 60px;
-  border: 3px solid #1E4A8A;
+  max-width: 900px;
+  border-radius: 40px;
+  background: linear-gradient(120deg, #1E4A8A, #4C1D95, #2D1054, #4C1D95, #1E4A8A);
+  background-size: 300% 300%;
+  animation: helpGradientShift 12s ease infinite;
+}
+
+@keyframes helpGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .helpTitle {
+  position: relative;
+  z-index: 1;
   font-family: 'Ubuntu', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #1E4A8A;
+  color: #FFFFFF;
 }
 
 .contactButton {
-  padding: 0.8rem 2rem;
-  background: linear-gradient(135deg, rgba(76, 29, 149, 0.3) 0%, rgba(76, 29, 149, 0.5) 100%);
-  color: #FFFFFF;
+  position: relative;
+  z-index: 1;
+  padding: 0.9rem 2.2rem;
+  background: #FFFFFF;
+  color: #1E4A8A;
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 525;
-  border: 2px solid rgba(76, 29, 149, 0.6);
+  font-weight: 600;
+  border: none;
   border-radius: 25px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease;
   display: inline-block;
 }
 
 .contactButton:hover {
-  background: linear-gradient(135deg, rgba(76, 29, 149, 0.5) 0%, rgba(76, 29, 149, 0.7) 100%);
-  border-color: #4C1D95;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(76, 29, 149, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
 .footer {

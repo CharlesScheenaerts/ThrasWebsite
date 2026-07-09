@@ -17,6 +17,7 @@ export default function Home() {
   const aboutSectionRef = useRef(null);
   const aboutImageRef = useRef(null);
   const aboutRingRef = useRef(null);
+  const helpButtonRef = useRef(null);
 
   useEffect(() => {
     // Observer pour les animations au scroll
@@ -172,6 +173,35 @@ export default function Home() {
     }, aboutSectionRef);
 
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    const btn = helpButtonRef.current;
+    if (!btn) return;
+
+    const quickX = gsap.quickTo(btn, 'x', { duration: 0.3, ease: 'power3.out' });
+    const quickY = gsap.quickTo(btn, 'y', { duration: 0.3, ease: 'power3.out' });
+
+    const handleMove = (e) => {
+      const rect = btn.getBoundingClientRect();
+      const relX = e.clientX - (rect.left + rect.width / 2);
+      const relY = e.clientY - (rect.top + rect.height / 2);
+      quickX(relX * 0.35);
+      quickY(relY * 0.35);
+    };
+    const handleLeave = () => {
+      quickX(0);
+      quickY(0);
+    };
+
+    btn.addEventListener('mousemove', handleMove);
+    btn.addEventListener('mouseleave', handleLeave);
+    return () => {
+      btn.removeEventListener('mousemove', handleMove);
+      btn.removeEventListener('mouseleave', handleLeave);
+    };
   }, []);
 
   const scrollToSection = (selector) => {
@@ -361,7 +391,7 @@ export default function Home() {
       {/* Help Section */}
       <section className={styles.helpSection}>
         <h2 className={styles.helpTitle}>HOW CAN WE HELP YOU</h2>
-        <Link href="/contact" className={styles.contactButton}>Get in touch with us</Link>
+        <Link ref={helpButtonRef} href="/contact" className={styles.contactButton}>Get in touch with us</Link>
       </section>
 
       {/* Footer */}
