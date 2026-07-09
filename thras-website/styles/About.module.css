@@ -129,13 +129,13 @@
   padding: 2rem 1.5rem;
   text-align: center;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 20px rgba(139, 92, 246, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .valueCard:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.25);
 }
 
 .valueIcon {
@@ -149,6 +149,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.valueCard:hover .valueIcon {
+  transform: scale(1.1);
 }
 
 .valueIcon svg {
