@@ -14,6 +14,9 @@ export default function Home() {
   const ring1Ref = useRef(null);
   const ring2Ref = useRef(null);
   const servicesRef = useRef(null);
+  const aboutSectionRef = useRef(null);
+  const aboutImageRef = useRef(null);
+  const aboutRingRef = useRef(null);
 
   useEffect(() => {
     // Observer pour les animations au scroll
@@ -134,6 +137,39 @@ export default function Home() {
         card.addEventListener('mouseleave', handleLeave);
       });
     }, servicesRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      // Photo pans slowly (parallax) as the section scrolls through the viewport
+      gsap.to(aboutImageRef.current, {
+        backgroundPosition: '50% 70%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: aboutSectionRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+
+      // Ring rotation tied directly to scroll progress through the section
+      gsap.to(aboutRingRef.current, {
+        rotation: 360,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: aboutSectionRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      });
+    }, aboutSectionRef);
 
     return () => ctx.revert();
   }, []);
@@ -310,15 +346,15 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className={styles.about}>
+      <section className={styles.about} ref={aboutSectionRef}>
         <div className={styles.aboutContainer}>
           <div className={styles.aboutContent}>
-            <img src="/thras-logo-ring.png" alt="" className={styles.aboutRingDecor} />
+            <img ref={aboutRingRef} src="/thras-logo-ring.png" alt="" className={styles.aboutRingDecor} />
             <h2>ABOUT THRAS</h2>
             <p>Based in Brussels, at the heart of Europe, we are a team of dedicated professionals committed to delivering exceptional IT services. With years of industry experience, we understand the challenges businesses face in the digital landscape and provide innovative solutions to overcome them.</p>
             <Link href="/about" className={styles.textLink}>Learn more about us</Link>
           </div>
-          <div className={styles.aboutImage}></div>
+          <div ref={aboutImageRef} className={styles.aboutImage}></div>
         </div>
       </section>
 
