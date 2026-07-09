@@ -3,11 +3,17 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Home() {
   const heroRef = useRef(null);
   const ring1Ref = useRef(null);
   const ring2Ref = useRef(null);
+  const servicesRef = useRef(null);
 
   useEffect(() => {
     // Observer pour les animations au scroll
@@ -23,13 +29,6 @@ export default function Home() {
         }
       });
     }, observerOptions);
-
-    // Animation des cartes de services
-    const serviceCards = document.querySelectorAll(`.${styles.serviceCard}`);
-    serviceCards.forEach((card, index) => {
-      card.style.transitionDelay = `${index * 0.15}s`;
-      observer.observe(card);
-    });
 
     // Animation About section
     const aboutContainer = document.querySelector(`.${styles.aboutContainer}`);
@@ -88,6 +87,57 @@ export default function Home() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray(`.${styles.serviceCard}`);
+
+      // Stagger reveal as the grid scrolls into view
+      gsap.fromTo(cards,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: servicesRef.current,
+            start: 'top 80%'
+          }
+        }
+      );
+
+      // Magnetic 3D tilt on hover
+      cards.forEach((card) => {
+        const quickRotateX = gsap.quickTo(card, 'rotationX', { duration: 0.4, ease: 'power2.out' });
+        const quickRotateY = gsap.quickTo(card, 'rotationY', { duration: 0.4, ease: 'power2.out' });
+        const quickScale = gsap.quickTo(card, 'scale', { duration: 0.4, ease: 'power2.out' });
+
+        const handleMove = (e) => {
+          const rect = card.getBoundingClientRect();
+          const relX = (e.clientX - rect.left) / rect.width - 0.5;
+          const relY = (e.clientY - rect.top) / rect.height - 0.5;
+          quickRotateY(relX * 14);
+          quickRotateX(relY * -14);
+          quickScale(1.03);
+        };
+        const handleLeave = () => {
+          quickRotateX(0);
+          quickRotateY(0);
+          quickScale(1);
+        };
+
+        card.addEventListener('mousemove', handleMove);
+        card.addEventListener('mouseleave', handleLeave);
+      });
+    }, servicesRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const scrollToSection = (selector) => {
     document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
   };
@@ -129,7 +179,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className={`services ${styles.services}`}>
+      <section className={`services ${styles.services}`} ref={servicesRef}>
         <div className={styles.sectionHeading}>
           <h2>OUR EXPERTISE</h2>
           <p>Comprehensive IT solutions tailored to your needs</p>
