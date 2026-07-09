@@ -1,9 +1,13 @@
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 export default function Home() {
+  const heroRef = useRef(null);
+  const ring1Ref = useRef(null);
+  const ring2Ref = useRef(null);
 
   useEffect(() => {
     // Observer pour les animations au scroll
@@ -11,7 +15,7 @@ export default function Home() {
       threshold: 0.2,
       rootMargin: '0px 0px -100px 0px'
     };
-    
+
     const observer = new IntersectionObserver(function(entries) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -19,19 +23,69 @@ export default function Home() {
         }
       });
     }, observerOptions);
-    
+
     // Animation des cartes de services
     const serviceCards = document.querySelectorAll(`.${styles.serviceCard}`);
     serviceCards.forEach((card, index) => {
       card.style.transitionDelay = `${index * 0.15}s`;
       observer.observe(card);
     });
-    
+
     // Animation About section
     const aboutContainer = document.querySelector(`.${styles.aboutContainer}`);
     if (aboutContainer) {
       observer.observe(aboutContainer);
     }
+  }, []);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      // Hero entrance: words rise into place, then subtitle and buttons follow
+      const words = gsap.utils.toArray(`.${styles.heroWord}`);
+      const subtitle = document.querySelector(`.${styles.heroContent} p`);
+      const ctaLinks = gsap.utils.toArray(`.${styles.heroCta} a`);
+
+      const tl = gsap.timeline({ delay: 0.2 });
+      tl.fromTo(words,
+        { yPercent: 110 },
+        { yPercent: 0, duration: 0.8, ease: 'expo.out', stagger: 0.06 }
+      )
+        .fromTo(subtitle,
+          { opacity: 0, y: 16 },
+          { opacity: 0.9, y: 0, duration: 0.6, ease: 'power2.out' },
+          '-=0.4'
+        )
+        .fromTo(ctaLinks,
+          { opacity: 0, y: 16, scale: 0.92 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.7)', stagger: 0.1 },
+          '-=0.3'
+        );
+
+      // Subtle mouse parallax on the two floating rings
+      const quickX1 = gsap.quickTo(ring1Ref.current, 'x', { duration: 0.8, ease: 'power3.out' });
+      const quickY1 = gsap.quickTo(ring1Ref.current, 'y', { duration: 0.8, ease: 'power3.out' });
+      const quickX2 = gsap.quickTo(ring2Ref.current, 'x', { duration: 1.1, ease: 'power3.out' });
+      const quickY2 = gsap.quickTo(ring2Ref.current, 'y', { duration: 1.1, ease: 'power3.out' });
+
+      const handleMouseMove = (e) => {
+        if (!heroRef.current) return;
+        const rect = heroRef.current.getBoundingClientRect();
+        const relX = (e.clientX - rect.left) / rect.width - 0.5;
+        const relY = (e.clientY - rect.top) / rect.height - 0.5;
+        quickX1(relX * 30);
+        quickY1(relY * 30);
+        quickX2(relX * -22);
+        quickY2(relY * -22);
+      };
+
+      heroRef.current?.addEventListener('mousemove', handleMouseMove);
+      return () => heroRef.current?.removeEventListener('mousemove', handleMouseMove);
+    }, heroRef);
+
+    return () => ctx.revert();
   }, []);
 
   const scrollToSection = (selector) => {
@@ -45,11 +99,22 @@ export default function Home() {
         <meta name="description" content="Software Development · Digital Transformation · Website Creation · IT Consulting · Data Science · AI Solutions" />
       </Head>
       {/* Hero Section */}
-      <section className={styles.hero}>
-        <img src="/thras-logo-arc1.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc1}`} />
-        <img src="/thras-logo-arc2.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc2}`} />
+      <section className={styles.hero} ref={heroRef}>
+        <div ref={ring1Ref} className={styles.heroLogoWrap}>
+          <img src="/thras-logo-arc1.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc1}`} />
+        </div>
+        <div ref={ring2Ref} className={styles.heroLogoWrap}>
+          <img src="/thras-logo-arc2.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc2}`} />
+        </div>
         <div className={styles.heroContent}>
-          <h1>IT Solutions<br/>For Your Business</h1>
+          <h1>
+            <span className={styles.heroWordWrap}><span className={styles.heroWord}>IT</span></span>{' '}
+            <span className={styles.heroWordWrap}><span className={styles.heroWord}>Solutions</span></span>
+            <br/>
+            <span className={styles.heroWordWrap}><span className={styles.heroWord}>For</span></span>{' '}
+            <span className={styles.heroWordWrap}><span className={styles.heroWord}>Your</span></span>{' '}
+            <span className={styles.heroWordWrap}><span className={styles.heroWord}>Business</span></span>
+          </h1>
           <p>Empowering businesses through innovative technology</p>
           <div className={styles.heroCta}>
             <Link href="/expertise" className={styles.primaryButton}>Explore our services</Link>
