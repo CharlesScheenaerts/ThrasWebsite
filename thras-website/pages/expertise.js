@@ -50,6 +50,41 @@ export default function Expertise() {
           }
         });
       }
+
+      // 3. Intro paragraph lights up word by word as you scroll past it
+      const introP = document.querySelector(`.${styles.introContent} p`);
+      if (introP) {
+        const text = introP.textContent;
+        introP.innerHTML = text
+          .split(' ')
+          .map((word) => `<span style="opacity:0.25;">${word}</span>`)
+          .join(' ');
+        const introWords = introP.querySelectorAll('span');
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: introP,
+            start: 'top 75%',
+            end: 'bottom 45%',
+            scrub: 1
+          }
+        }).to(introWords, { opacity: 1, stagger: 0.05 }, 0);
+      }
+
+      // 4. "What we deliver" checklist items tick in one by one
+      document.querySelectorAll(`.${styles.deliverables} ul`).forEach((ul) => {
+        const items = ul.querySelectorAll('li');
+        gsap.fromTo(items,
+          { opacity: 0, x: -15 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.4,
+            stagger: 0.08,
+            ease: 'power2.out',
+            scrollTrigger: { trigger: ul, start: 'top 85%', once: true }
+          }
+        );
+      });
     });
 
     return () => ctx.revert();
