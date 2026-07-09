@@ -1,8 +1,60 @@
 import styles from '../styles/About.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const STATS = [
+  { target: 25, label: 'Projects Delivered' },
+  { target: 20, label: 'Happy Clients' },
+  { target: 6, label: 'Years Experience' },
+  { target: 5, label: 'Team Members' }
+];
 
 export default function About() {
+  const [counts, setCounts] = useState(STATS.map(() => 0));
+  const statRefs = useState(() => STATS.map(() => ({ current: null })))[0];
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setCounts(STATS.map(s => s.target));
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      STATS.forEach((stat, i) => {
+        const el = statRefs[i].current;
+        if (!el) return;
+        const counter = { val: 0 };
+        gsap.to(counter, {
+          val: stat.target,
+          duration: 1.5,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            once: true
+          },
+          onUpdate: () => {
+            setCounts(prev => {
+              const next = [...prev];
+              next[i] = Math.round(counter.val);
+              return next;
+            });
+          }
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const team = [
     {
       name: 'Founder Name',
@@ -131,22 +183,14 @@ export default function About() {
       {/* Stats Section */}
       <section className={styles.stats}>
         <div className={styles.statsGrid}>
-          <div className={styles.stat}>
-            <span className={styles.statNumber}>25+</span>
-            <span className={styles.statLabel}>Projects Delivered</span>
-          </div>
-          <div className={styles.stat}>
-            <span className={styles.statNumber}>20+</span>
-            <span className={styles.statLabel}>Happy Clients</span>
-          </div>
-          <div className={styles.stat}>
-            <span className={styles.statNumber}>6+</span>
-            <span className={styles.statLabel}>Years Experience</span>
-          </div>
-          <div className={styles.stat}>
-            <span className={styles.statNumber}>5+</span>
-            <span className={styles.statLabel}>Team Members</span>
-          </div>
+          {STATS.map((stat, i) => (
+            <div className={styles.stat} key={stat.label}>
+              <span className={styles.statNumber} ref={(node) => { statRefs[i].current = node; }}>
+                {counts[i]}+
+              </span>
+              <span className={styles.statLabel}>{stat.label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
