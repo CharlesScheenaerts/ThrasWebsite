@@ -1,8 +1,60 @@
 import styles from '../styles/Expertise.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+}
 
 export default function Expertise() {
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      // 1. Service icons draw themselves in as each section scrolls into view
+      const icons = document.querySelectorAll(`.${styles.iconWrapper} svg`);
+      icons.forEach((svg) => {
+        const stroked = svg.querySelectorAll('[stroke]');
+        const fillOnly = [...svg.querySelectorAll('[fill]')].filter((el) => !el.hasAttribute('stroke'));
+        gsap.set(fillOnly, { opacity: 0, scale: 0, transformOrigin: '50% 50%' });
+
+        const section = svg.closest(`.${styles.serviceSection}`);
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: section, start: 'top 75%', once: true }
+        });
+        tl.fromTo(stroked, { drawSVG: '0%' }, { drawSVG: '100%', duration: 1, stagger: 0.1, ease: 'power2.inOut' })
+          .to(fillOnly, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', stagger: 0.08 }, '-=0.2');
+      });
+
+      // 2. Process timeline fills in step by step as the section scrolls into view
+      const processSection = document.querySelector(`.${styles.process}`);
+      const numbers = gsap.utils.toArray(`.${styles.stepNumber}`);
+      const connectors = gsap.utils.toArray(`.${styles.stepConnector}`);
+
+      if (processSection && numbers.length) {
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: processSection, start: 'top 70%', once: true }
+        });
+        numbers.forEach((num, i) => {
+          tl.to(num, { backgroundColor: '#ffffff', color: '#1E4A8A', duration: 0.3, ease: 'back.out(2)' });
+          if (connectors[i]) {
+            tl.fromTo(connectors[i],
+              { scaleX: 0, transformOrigin: 'left center' },
+              { scaleX: 1, duration: 0.4, ease: 'power2.inOut' }
+            );
+          }
+        });
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const services = [
     {
       id: 'software-development',
