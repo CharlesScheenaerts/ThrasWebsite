@@ -29,9 +29,34 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.2;
   z-index: 0;
   pointer-events: none;
+}
+
+.heroLine path {
+  stroke-dasharray: 1605;
+  stroke-dashoffset: 1605;
+  opacity: 0.2;
+  animation:
+    heroLineDraw 2.5s ease-out forwards,
+    heroLinePulse 5s ease-in-out 2.5s infinite;
+}
+
+@keyframes heroLineDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes heroLinePulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroLine path {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 0.2;
+  }
 }
 
 .heroContent {
@@ -335,7 +360,13 @@
   background: #FFFFFF;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 20px rgba(139, 92, 246, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cultureItem:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.25);
 }
 
 .cultureItem h3 {

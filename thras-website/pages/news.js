@@ -149,6 +149,11 @@ export default function News() {
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <div className={styles.particles} aria-hidden="true">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <span key={i} className={styles.particle} />
+          ))}
+        </div>
         <div className={styles.heroContent}>
           <h1>News & Insights</h1>
           <p>Stay updated with the latest from Thras and the tech industry</p>
