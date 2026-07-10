@@ -45,6 +45,7 @@
   opacity: 0.18;
   z-index: 0;
   pointer-events: none;
+  animation: heroRingSpin1 110s linear infinite;
 }
 
 .heroDecorRing2 {
@@ -56,6 +57,24 @@
   opacity: 0.14;
   z-index: 0;
   pointer-events: none;
+  animation: heroRingSpin2 90s linear infinite;
+}
+
+@keyframes heroRingSpin1 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heroRingSpin2 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroDecorRing1,
+  .heroDecorRing2 {
+    animation: none;
+  }
 }
 
 .heroContent {
