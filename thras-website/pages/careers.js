@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useState } from 'react';
 
+const JOBS_OPEN = false;
+
 export default function Careers() {
   const [selectedDepartment, setSelectedDepartment] = useState('all');
 
@@ -127,53 +129,64 @@ export default function Careers() {
       <section className={styles.jobs}>
         <div className={styles.jobsHeader}>
           <h2>Open Positions</h2>
-          <div className={styles.filter}>
-            <label htmlFor="department">Filter by:</label>
-            <select 
-              id="department" 
-              value={selectedDepartment} 
-              onChange={(e) => setSelectedDepartment(e.target.value)}
-            >
-              {departments.map(dept => (
-                <option key={dept.value} value={dept.value}>{dept.label}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        <div className={styles.jobsList}>
-          {filteredJobs.map(job => (
-            <div key={job.id} className={styles.jobCard}>
-              <div className={styles.jobMain}>
-                <h3>{job.title}</h3>
-                <div className={styles.jobMeta}>
-                  <span className={styles.jobLocation}>📍 {job.location}</span>
-                  <span className={styles.jobType}>{job.type}</span>
-                  <span className={styles.jobDept}>{departments.find(d => d.value === job.department)?.label}</span>
-                </div>
-                <p>{job.description}</p>
-              </div>
-              <div className={styles.jobSide}>
-                <div className={styles.jobRequirements}>
-                  <h4>Requirements</h4>
-                  <ul>
-                    {job.requirements.map((req, i) => (
-                      <li key={i}>{req}</li>
-                    ))}
-                  </ul>
-                </div>
-                <Link href={`/contact?job=${encodeURIComponent(job.title)}`} className={styles.applyButton}>
-                  Apply Now
-                </Link>
-              </div>
+          {JOBS_OPEN && (
+            <div className={styles.filter}>
+              <label htmlFor="department">Filter by:</label>
+              <select
+                id="department"
+                value={selectedDepartment}
+                onChange={(e) => setSelectedDepartment(e.target.value)}
+              >
+                {departments.map(dept => (
+                  <option key={dept.value} value={dept.value}>{dept.label}</option>
+                ))}
+              </select>
             </div>
-          ))}
+          )}
         </div>
 
-        {filteredJobs.length === 0 && (
+        {JOBS_OPEN ? (
+          <>
+            <div className={styles.jobsList}>
+              {filteredJobs.map(job => (
+                <div key={job.id} className={styles.jobCard}>
+                  <div className={styles.jobMain}>
+                    <h3>{job.title}</h3>
+                    <div className={styles.jobMeta}>
+                      <span className={styles.jobLocation}>📍 {job.location}</span>
+                      <span className={styles.jobType}>{job.type}</span>
+                      <span className={styles.jobDept}>{departments.find(d => d.value === job.department)?.label}</span>
+                    </div>
+                    <p>{job.description}</p>
+                  </div>
+                  <div className={styles.jobSide}>
+                    <div className={styles.jobRequirements}>
+                      <h4>Requirements</h4>
+                      <ul>
+                        {job.requirements.map((req, i) => (
+                          <li key={i}>{req}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Link href={`/contact?job=${encodeURIComponent(job.title)}`} className={styles.applyButton}>
+                      Apply Now
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {filteredJobs.length === 0 && (
+              <div className={styles.noJobs}>
+                <p>No positions available in this department at the moment.</p>
+                <p>Check back soon or send us your CV for future opportunities!</p>
+              </div>
+            )}
+          </>
+        ) : (
           <div className={styles.noJobs}>
-            <p>No positions available in this department at the moment.</p>
-            <p>Check back soon or send us your CV for future opportunities!</p>
+            <p>We don&apos;t have any open positions right now.</p>
+            <p>Check back soon, or send us your CV — we&apos;re always happy to hear from great people.</p>
           </div>
         )}
       </section>
