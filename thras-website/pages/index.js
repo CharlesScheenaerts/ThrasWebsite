@@ -140,8 +140,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Thras | IT Services Consulting &amp; AI Solutions</title>
-        <meta name="description" content="Software Development · Digital Transformation · Website Creation · IT Consulting · Data Science · AI Solutions" />
+        <title>Thras | AI &amp; IT Solutions For Your Time</title>
+        <meta name="description" content="Time is money. Thras builds AI, automation and custom software that take repetitive work off your plate, with monthly plans that keep it running." />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero} ref={heroRef}>
@@ -152,11 +152,11 @@ export default function Home() {
           <img src="/thras-logo-arc2.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc2}`} />
         </div>
         <div className={styles.heroContent}>
-          <h1>IT Solutions<br/>For Your Business</h1>
-          <p>Empowering businesses through innovative technology</p>
+          <h1>AI &amp; IT Solutions<br/>For Your Time</h1>
+          <p>Time is money. We help you save both.</p>
           <div className={styles.heroCta}>
-            <Link href="/expertise" className={styles.primaryButton}>Explore our services</Link>
-            <Link href="/contact" className={styles.primaryButton}>Contact us</Link>
+            <Link href="/expertise" className={styles.primaryButton}>See how it works</Link>
+            <Link href="/contact" className={styles.primaryButton}>Save my time</Link>
           </div>
         </div>
         <div className={styles.scrollDown} onClick={() => scrollToSection('.services')}>
@@ -169,8 +169,8 @@ export default function Home() {
       {/* Services Section */}
       <section className={`services ${styles.services}`} ref={servicesRef}>
         <div className={styles.sectionHeading}>
-          <h2>OUR EXPERTISE</h2>
-          <p>Comprehensive IT solutions tailored to your needs</p>
+          <h2>SAVE TIME YOUR WAY</h2>
+          <p>Three ways to get it done, three plans to keep it that way.</p>
         </div>
         <div className={styles.serviceGrid}>
           <div className={styles.serviceCard}>
@@ -181,13 +181,23 @@ export default function Home() {
                   <stop offset="100%" style={{stopColor:'#4C1D95', stopOpacity:1}} />
                 </linearGradient>
               </defs>
-              <path d="M20 16 L12 32 L20 48" stroke="url(#purpleGradient)" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M44 16 L52 32 L44 48" stroke="url(#purpleGradient)" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-              <line x1="36" y1="20" x2="28" y2="44" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
-              <circle cx="32" cy="32" r="2" fill="#2D1054"/>
+              <circle cx="16" cy="20" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <circle cx="16" cy="32" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <circle cx="16" cy="44" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <circle cx="32" cy="20" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <circle cx="32" cy="32" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <circle cx="32" cy="44" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <circle cx="48" cy="24" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <circle cx="48" cy="40" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <line x1="20" y1="20" x2="28" y2="32" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
+              <line x1="20" y1="32" x2="28" y2="32" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
+              <line x1="20" y1="44" x2="28" y2="32" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
+              <line x1="36" y1="32" x2="44" y2="24" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
+              <line x1="36" y1="32" x2="44" y2="40" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
+              <circle cx="32" cy="32" r="2.5" fill="#2D1054"/>
             </svg>
-            <h3>Software Development</h3>
-            <p>Custom software solutions to address your unique challenges</p>
+            <h3>AI</h3>
+            <p>Assistants that read, sort and draft for you. The inbox, the paperwork, the first answers.</p>
           </div>
 
           <div className={styles.serviceCard}>
@@ -199,100 +209,51 @@ export default function Home() {
               <path d="M32 52 L32 56 L26 50 L32 44 L32 48" fill="#2D1054"/>
               <path d="M12 32 L8 32 L14 26 L20 32 L16 32" fill="#2D1054"/>
             </svg>
-            <h3>Digital Transformation</h3>
-            <p>Modernize your business with cutting-edge digital solutions</p>
-          </div>
-
-          <div className={styles.serviceCard}>
-<svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect x="10" y="16" width="44" height="36" rx="2" fill="none" stroke="url(#purpleGradient)" strokeWidth="4"/>
-  <circle cx="17" cy="23" r="1.8" fill="#2D1054"/>
-  <circle cx="24" cy="23" r="1.8" fill="#2D1054"/>
-  <circle cx="31" cy="23" r="1.8" fill="#2D1054"/>
-  <line x1="10" y1="30" x2="54" y2="30" stroke="url(#purpleGradient)" strokeWidth="2"/>
-  <line x1="18" y1="38" x2="46" y2="38" stroke="url(#purpleGradient)" strokeWidth="2" strokeLinecap="round"/>
-  <line x1="18" y1="44" x2="38" y2="44" stroke="url(#purpleGradient)" strokeWidth="2" strokeLinecap="round"/>
-   <line x1="12" y1="28" x2="52" y2="27.99999" stroke="url(#purpleGradient)" strokeWidth="2" strokeLinecap="round"/>
-</svg>
-            <h3>Website Creation</h3>
-            <p>Build modern, responsive websites that drive results</p>
+            <h3>Automation</h3>
+            <p>The reminder that sends itself. Approvals, reports and hand-offs that run without you.</p>
           </div>
 
           <div className={styles.serviceCard}>
             <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="32" cy="32" r="20" fill="none" stroke="url(#purpleGradient)" strokeWidth="4"/>
-              <circle cx="32" cy="32" r="10" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-              <circle cx="32" cy="32" r="4" fill="#2D1054"/>
-              <path d="M32 8 L32 12" stroke="url(#purpleGradient)" strokeWidth="3" strokeLinecap="round"/>
-              <path d="M32 52 L32 56" stroke="url(#purpleGradient)" strokeWidth="3" strokeLinecap="round"/>
-              <path d="M8 32 L12 32" stroke="url(#purpleGradient)" strokeWidth="3" strokeLinecap="round"/>
-              <path d="M52 32 L56 32" stroke="url(#purpleGradient)" strokeWidth="3" strokeLinecap="round"/>
-              <circle cx="44" cy="20" r="2" fill="#2D1054"/>
-              <circle cx="20" cy="44" r="2" fill="#2D1054"/>
-              <circle cx="20" cy="20" r="2" fill="#2D1054"/>
-              <circle cx="44" cy="44" r="2" fill="#2D1054"/>
+              <path d="M20 16 L12 32 L20 48" stroke="url(#purpleGradient)" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M44 16 L52 32 L44 48" stroke="url(#purpleGradient)" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+              <line x1="36" y1="20" x2="28" y2="44" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
+              <circle cx="32" cy="32" r="2" fill="#2D1054"/>
             </svg>
-            <h3>IT Consulting</h3>
-            <p>Strategic technology advice to drive business growth</p>
+            <h3>Custom software</h3>
+            <p>Your process in a tool built for it, web or app. No more spreadsheet held together with hope.</p>
           </div>
 
           <div className={styles.serviceCard}>
             <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <path d="M32 14 L50 24 L50 42 L32 52 L14 42 L14 24 Z" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinejoin="round"/>
-              <path d="M32 14 L50 24 L32 34 L14 24 Z" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinejoin="round"/>
-              <path d="M32 34 L32 52 L50 42 L50 24" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinejoin="round"/>
-              <circle cx="32" cy="14" r="2.5" fill="#2D1054"/>
-              <circle cx="50" cy="24" r="2.5" fill="#2D1054"/>
-              <circle cx="14" cy="24" r="2.5" fill="#2D1054"/>
-              <circle cx="32" cy="34" r="2.5" fill="#2D1054"/>
-              <circle cx="50" cy="42" r="2.5" fill="#2D1054"/>
-              <circle cx="32" cy="52" r="2.5" fill="#2D1054"/>
-              <circle cx="14" cy="42" r="2.5" fill="#2D1054"/>
+              <path d="M35 6 L16 36 L28 36 L24 58 L48 26 L34 26 Z" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round"/>
             </svg>
-            <h3>Data Science</h3>
-            <p>Transform your data into actionable insights and intelligence</p>
+            <h3>Boost</h3>
+            <p>A hand with your most annoying tasks. Up to 3 processes.</p>
           </div>
 
           <div className={styles.serviceCard}>
+            <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="22" r="8" fill="none" stroke="url(#purpleGradient)" strokeWidth="4"/>
+              <path d="M8 52 C8 41 15 36 24 36 C33 36 40 41 40 52" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
+              <circle cx="46" cy="26" r="5" fill="#2D1054"/>
+              <path d="M44 38 C52 38 56 43 56 52" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
+            </svg>
+            <h3>Sidekick</h3>
+            <p>Someone on your side for a whole function. Up to 8 processes.</p>
+          </div>
 
-<svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  {/* Couche entrée (gauche) - 3 neurones */}
-  <circle cx="16" cy="20" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-  <circle cx="16" cy="32" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-  <circle cx="16" cy="44" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-  
-  {/* Couche cachée (milieu) - 3 neurones */}
-  <circle cx="32" cy="20" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-  <circle cx="32" cy="32" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-  <circle cx="32" cy="44" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-  
-  {/* Couche sortie (droite) - 2 neurones */}
-  <circle cx="48" cy="24" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-  <circle cx="48" cy="40" r="4" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-  
-  {/* Connexions entre couche 1 et 2 */}
-  <line x1="20" y1="20" x2="28" y2="20" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  <line x1="20" y1="20" x2="28" y2="32" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  <line x1="20" y1="32" x2="28" y2="20" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  <line x1="20" y1="32" x2="28" y2="32" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  <line x1="20" y1="32" x2="28" y2="44" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  <line x1="20" y1="44" x2="28" y2="32" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  <line x1="20" y1="44" x2="28" y2="44" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  
-  {/* Connexions entre couche 2 et 3 */}
-  <line x1="36" y1="20" x2="44" y2="24" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  <line x1="36" y1="32" x2="44" y2="24" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  <line x1="36" y1="32" x2="44" y2="40" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  <line x1="36" y1="44" x2="44" y2="40" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
-  
-  {/* Points centraux remplis */}
-  <circle cx="16" cy="32" r="2" fill="#2D1054"/>
-  <circle cx="32" cy="32" r="2.5" fill="#2D1054"/>
-  <circle cx="48" cy="32" r="2" fill="#2D1054"/>
-</svg>
-            
-            <h3>AI Solutions</h3>
-            <p>Implement intelligent systems that automate work and adapt over time</p>
+          <div className={styles.serviceCard}>
+            <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="18" r="7" fill="none" stroke="url(#purpleGradient)" strokeWidth="4"/>
+              <circle cx="14" cy="26" r="5" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <circle cx="50" cy="26" r="5" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
+              <path d="M18 54 C18 43 24 36 32 36 C40 36 46 43 46 54" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
+              <path d="M4 50 C4 42 8 38 14 38" fill="none" stroke="url(#purpleGradient)" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M60 50 C60 42 56 38 50 38" fill="none" stroke="url(#purpleGradient)" strokeWidth="3" strokeLinecap="round"/>
+            </svg>
+            <h3>Squad</h3>
+            <p>The repetitive work of the whole company, handled. Up to 15 processes.</p>
           </div>
         </div>
       </section>
@@ -303,7 +264,7 @@ export default function Home() {
           <div className={styles.aboutContent}>
             <img src="/thras-logo-ring.png" alt="" className={styles.aboutRingDecor} />
             <h2>ABOUT THRAS</h2>
-            <p>Based in Brussels, at the heart of Europe, we are a team of dedicated professionals committed to delivering exceptional IT services. With years of industry experience, we understand the challenges businesses face in the digital landscape and provide innovative solutions to overcome them.</p>
+            <p>Based in Brussels, Thras builds AI, automation and custom software that give companies their time back. Less repetitive work, more room for the things that actually need a human.</p>
             <Link href="/about" className={styles.textLink}>Learn more about us</Link>
           </div>
           <div className={styles.aboutImage}></div>
@@ -312,8 +273,8 @@ export default function Home() {
 
       {/* Help Section */}
       <section className={styles.helpSection}>
-        <h2 className={styles.helpTitle}>HOW CAN WE HELP YOU</h2>
-        <Link ref={helpButtonRef} href="/contact" className={styles.contactButton}>Get in touch with us</Link>
+        <h2 className={styles.helpTitle}>WHAT WOULD YOU DO WITH YOUR TIME BACK?</h2>
+        <Link ref={helpButtonRef} href="/contact" className={styles.contactButton}>Let&apos;s find out</Link>
       </section>
 
       {/* Footer */}
