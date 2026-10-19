@@ -168,7 +168,7 @@ export default function Expertise() {
 
   const plans = [
     { name: 'Boost', text: 'A hand with your most annoying tasks.', items: ['Monitoring and fixes', 'Small adjustments', 'Email support'] },
-    { name: 'Sidekick', text: 'Someone on your side for a whole function.', items: ['Everything in Boost', 'Improvements as your needs change', 'Priority support'], featured: true },
+    { name: 'Sidekick', text: 'Someone on your side for a whole function.', items: ['Everything in Boost', 'Evolves with your needs', 'Priority support'], featured: true },
     { name: 'Squad', text: 'The repetitive work of the whole company.', items: ['Everything in Sidekick', 'Dedicated contact', 'Quarterly time review'] }
   ];
 
