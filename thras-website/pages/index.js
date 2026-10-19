@@ -180,7 +180,7 @@ export default function Home() {
           <p>We mix what fits your problem best, not what is trendy</p>
         </div>
         <div className={styles.serviceGrid}>
-          <div className={styles.serviceCard}>
+          <Link href="/expertise#ai" className={styles.serviceCard}>
             <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -205,9 +205,9 @@ export default function Home() {
             </svg>
             <h3>AI</h3>
             <p>Systems that take over repetitive work</p>
-          </div>
+          </Link>
 
-          <div className={styles.serviceCard}>
+          <Link href="/expertise#automation" className={styles.serviceCard}>
             <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
               <circle cx="32" cy="32" r="20" fill="none" stroke="url(#purpleGradient)" strokeWidth="4"/>
               <circle cx="32" cy="32" r="4" fill="#2D1054"/>
@@ -218,9 +218,9 @@ export default function Home() {
             </svg>
             <h3>Automation</h3>
             <p>Tasks that run by themselves</p>
-          </div>
+          </Link>
 
-          <div className={styles.serviceCard}>
+          <Link href="/expertise#custom-software" className={styles.serviceCard}>
             <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
               <path d="M20 16 L12 32 L20 48" stroke="url(#purpleGradient)" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M44 16 L52 32 L44 48" stroke="url(#purpleGradient)" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
@@ -229,7 +229,7 @@ export default function Home() {
             </svg>
             <h3>Custom software</h3>
             <p>Tools built around your business</p>
-          </div>
+          </Link>
         </div>
 
         <div className={styles.planBlock}>
@@ -258,10 +258,10 @@ export default function Home() {
           </div>
           <div className={styles.planCards}>
             {plans.map((plan, idx) => (
-              <div key={plan.name} className={`${styles.planCard} ${idx === activePlan ? styles.planActive : ''}`}>
+              <Link key={plan.name} href="/expertise#plans" className={`${styles.planCard} ${idx === activePlan ? styles.planActive : ''}`}>
                 <b>{plan.name}</b>
                 <span>{plan.scope}</span>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

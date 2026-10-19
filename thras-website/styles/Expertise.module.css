@@ -649,3 +649,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Anchor targets: leave room for the fixed navigation bar */
+.serviceSection,
+.plans {
+  scroll-margin-top: 80px;
+}
