@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #2D1054 0%, #4C1D95 50%, #1E4A8A 100%);
+  background: linear-gradient(135deg, #1B1F5E 0%, #31388F 50%, #1E4A8A 100%);
   color: #FFFFFF;
   text-align: center;
   position: relative;
@@ -19,7 +19,7 @@
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(30, 74, 138, 0.3) 0%, transparent 50%);
 }
 
