@@ -574,9 +574,9 @@
 }
 
 .planCard h3 {
-  font-size: 1.5rem;
-  color: #1E4A8A;
-  margin-bottom: 0.6rem;
+  font-size: 2rem;
+  color: #2B2F82;
+  margin-bottom: 0.9rem;
 }
 
 .planCard p {
@@ -602,9 +602,7 @@
   border-bottom-color: transparent;
 }
 
-.planFeatured .planNumber,
-.planFeatured h3,
-.planFeatured .planUnit {
+.planFeatured h3 {
   color: #FFFFFF;
 }
 

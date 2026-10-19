@@ -18,9 +18,9 @@ export default function Home() {
   const [procCount, setProcCount] = useState(6);
   const activePlan = procCount <= 3 ? 0 : procCount <= 8 ? 1 : 2;
   const plans = [
-    { name: 'Boost', limit: 3 },
-    { name: 'Sidekick', limit: 8 },
-    { name: 'Squad', limit: 15 },
+    { name: 'Boost', scope: 'a few tasks' },
+    { name: 'Sidekick', scope: 'a whole function' },
+    { name: 'Squad', scope: 'the whole company' },
   ];
 
   useEffect(() => {
@@ -235,12 +235,11 @@ export default function Home() {
         <div className={styles.planBlock}>
           <div className={styles.planHeading}>
             <h3>WHICH PLAN FITS YOU?</h3>
-            <p>Slide to the number of repetitive processes that weigh on your team.</p>
+            <p>Slide to show how much repetitive work weighs on your team.</p>
           </div>
           <div className={styles.planQuestion}>
-            <span>My team loses time on</span>
-            <span className={styles.planValue}>{procCount}</span>
-            <span>{procCount === 1 ? 'process' : 'processes'}</span>
+            <span>The repetitive work weighing on my team covers</span>
+            <span className={styles.planValue}>{plans[activePlan].scope}</span>
           </div>
           <div className={styles.planTrack}>
             <input
@@ -250,20 +249,18 @@ export default function Home() {
               step="1"
               value={procCount}
               onChange={(e) => setProcCount(Number(e.target.value))}
-              aria-label="Number of repetitive processes"
+              aria-label="Amount of repetitive work"
             />
           </div>
           <div className={styles.planTicks} aria-hidden="true">
-            <i style={{ left: '0%' }}>1</i>
-            <i style={{ left: '14.28%' }}>3</i>
-            <i style={{ left: '50%' }}>8</i>
-            <i style={{ left: '100%' }}>15</i>
+            <i style={{ left: '0%', transform: 'none' }}>A little</i>
+            <i style={{ left: '100%', transform: 'translateX(-100%)' }}>A lot</i>
           </div>
           <div className={styles.planCards}>
             {plans.map((plan, idx) => (
               <div key={plan.name} className={`${styles.planCard} ${idx === activePlan ? styles.planActive : ''}`}>
                 <b>{plan.name}</b>
-                <span>up to {plan.limit} processes</span>
+                <span>{plan.scope}</span>
               </div>
             ))}
           </div>

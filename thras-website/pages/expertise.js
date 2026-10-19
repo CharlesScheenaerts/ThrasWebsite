@@ -167,9 +167,9 @@ export default function Expertise() {
   ];
 
   const plans = [
-    { n: 3, name: 'Boost', text: 'A hand with your most annoying tasks.', items: ['Monitoring and fixes', 'Small adjustments', 'Email support'] },
-    { n: 8, name: 'Sidekick', text: 'Someone on your side for a whole function.', items: ['Everything in Boost', 'New automations each month', 'Priority support'], featured: true },
-    { n: 15, name: 'Squad', text: 'The repetitive work of the whole company.', items: ['Everything in Sidekick', 'Dedicated contact', 'Quarterly time review'] }
+    { name: 'Boost', text: 'A hand with your most annoying tasks.', items: ['Monitoring and fixes', 'Small adjustments', 'Email support'] },
+    { name: 'Sidekick', text: 'Someone on your side for a whole function.', items: ['Everything in Boost', 'New automations each month', 'Priority support'], featured: true },
+    { name: 'Squad', text: 'The repetitive work of the whole company.', items: ['Everything in Sidekick', 'Dedicated contact', 'Quarterly time review'] }
   ];
 
   const process = [
@@ -250,8 +250,6 @@ export default function Expertise() {
         <div className={styles.planGrid}>
           {plans.map((plan) => (
             <div key={plan.name} className={`${styles.planCard} ${plan.featured ? styles.planFeatured : ''}`}>
-              <div className={styles.planNumber}>{plan.n}</div>
-              <div className={styles.planUnit}>processes</div>
               <h3>{plan.name}</h3>
               <p>{plan.text}</p>
               <ul>
