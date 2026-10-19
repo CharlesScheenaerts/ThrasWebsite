@@ -283,7 +283,7 @@ export default function Expertise() {
         <p>Describe one task that eats your week. We&apos;ll tell you how to remove it.</p>
         <div className={styles.ctaButtons}>
           <Link href="/contact" className={styles.ctaButtonPrimary}>Let&apos;s talk</Link>
-          <a href="#plans" className={styles.ctaButtonSecondary}>See the plans</a>
+          <Link href="/about" className={styles.ctaButtonSecondary}>Learn about our team</Link>
         </div>
       </section>
     </>
