@@ -144,28 +144,31 @@
 }*/
 
 .heroContent {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 5%;
   z-index: 1;
+  text-align: center;
 }
 
 .heroContent h1 {
   font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
   max-width: 700px;
 }
 
 .heroContent p {
   font-size: 1.2rem;
   max-width: 600px;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
   opacity: 0.9;
 }
 
 .heroCta {
   display: flex;
+  justify-content: center;
   gap: 1.5rem;
 }
 
