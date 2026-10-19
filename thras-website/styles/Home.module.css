@@ -773,7 +773,7 @@
   font-weight: 700;
   font-size: 4rem;
   line-height: 1;
-  color: #1F3478;
+  color: #2B2F82;
   min-width: 1.2ch;
   text-align: center;
 }
@@ -782,7 +782,7 @@
   position: relative;
   height: 14px;
   border-radius: 8px;
-  background: linear-gradient(90deg, #B8C9E6 0 14.28%, #7F8FCB 14.28% 50%, #2F3F94 50% 100%);
+  background: linear-gradient(90deg, #C4CFF0 0 14.28%, #8C93D6 14.28% 50%, #43398E 50% 100%);
 }
 
 .planTrack input {
@@ -813,8 +813,8 @@
   height: 34px;
   border-radius: 50%;
   background: #FFFFFF;
-  border: 4px solid #12306B;
-  box-shadow: 0 4px 14px rgba(18, 48, 107, 0.4);
+  border: 4px solid #1F2A6B;
+  box-shadow: 0 4px 14px rgba(31, 42, 107, 0.4);
 }
 
 .planTrack input::-moz-range-thumb {
@@ -822,8 +822,8 @@
   height: 26px;
   border-radius: 50%;
   background: #FFFFFF;
-  border: 4px solid #12306B;
-  box-shadow: 0 4px 14px rgba(18, 48, 107, 0.4);
+  border: 4px solid #1F2A6B;
+  box-shadow: 0 4px 14px rgba(31, 42, 107, 0.4);
 }
 
 .planTrack input:focus-visible {
@@ -874,7 +874,7 @@
 }
 
 .planActive {
-  background: linear-gradient(135deg, #1E4A8A 0%, #1B3A7C 55%, #2A1B66 100%);
+  background: linear-gradient(135deg, #1E4A8A 0%, #2A3C88 55%, #33227A 100%);
   color: #FFFFFF;
   border-color: transparent;
   transform: translateY(-4px);
