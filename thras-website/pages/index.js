@@ -153,7 +153,7 @@ export default function Home() {
         </div>
         <div className={styles.heroContent}>
           <h1>AI &amp; IT Solutions<br/>For Your Time</h1>
-          <p>Time is money. We help you save both.</p>
+          <p>Time is money. Save both.</p>
           <div className={styles.heroCta}>
             <Link href="/expertise" className={styles.primaryButton}>See how it works</Link>
             <Link href="/contact" className={styles.primaryButton}>Save my time</Link>
