@@ -45,7 +45,7 @@
   opacity: 0.18;
   z-index: 0;
   pointer-events: none;
-  animation: heroRingSpin1 110s linear infinite;
+  animation: heroRingSpin1 28s linear infinite;
 }
 
 .heroDecorRing2 {
@@ -57,7 +57,7 @@
   opacity: 0.14;
   z-index: 0;
   pointer-events: none;
-  animation: heroRingSpin2 90s linear infinite;
+  animation: heroRingSpin2 22s linear infinite;
 }
 
 @keyframes heroRingSpin1 {
@@ -68,6 +68,35 @@
 @keyframes heroRingSpin2 {
   from { transform: rotate(0deg); }
   to { transform: rotate(-360deg); }
+}
+
+@keyframes heroTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    letter-spacing: 0.08em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0;
+  }
+}
+
+@keyframes heroSubtitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -85,11 +114,20 @@
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  animation: heroTitleIn 1s ease-out both, heroFloat 7s ease-in-out 1s infinite;
 }
 
 .heroContent p {
   font-size: 1.3rem;
   opacity: 0.9;
+  animation: heroSubtitleIn 1s ease-out 0.35s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroContent h1,
+  .heroContent p {
+    animation: none;
+  }
 }
 
 /* Intro Section */
