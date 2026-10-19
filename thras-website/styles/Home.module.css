@@ -891,21 +891,3 @@
 .planCard span {
   font-family: 'Ubuntu', sans-serif;
 }
-
-/* About: text sits higher, spinning ring below it so they never touch (desktop) */
-@media (min-width: 969px) {
-  .aboutContent {
-    min-height: 520px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 3rem;
-  }
-
-  .aboutRingDecor {
-    top: 82%;
-    width: 190px;
-    height: 190px;
-  }
-}
