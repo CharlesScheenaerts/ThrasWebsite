@@ -285,8 +285,8 @@ export default function Home() {
 
       {/* Help Section */}
       <section className={styles.helpSection}>
-        <h2 className={styles.helpTitle}>WHAT WOULD YOU DO WITH YOUR TIME BACK?</h2>
-        <Link ref={helpButtonRef} href="/contact" className={styles.contactButton}>Let&apos;s find out</Link>
+        <h2 className={styles.helpTitle}>HOW CAN WE HELP YOU</h2>
+        <Link ref={helpButtonRef} href="/contact" className={styles.contactButton}>Get in touch with us</Link>
       </section>
 
       {/* Footer */}
