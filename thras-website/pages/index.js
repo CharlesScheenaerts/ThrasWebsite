@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -15,6 +15,13 @@ export default function Home() {
   const ring2Ref = useRef(null);
   const servicesRef = useRef(null);
   const helpButtonRef = useRef(null);
+  const [procCount, setProcCount] = useState(6);
+  const activePlan = procCount <= 3 ? 0 : procCount <= 8 ? 1 : 2;
+  const plans = [
+    { name: 'Boost', limit: 3 },
+    { name: 'Sidekick', limit: 8 },
+    { name: 'Squad', limit: 15 },
+  ];
 
   useEffect(() => {
     // Observer pour les animations au scroll
@@ -155,8 +162,8 @@ export default function Home() {
           <h1>AI &amp; IT Solutions<br/>For Your Time</h1>
           <p>Time is money. Save both.</p>
           <div className={styles.heroCta}>
-            <Link href="/expertise" className={styles.primaryButton}>See how it works</Link>
-            <Link href="/contact" className={styles.primaryButton}>Save my time</Link>
+            <Link href="/expertise" className={styles.primaryButton}>How it works</Link>
+            <Link href="/contact" className={styles.primaryButton}>Let&apos;s talk</Link>
           </div>
         </div>
         <div className={styles.scrollDown} onClick={() => scrollToSection('.services')}>
@@ -169,8 +176,8 @@ export default function Home() {
       {/* Services Section */}
       <section className={`services ${styles.services}`} ref={servicesRef}>
         <div className={styles.sectionHeading}>
-          <h2>SAVE TIME YOUR WAY</h2>
-          <p>Three ways to get it done, three plans to keep it that way.</p>
+          <h2>OUR EXPERTISE</h2>
+          <p>We mix what fits your problem best, not what is trendy</p>
         </div>
         <div className={styles.serviceGrid}>
           <div className={styles.serviceCard}>
@@ -223,37 +230,42 @@ export default function Home() {
             <h3>Custom software</h3>
             <p>Your process in a tool built for it, web or app. No more spreadsheet held together with hope.</p>
           </div>
+        </div>
 
-          <div className={styles.serviceCard}>
-            <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <path d="M35 6 L16 36 L28 36 L24 58 L48 26 L34 26 Z" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round"/>
-            </svg>
-            <h3>Boost</h3>
-            <p>A hand with your most annoying tasks. Up to 3 processes.</p>
+        <div className={styles.planBlock}>
+          <div className={styles.planHeading}>
+            <h3>WHICH PLAN FITS YOU?</h3>
+            <p>Slide to the number of repetitive processes that weigh on your team.</p>
           </div>
-
-          <div className={styles.serviceCard}>
-            <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="22" r="8" fill="none" stroke="url(#purpleGradient)" strokeWidth="4"/>
-              <path d="M8 52 C8 41 15 36 24 36 C33 36 40 41 40 52" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
-              <circle cx="46" cy="26" r="5" fill="#2D1054"/>
-              <path d="M44 38 C52 38 56 43 56 52" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
-            </svg>
-            <h3>Sidekick</h3>
-            <p>Someone on your side for a whole function. Up to 8 processes.</p>
+          <div className={styles.planQuestion}>
+            <span>My team loses time on</span>
+            <span className={styles.planValue}>{procCount}</span>
+            <span>{procCount === 1 ? 'process' : 'processes'}</span>
           </div>
-
-          <div className={styles.serviceCard}>
-            <svg className={styles.serviceIcon} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="32" cy="18" r="7" fill="none" stroke="url(#purpleGradient)" strokeWidth="4"/>
-              <circle cx="14" cy="26" r="5" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-              <circle cx="50" cy="26" r="5" fill="none" stroke="url(#purpleGradient)" strokeWidth="3"/>
-              <path d="M18 54 C18 43 24 36 32 36 C40 36 46 43 46 54" fill="none" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
-              <path d="M4 50 C4 42 8 38 14 38" fill="none" stroke="url(#purpleGradient)" strokeWidth="3" strokeLinecap="round"/>
-              <path d="M60 50 C60 42 56 38 50 38" fill="none" stroke="url(#purpleGradient)" strokeWidth="3" strokeLinecap="round"/>
-            </svg>
-            <h3>Squad</h3>
-            <p>The repetitive work of the whole company, handled. Up to 15 processes.</p>
+          <div className={styles.planTrack}>
+            <input
+              type="range"
+              min="1"
+              max="15"
+              step="1"
+              value={procCount}
+              onChange={(e) => setProcCount(Number(e.target.value))}
+              aria-label="Number of repetitive processes"
+            />
+          </div>
+          <div className={styles.planTicks} aria-hidden="true">
+            <i style={{ left: '0%' }}>1</i>
+            <i style={{ left: '14.28%' }}>3</i>
+            <i style={{ left: '50%' }}>8</i>
+            <i style={{ left: '100%' }}>15</i>
+          </div>
+          <div className={styles.planCards}>
+            {plans.map((plan, idx) => (
+              <div key={plan.name} className={`${styles.planCard} ${idx === activePlan ? styles.planActive : ''}`}>
+                <b>{plan.name}</b>
+                <span>up to {plan.limit} processes</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
