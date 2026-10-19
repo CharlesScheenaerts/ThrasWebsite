@@ -204,7 +204,7 @@ export default function Home() {
               <circle cx="32" cy="32" r="2.5" fill="#2D1054"/>
             </svg>
             <h3>AI</h3>
-            <p>Intelligent systems that take over repetitive work and get better over time</p>
+            <p>Systems that take over repetitive work</p>
           </div>
 
           <div className={styles.serviceCard}>
@@ -217,7 +217,7 @@ export default function Home() {
               <path d="M12 32 L8 32 L14 26 L20 32 L16 32" fill="#2D1054"/>
             </svg>
             <h3>Automation</h3>
-            <p>Repetitive tasks connected and handled without anyone lifting a finger</p>
+            <p>Tasks that run by themselves</p>
           </div>
 
           <div className={styles.serviceCard}>
@@ -228,7 +228,7 @@ export default function Home() {
               <circle cx="32" cy="32" r="2" fill="#2D1054"/>
             </svg>
             <h3>Custom software</h3>
-            <p>Tools built around the way your business works</p>
+            <p>Tools built around your business</p>
           </div>
         </div>
 
