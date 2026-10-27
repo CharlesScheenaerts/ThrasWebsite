@@ -144,11 +144,12 @@
 
 .introContent p {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 1.9rem;
+  font-size: clamp(0.95rem, 4.8vw, 1.9rem);
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1.5;
   color: #1E4A8A;
+  white-space: nowrap;
 }
 
 /* Services Sections */
