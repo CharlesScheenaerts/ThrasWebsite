@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1E4A8A 0%, #4C1D95 100%);
+  background: linear-gradient(135deg, #08152F 0%, #0D2156 50%, #2A1D76 100%);
   color: #FFFFFF;
   text-align: center;
   position: relative;
@@ -19,44 +19,62 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(ellipse at 30% 70%, rgba(139, 92, 246, 0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(139, 92, 246, 0.16) 0%, transparent 60%),
     radial-gradient(ellipse at 70% 30%, rgba(30, 74, 138, 0.4) 0%, transparent 60%);
 }
 
-.heroLine {
+.heroDecorRing1 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: -90px;
+  right: 6%;
+  width: 240px;
+  height: 240px;
+  opacity: 0.28;
   z-index: 0;
   pointer-events: none;
+  animation: heroRingSpin1 30s linear infinite;
 }
 
-.heroLine path {
-  stroke-dasharray: 1605;
-  stroke-dashoffset: 1605;
-  opacity: 0.2;
-  animation:
-    heroLineDraw 2.5s ease-out forwards,
-    heroLinePulse 5s ease-in-out 2.5s infinite;
+.heroDecorRing2 {
+  position: absolute;
+  top: -50px;
+  left: 7%;
+  width: 170px;
+  height: 170px;
+  opacity: 0.22;
+  z-index: 0;
+  pointer-events: none;
+  animation: heroRingSpin2 24s linear infinite;
 }
 
-@keyframes heroLineDraw {
-  to { stroke-dashoffset: 0; }
+@keyframes heroRingSpin1 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes heroRingSpin2 { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+@keyframes heroTitleIn {
+  from { opacity: 0; transform: translateY(18px); letter-spacing: 0.08em; }
+  to { opacity: 1; transform: translateY(0); letter-spacing: 0; }
 }
 
-@keyframes heroLinePulse {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.35; }
+@keyframes heroSubtitleIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 0.9; transform: translateY(0); }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.heroContent h1 {
+  animation: heroTitleIn 1s ease-out both, heroFloat 7s ease-in-out 1s infinite;
+}
+
+.heroContent p {
+  animation: heroSubtitleIn 1s ease-out 0.35s both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .heroLine path {
-    animation: none;
-    stroke-dashoffset: 0;
-    opacity: 0.2;
-  }
+  .heroDecorRing1, .heroDecorRing2, .heroContent h1, .heroContent p { animation: none; }
 }
 
 .heroContent {

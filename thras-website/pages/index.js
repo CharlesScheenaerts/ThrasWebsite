@@ -19,8 +19,8 @@ export default function Home() {
   const activePlan = procCount <= 3 ? 0 : procCount <= 8 ? 1 : 2;
   const plans = [
     { name: 'Boost', scope: 'a few tasks' },
-    { name: 'Sidekick', scope: 'a whole function' },
-    { name: 'Squad', scope: 'the whole company' },
+    { name: 'Sidekick', scope: 'your key workflows' },
+    { name: 'Squad', scope: 'all your workflows' },
   ];
 
   useEffect(() => {
@@ -147,8 +147,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Thras | AI &amp; IT Solutions For Your Time</title>
-        <meta name="description" content="Time is money. Thras builds AI, automation and custom software that take repetitive work off your plate, with monthly plans that keep it running." />
+        <title>Thras | AI, Automation &amp; Software For Your Time</title>
+        <meta name="description" content="Time is money. Thras builds AI, Automation and Software that take repetitive work off your plate, with monthly plans that keep it running." />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero} ref={heroRef}>
@@ -159,7 +159,7 @@ export default function Home() {
           <img src="/thras-logo-arc2.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc2}`} />
         </div>
         <div className={styles.heroContent}>
-          <h1>AI &amp; IT Solutions<br/>For Your Time</h1>
+          <h1>Smart Solutions<br/>For Your Time</h1>
           <p>Time is money. Save both.</p>
           <div className={styles.heroCta}>
             <Link href="/expertise" className={styles.primaryButton}>How it works</Link>
@@ -227,7 +227,7 @@ export default function Home() {
               <line x1="36" y1="20" x2="28" y2="44" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
               <circle cx="32" cy="32" r="2" fill="#2D1054"/>
             </svg>
-            <h3>Custom software</h3>
+            <h3>Software</h3>
             <p>Tools built around your business</p>
           </Link>
         </div>
@@ -238,7 +238,6 @@ export default function Home() {
             <p>Slide to show how much repetitive work weighs on your team.</p>
           </div>
           <div className={styles.planQuestion}>
-            <span>The repetitive work weighing on my team covers</span>
             <span className={styles.planValue}>{plans[activePlan].scope}</span>
           </div>
           <div className={styles.planTrack}>
@@ -273,7 +272,7 @@ export default function Home() {
           <div className={styles.aboutContent}>
             <img src="/thras-logo-ring.png" alt="" className={styles.aboutRingDecor} />
             <h2>ABOUT THRAS</h2>
-            <p>Based in Brussels, Thras builds AI, automation and custom software that give companies their time back. Less repetitive work, more room for the things that actually need a human.</p>
+            <p>Based in Brussels, Thras builds AI, Automation and Software that give companies their time back. Less repetitive work, more room for the things that actually need a human.</p>
             <Link href="/about" className={styles.textLink}>Learn more about us</Link>
           </div>
           <div className={styles.aboutImage}></div>

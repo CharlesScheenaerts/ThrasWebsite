@@ -134,11 +134,16 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Us | Thras IT Consulting</title>
-        <meta name="description" content="Thras is a Brussels-based IT services company delivering software development, digital transformation, and AI solutions across Europe." />
+        <title>About Thras | AI, Automation &amp; Software in Brussels</title>
+        <meta name="description" content="Thras is a Brussels-based team that builds AI, Automation and Software to give businesses of every size their time back." />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <div className={styles.particles} aria-hidden="true">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <span key={i} className={styles.particle} />
+          ))}
+        </div>
         <div className={styles.heroContent}>
           <h1>Our Company</h1>
           <p>Boldness in technology, excellence in delivery</p>
@@ -151,16 +156,9 @@ export default function About() {
           <h2>Our Vision & Values</h2>
           <div className={styles.visionStatement}>
             <p className={styles.mainStatement}>
-              <strong>Thras</strong> analyses complexity and delivers simplicity in order to improve 
-              our society through reliable, efficient IT systems.
-            </p>
-            <p className={styles.visionText}>
-              Our vision is to be the most caring and reliable IT company on the marketplace, 
-              for both our clients and our people.
-            </p>
-            <p className={styles.valuesIntro}>
-              Our values support our vision by leveraging excellence, striving for results, 
-              ensuring commitment and promoting adaptability.
+              <strong>Thras</strong> gives time back to businesses buried in repetitive tasks,
+              because in an age of such technological progress, wasting hours on them
+              should no longer be a problem.
             </p>
           </div>
         </div>

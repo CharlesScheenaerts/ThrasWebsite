@@ -99,17 +99,16 @@ export default function Careers() {
   return (
     <>
       <Head>
-        <title>Careers | Thras</title>
-        <meta name="description" content="Thras is hiring across software development, data science, and AI solutions. Explore open positions and join our growing IT consulting team in Europe." />
+        <title>Careers | Join the Thras Team</title>
+        <meta name="description" content="Join Thras, a growing Brussels team building AI, Automation and Software." />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <svg className={styles.heroLine} viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M-50 320 C 300 380, 500 40, 820 120 S 1300 60, 1500 180" fill="none" stroke="white" strokeWidth="1.5" />
-        </svg>
+        <img src="/thras-logo-arc1.png" alt="" className={styles.heroDecorRing1} />
+        <img src="/thras-logo-arc2.png" alt="" className={styles.heroDecorRing2} />
         <div className={styles.heroContent}>
           <h1>Join Our Team</h1>
-          <p>We are growing and constantly recruiting for various positions all across Europe. Would you like to join in?</p>
+          <p>We are growing and work with businesses of every kind. Would you like to join in?</p>
         </div>
       </section>
 
@@ -120,7 +119,7 @@ export default function Careers() {
           <p>
             At Thras, we believe that great technology is built by great people. We&apos;re looking for passionate 
             individuals who want to make a real impact. Join a team where your ideas matter, your growth is 
-            supported, and your work transforms businesses across Europe.
+            supported, and your work transforms businesses of every size and sector.
           </p>
         </div>
       </section>
@@ -186,7 +185,7 @@ export default function Careers() {
         ) : (
           <div className={styles.noJobs}>
             <p>We don&apos;t have any open positions right now.</p>
-            <p>Check back soon, or send us your CV — we&apos;re always happy to hear from great people.</p>
+            <p>Check back soon, or send us your CV, we are always happy to hear from great people.</p>
           </div>
         )}
       </section>

@@ -55,6 +55,7 @@ export default function Contact() {
   const contactInfo = [
     {
       title: 'Email Us',
+      href: 'mailto:contact@thras.tech',
       content: ['contact@thras.tech'],
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +66,7 @@ export default function Contact() {
     },
     {
       title: 'Call Us',
+      href: 'tel:+3221234567',
       content: ['+32 2 123 45 67'],
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -90,11 +92,13 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact Us | Thras</title>
-        <meta name="description" content="Get in touch with Thras for software development, digital transformation, AI solutions, or IT consulting inquiries. We reply within 24 hours." />
+        <title>Contact Thras | Let's Talk About Your Time</title>
+        <meta name="description" content="Tell us which repetitive work eats your hours. Thras builds the AI, Automation or Software that takes it off your plate. We reply within 24 hours." />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <img src="/thras-logo-arc1.png" alt="" className={styles.heroDecorRing1} />
+        <img src="/thras-logo-arc2.png" alt="" className={styles.heroDecorRing2} />
         <div className={styles.heroContent}>
           <h1>Get in Touch</h1>
           <p>Let&apos;s discuss how we can help your business grow</p>
@@ -105,13 +109,13 @@ export default function Contact() {
       <section className={styles.infoSection}>
         <div className={styles.infoGrid}>
           {contactInfo.map((info, index) => (
-            <div key={index} className={styles.infoCard}>
+            <a key={index} href={info.href} className={styles.infoCard}>
               <div className={styles.infoIcon}>{info.icon}</div>
               <h3>{info.title}</h3>
               {info.content.map((line, i) => (
                 <p key={i}>{line}</p>
               ))}
-            </div>
+            </a>
           ))}
         </div>
       </section>

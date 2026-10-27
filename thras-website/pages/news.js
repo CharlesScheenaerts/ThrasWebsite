@@ -50,6 +50,14 @@ const ICONS = {
       <circle cx="42" cy="12" r="3" fill="currentColor"/>
     </svg>
   ),
+  crm: (
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="22" r="9" fill="none" stroke="currentColor" strokeWidth="3"/>
+      <path d="M8 52 C8 40 15 35 24 35 C33 35 40 40 40 52" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+      <path d="M36 30 L46 20 L52 26 L60 14" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M52 14 L60 14 L60 22" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
   automation: (
     <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="32" r="12" fill="none" stroke="currentColor" strokeWidth="3"/>
@@ -66,8 +74,8 @@ export default function News() {
 
   const featuredArticle = {
     id: 1,
-    title: 'How We Automated Stock Management for a Belgian Food Industry Leader',
-    excerpt: 'We replaced manual inventory tracking with a real-time automated system across an entire production line for a Belgian food industry leader, cutting stock discrepancies and freeing up hours of manual work every week.',
+    title: 'Automated Stock Management for a Belgian Food Industry Leader',
+    excerpt: 'We replaced manual inventory tracking with a real-time automated system across an entire production line, cutting stock discrepancies and freeing up hours of manual work every week.',
     date: '2026-06-12',
     category: 'Case Study',
     icon: ICONS.stock,
@@ -76,9 +84,18 @@ export default function News() {
 
   const articles = [
     {
+      id: 7,
+      title: 'A Sales CRM Boosted by AI, Built In-House',
+      excerpt: 'We created a sales CRM boosted by AI that sorts leads, drafts follow-ups, and keeps every deal moving.',
+      date: '2026-10-27',
+      category: 'Company News',
+      icon: ICONS.crm,
+      gradient: 'linear-gradient(135deg, #1E4A8A 0%, #2D1054 100%)'
+    },
+    {
       id: 6,
-      title: 'Why More European SMEs Are Turning to Process Automation',
-      excerpt: 'Rising costs and talent shortages are pushing small and mid-sized businesses to automate repetitive processes faster than ever — a trend we’re seeing across our own client base.',
+      title: 'More European SMEs Are Turning to Process Automation',
+      excerpt: 'More European SMEs are automating to cope with rising costs and talent shortages. Automation is open to businesses of every size.',
       date: '2026-06-28',
       category: 'Industry Insights',
       icon: ICONS.automation,
@@ -87,7 +104,7 @@ export default function News() {
     {
       id: 5,
       title: 'From Raw Data to Real Decisions: Building a Demand Forecasting Model',
-      excerpt: 'Our data science team built a demand forecasting model that helps a client anticipate demand and reduce overstock, using historical sales data and a lightweight machine learning pipeline.',
+      excerpt: 'Our data science team built a demand forecasting model to help a client anticipate demand and reduce overstock.',
       date: '2026-05-04',
       category: 'Technical',
       icon: ICONS.dataScience,
@@ -95,8 +112,8 @@ export default function News() {
     },
     {
       id: 4,
-      title: 'Digital Sovereignty: Why It Matters and How Thras Helps Businesses Take Control',
-      excerpt: 'As more companies rely on cloud infrastructure, keeping control over where and how your data is stored has become a strategic priority — and it’s something we build into every project we deliver.',
+      title: 'Digital Sovereignty: Helping Businesses Take Control',
+      excerpt: 'Keeping control over where your data is stored is a strategic priority, and a value that is close to our heart at Thras.',
       date: '2026-03-21',
       category: 'Industry Insights',
       icon: ICONS.sovereignty,
@@ -105,7 +122,7 @@ export default function News() {
     {
       id: 3,
       title: 'Streamlining Back-Office Work: An Admin Automation Case Study',
-      excerpt: 'We helped an administrative department cut repetitive manual tasks by automating approvals, document handling, and reporting, freeing the team to focus on higher-value work.',
+      excerpt: 'We helped an administrative team automate approvals, document handling, and reporting, cutting hours of manual work.',
       date: '2026-02-09',
       category: 'Case Study',
       icon: ICONS.admin,
@@ -114,7 +131,7 @@ export default function News() {
     {
       id: 2,
       title: '20+ Websites Delivered in Our First Year',
-      excerpt: 'We wrapped up 2025 having delivered more than twenty websites for clients across Europe — a strong first year for the team.',
+      excerpt: 'We delivered more than twenty websites for clients across Europe in our first year.',
       date: '2025-12-18',
       category: 'Company News',
       icon: ICONS.websites,
@@ -144,8 +161,8 @@ export default function News() {
   return (
     <>
       <Head>
-        <title>News &amp; Insights | Thras</title>
-        <meta name="description" content="Stay up to date with Thras news, product launches, and insights on software development, AI solutions, and the IT industry." />
+        <title>News &amp; Insights | Thras AI, Automation &amp; Software</title>
+        <meta name="description" content="News and insights from Thras on AI, Automation and Software: what we build, what we learn, and how businesses save time." />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
@@ -215,7 +232,7 @@ export default function News() {
             ))}
           </div>
         ) : (
-          <p className={styles.noArticles}>No articles in this category yet — check back soon.</p>
+          <p className={styles.noArticles}>No articles in this category yet. Check back soon.</p>
         )}
       </section>
 

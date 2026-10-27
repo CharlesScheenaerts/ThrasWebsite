@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1E4A8A 0%, #2D1054 100%);
+  background: linear-gradient(135deg, #08152F 0%, #0D2156 50%, #2A1D76 100%);
   color: #FFFFFF;
   text-align: center;
   position: relative;
@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
   animation: heroGlowPulse 6s ease-in-out infinite;
   transform-origin: center;
 }
@@ -32,6 +32,60 @@
   .hero::before {
     animation: none;
   }
+}
+
+.heroDecorRing1 {
+  position: absolute;
+  bottom: -90px;
+  right: 6%;
+  width: 240px;
+  height: 240px;
+  opacity: 0.28;
+  z-index: 0;
+  pointer-events: none;
+  animation: heroRingSpin1 30s linear infinite;
+}
+
+.heroDecorRing2 {
+  position: absolute;
+  top: -50px;
+  left: 7%;
+  width: 170px;
+  height: 170px;
+  opacity: 0.22;
+  z-index: 0;
+  pointer-events: none;
+  animation: heroRingSpin2 24s linear infinite;
+}
+
+@keyframes heroRingSpin1 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes heroRingSpin2 { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+@keyframes heroTitleIn {
+  from { opacity: 0; transform: translateY(18px); letter-spacing: 0.08em; }
+  to { opacity: 1; transform: translateY(0); letter-spacing: 0; }
+}
+
+@keyframes heroSubtitleIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 0.9; transform: translateY(0); }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.heroContent h1 {
+  animation: heroTitleIn 1s ease-out both, heroFloat 7s ease-in-out 1s infinite;
+}
+
+.heroContent p {
+  animation: heroSubtitleIn 1s ease-out 0.35s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroDecorRing1, .heroDecorRing2, .heroContent h1, .heroContent p { animation: none; }
 }
 
 .heroContent {
@@ -67,16 +121,33 @@
 }
 
 .infoCard {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
   background: #FFFFFF;
   padding: 2rem;
   text-align: center;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(139, 92, 246, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infoCard::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(to right, #6D28D9, #8B5CF6, #A78BFA);
 }
 
 .infoCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.25);
 }
 
 .infoIcon {
@@ -84,6 +155,11 @@
   height: 50px;
   margin: 0 auto 1.5rem;
   color: #4C1D95;
+  transition: transform 0.3s ease;
+}
+
+.infoCard:hover .infoIcon {
+  transform: scale(1.1);
 }
 
 .infoIcon svg {

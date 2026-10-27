@@ -145,7 +145,7 @@ export default function Expertise() {
     },
     {
       id: 'custom-software',
-      title: 'Custom software',
+      title: 'Software',
       description: 'When off-the-shelf tools do not fit, we build the one that does. Web and mobile applications designed around your process, then hosted and maintained for you.',
       deliverables: [
         'Web and mobile applications',
@@ -168,8 +168,8 @@ export default function Expertise() {
 
   const plans = [
     { name: 'Boost', text: 'A hand with your most annoying tasks.', items: ['Monitoring and fixes', 'Small adjustments', 'Email support'] },
-    { name: 'Sidekick', text: 'Someone on your side for a whole function.', items: ['Everything in Boost', 'Evolves with your needs', 'Priority support'], featured: true },
-    { name: 'Squad', text: 'The repetitive work of the whole company.', items: ['Everything in Sidekick', 'Dedicated contact', 'Quarterly time review'] }
+    { name: 'Sidekick', text: 'Your key workflows, kept running and always improving.', items: ['Everything in Boost', 'Evolves with your needs', 'Priority support'], featured: true },
+    { name: 'Squad', text: 'All your workflows, with a dedicated team behind them.', items: ['Everything in Sidekick', 'Dedicated contact', 'Quarterly time review'] }
   ];
 
   const process = [
@@ -182,8 +182,8 @@ export default function Expertise() {
   return (
     <>
       <Head>
-        <title>Our Expertise | Thras</title>
-        <meta name="description" content="Thras builds AI, automation and custom software that give your team its time back, with monthly plans that keep everything running." />
+        <title>Expertise | AI, Automation &amp; Software | Thras</title>
+        <meta name="description" content="Thras builds AI, Automation and Software that give your team its time back, with monthly plans that keep everything running." />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
@@ -199,7 +199,7 @@ export default function Expertise() {
       <section className={styles.intro}>
         <div className={styles.introContent}>
           <p>
-            Every business has work that eats hours and adds nothing. We find it, then remove it with AI, automation or software built for the job, and we stay on to keep it running, so the time you get back stays yours.
+            AI | Automation | Software
           </p>
         </div>
       </section>

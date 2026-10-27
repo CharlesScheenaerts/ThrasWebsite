@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1B1F5E 0%, #31388F 50%, #1E4A8A 100%);
+  background: linear-gradient(135deg, #060F26 0%, #0C2052 50%, #2B1E78 100%);
   color: #FFFFFF;
   text-align: center;
   position: relative;
@@ -19,7 +19,7 @@
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.14) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(30, 74, 138, 0.3) 0%, transparent 50%);
 }
 
@@ -42,7 +42,7 @@
   right: 5%;
   width: 260px;
   height: 260px;
-  opacity: 0.18;
+  opacity: 0.3;
   z-index: 0;
   pointer-events: none;
   animation: heroRingSpin1 28s linear infinite;
@@ -54,7 +54,7 @@
   left: 8%;
   width: 180px;
   height: 180px;
-  opacity: 0.14;
+  opacity: 0.24;
   z-index: 0;
   pointer-events: none;
   animation: heroRingSpin2 22s linear infinite;
@@ -143,9 +143,12 @@
 }
 
 .introContent p {
-  font-size: 1.25rem;
-  line-height: 1.8;
-  color: #444;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: #1E4A8A;
 }
 
 /* Services Sections */

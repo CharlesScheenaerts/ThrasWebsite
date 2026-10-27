@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #2D1054, #1E4A8A, #2D1054);
+  background: linear-gradient(135deg, #2D1A6E, #0B1D3E, #2D1A6E);
   background-size: 300% 300%;
   animation: heroGradientShift 18s ease infinite;
   color: #FFFFFF;
