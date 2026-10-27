@@ -92,7 +92,7 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact Thras | Let's Talk About Your Time</title>
+        <title>Contact Thras | Let&apos;s Talk About Your Time</title>
         <meta name="description" content="Tell us which repetitive work eats your hours. Thras builds the AI, Automation or Software that takes it off your plate. We reply within 24 hours." />
       </Head>
       {/* Hero Section */}
