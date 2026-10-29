@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { pagesI18n } from './pages-i18n';
 
 export const translations = {
   en: {
@@ -83,5 +84,10 @@ export const translations = {
 
 export function useT() {
   const { locale } = useRouter();
-  return translations[locale] || translations.en;
+  const l = translations[locale] ? locale : 'en';
+  const out = { ...translations[l] };
+  Object.keys(pagesI18n).forEach((page) => {
+    out[page] = pagesI18n[page][l];
+  });
+  return out;
 }

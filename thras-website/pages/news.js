@@ -1,6 +1,7 @@
 import styles from '../styles/News.module.css';
 import Head from 'next/head';
 import { useState } from 'react';
+import { useT } from '../lib/i18n';
 
 const ICONS = {
   websites: (
@@ -69,13 +70,12 @@ const ICONS = {
 };
 
 export default function News() {
+  const t = useT().news;
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [visibleCount, setVisibleCount] = useState(4);
 
   const featuredArticle = {
     id: 1,
-    title: 'Automated Stock Management for a Belgian Food Industry Leader',
-    excerpt: 'We replaced manual inventory tracking with a real-time automated system across an entire production line, cutting stock discrepancies and freeing up hours of manual work every week.',
     date: '2026-06-12',
     category: 'Case Study',
     icon: ICONS.stock,
@@ -85,8 +85,6 @@ export default function News() {
   const articles = [
     {
       id: 7,
-      title: 'A Sales CRM Boosted by AI, Built In-House',
-      excerpt: 'We created a sales CRM boosted by AI that sorts leads, drafts follow-ups, and keeps every deal moving.',
       date: '2026-10-27',
       category: 'Company News',
       icon: ICONS.crm,
@@ -94,8 +92,6 @@ export default function News() {
     },
     {
       id: 6,
-      title: 'More European SMEs Are Turning to Process Automation',
-      excerpt: 'More European SMEs are automating to cope with rising costs and talent shortages. Automation is open to businesses of every size.',
       date: '2026-06-28',
       category: 'Industry Insights',
       icon: ICONS.automation,
@@ -103,8 +99,6 @@ export default function News() {
     },
     {
       id: 5,
-      title: 'From Raw Data to Real Decisions: Building a Demand Forecasting Model',
-      excerpt: 'Our data science team built a demand forecasting model to help a client anticipate demand and reduce overstock.',
       date: '2026-05-04',
       category: 'Technical',
       icon: ICONS.dataScience,
@@ -112,8 +106,6 @@ export default function News() {
     },
     {
       id: 4,
-      title: 'Digital Sovereignty: Helping Businesses Take Control',
-      excerpt: 'Keeping control over where your data is stored is a strategic priority, and a value that is close to our heart at Thras.',
       date: '2026-03-21',
       category: 'Industry Insights',
       icon: ICONS.sovereignty,
@@ -121,8 +113,6 @@ export default function News() {
     },
     {
       id: 3,
-      title: 'Streamlining Back-Office Work: An Admin Automation Case Study',
-      excerpt: 'We helped an administrative team automate approvals, document handling, and reporting, cutting hours of manual work.',
       date: '2026-02-09',
       category: 'Case Study',
       icon: ICONS.admin,
@@ -130,8 +120,6 @@ export default function News() {
     },
     {
       id: 2,
-      title: '20+ Websites Delivered in Our First Year',
-      excerpt: 'We delivered more than twenty websites for clients across Europe in our first year.',
       date: '2025-12-18',
       category: 'Company News',
       icon: ICONS.websites,
@@ -143,7 +131,7 @@ export default function News() {
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
+    return new Date(dateString).toLocaleDateString(t.dateLocale, options);
   };
 
   const filteredArticles = selectedCategory === 'All'
@@ -161,8 +149,8 @@ export default function News() {
   return (
     <>
       <Head>
-        <title>News &amp; Insights | Thras AI, Automation &amp; Software</title>
-        <meta name="description" content="News and insights from Thras on AI, Automation and Software: what we build, what we learn, and how businesses save time." />
+        <title>{t.metaTitle}</title>
+        <meta name="description" content={t.metaDescription} />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
@@ -172,8 +160,8 @@ export default function News() {
           ))}
         </div>
         <div className={styles.heroContent}>
-          <h1>News & Insights</h1>
-          <p>Stay updated with the latest from Thras and the tech industry</p>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroSub}</p>
         </div>
       </section>
 
@@ -186,9 +174,9 @@ export default function News() {
             </div>
           </div>
           <div className={styles.featuredText}>
-            <span className={styles.featuredCategory}>{featuredArticle.category}</span>
-            <h2>{featuredArticle.title}</h2>
-            <p>{featuredArticle.excerpt}</p>
+            <span className={styles.featuredCategory}>{t.categories[featuredArticle.category]}</span>
+            <h2>{t.articles[featuredArticle.id].title}</h2>
+            <p>{t.articles[featuredArticle.id].excerpt}</p>
             <div className={styles.articleMeta}>
               <span>{formatDate(featuredArticle.date)}</span>
             </div>
@@ -205,7 +193,7 @@ export default function News() {
               className={`${styles.categoryTab} ${category === selectedCategory ? styles.active : ''}`}
               onClick={() => handleCategoryClick(category)}
             >
-              {category}
+              {t.categories[category]}
             </button>
           ))}
         </div>
@@ -221,9 +209,9 @@ export default function News() {
                   <div className={styles.placeholderIconSmall}>{article.icon}</div>
                 </div>
                 <div className={styles.articleContent}>
-                  <span className={styles.articleCategory}>{article.category}</span>
-                  <h3>{article.title}</h3>
-                  <p>{article.excerpt}</p>
+                  <span className={styles.articleCategory}>{t.categories[article.category]}</span>
+                  <h3>{t.articles[article.id].title}</h3>
+                  <p>{t.articles[article.id].excerpt}</p>
                   <div className={styles.articleFooter}>
                     <span className={styles.articleDate}>{formatDate(article.date)}</span>
                   </div>
@@ -232,24 +220,24 @@ export default function News() {
             ))}
           </div>
         ) : (
-          <p className={styles.noArticles}>No articles in this category yet. Check back soon.</p>
+          <p className={styles.noArticles}>{t.noArticles}</p>
         )}
       </section>
 
       {/* Newsletter Section */}
       <section className={styles.newsletter}>
         <div className={styles.newsletterContent}>
-          <h2>Stay in the Loop</h2>
-          <p>Subscribe to our newsletter for the latest insights, news, and updates delivered to your inbox.</p>
+          <h2>{t.newsletterTitle}</h2>
+          <p>{t.newsletterText}</p>
           <form className={styles.newsletterForm}>
             <input
               type="email"
-              placeholder="Enter your email address"
+              placeholder={t.emailPlaceholder}
               className={styles.emailInput}
             />
-            <button type="submit" className={styles.subscribeButton}>Subscribe</button>
+            <button type="submit" className={styles.subscribeButton}>{t.subscribe}</button>
           </form>
-          <span className={styles.privacyNote}>We respect your privacy. Unsubscribe at any time.</span>
+          <span className={styles.privacyNote}>{t.privacy}</span>
         </div>
       </section>
 
@@ -257,7 +245,7 @@ export default function News() {
       {hasMore && (
         <section className={styles.loadMore}>
           <button className={styles.loadMoreButton} onClick={() => setVisibleCount(c => c + 4)}>
-            Load More Articles
+            {t.loadMore}
           </button>
         </section>
       )}

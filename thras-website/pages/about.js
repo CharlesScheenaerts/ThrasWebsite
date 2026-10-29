@@ -4,19 +4,16 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useT } from '../lib/i18n';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const STATS = [
-  { target: 25, label: 'Projects Delivered' },
-  { target: 20, label: 'Happy Clients' },
-  { target: 6, label: 'Years Experience' },
-  { target: 5, label: 'Team Members' }
-];
+const STATS = [{ target: 25 }, { target: 20 }, { target: 6 }, { target: 5 }];
 
 export default function About() {
+  const t = useT().about;
   const [counts, setCounts] = useState(STATS.map(() => 0));
   const statRefs = useState(() => STATS.map(() => ({ current: null })))[0];
 
@@ -55,25 +52,10 @@ export default function About() {
     return () => ctx.revert();
   }, []);
 
-  const team = [
-    {
-      name: 'Founder Name',
-      role: 'CEO & Founder',
-      description: 'Visionary leader driving innovation and excellence in IT consulting.',
-      initials: 'FN'
-    },
-    {
-      name: 'Co-Founder Name',
-      role: 'CTO & Co-Founder',
-      description: 'Technical expert passionate about delivering reliable, efficient solutions.',
-      initials: 'CN'
-    }
-  ];
+  const teamInitials = ['FN', 'CN'];
 
   const values = [
     {
-      title: 'Caring',
-      description: 'We genuinely care about our clients, our people, and the impact of our work on society.',
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <path d="M32 56 C16 44 8 34 8 24 C8 14 16 8 24 8 C28 8 31 10 32 14 C33 10 36 8 40 8 C48 8 56 14 56 24 C56 34 48 44 32 56 Z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/>
@@ -83,8 +65,6 @@ export default function About() {
       )
     },
     {
-      title: 'Agility',
-      description: 'We adapt quickly to change, embracing flexibility to meet evolving challenges.',
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <path d="M35 6 L16 36 L28 36 L24 58 L48 26 L34 26 Z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round"/>
@@ -92,8 +72,6 @@ export default function About() {
       )
     },
     {
-      title: 'Excellence',
-      description: 'We pursue the highest standards in everything we do, delivering outstanding results.',
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="24" r="14" fill="none" stroke="currentColor" strokeWidth="3"/>
@@ -103,8 +81,6 @@ export default function About() {
       )
     },
     {
-      title: 'Innovation',
-      description: 'We embrace new ideas and technologies to create forward-thinking solutions.',
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <path d="M25 38 Q19 33 19 25 Q19 12 32 12 Q45 12 45 25 Q45 33 39 38 L39 44 Q39 46 37 46 L27 46 Q25 46 25 44 Z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round"/>
@@ -118,8 +94,6 @@ export default function About() {
       )
     },
     {
-      title: 'Continual Improvement',
-      description: 'We constantly learn, grow, and refine our processes to deliver better outcomes.',
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <path d="M32 56 C18 56 8 46 8 32 C8 18 18 8 32 8" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
@@ -134,8 +108,8 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Thras | AI, Automation &amp; Software in Brussels</title>
-        <meta name="description" content="Thras is a Brussels-based team that builds AI, Automation and Software to give businesses of every size their time back." />
+        <title>{t.metaTitle}</title>
+        <meta name="description" content={t.metaDescription} />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
@@ -145,20 +119,18 @@ export default function About() {
           ))}
         </div>
         <div className={styles.heroContent}>
-          <h1>Our Company</h1>
-          <p>Boldness in technology, excellence in delivery</p>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroSub}</p>
         </div>
       </section>
 
       {/* Vision and Values Section */}
       <section className={styles.vision}>
         <div className={styles.visionContent}>
-          <h2>Our Vision & Values</h2>
+          <h2>{t.visionTitle}</h2>
           <div className={styles.visionStatement}>
             <p className={styles.mainStatement}>
-              <strong>Thras</strong> gives time back to businesses buried in repetitive tasks,
-              because in an age of such technological progress, wasting hours on them
-              should no longer be a problem.
+              <strong>{t.statementBrand}</strong>{t.statementRest}
             </p>
           </div>
         </div>
@@ -166,13 +138,13 @@ export default function About() {
 
       {/* Values Section */}
       <section className={styles.values}>
-        <h2>What We Stand For</h2>
+        <h2>{t.valuesTitle}</h2>
         <div className={styles.valuesGrid}>
           {values.map((value, index) => (
             <div key={index} className={styles.valueCard}>
               <div className={styles.valueIcon}>{value.icon}</div>
-              <h3>{value.title}</h3>
-              <p>{value.description}</p>
+              <h3>{t.values[index].title}</h3>
+              <p>{t.values[index].description}</p>
             </div>
           ))}
         </div>
@@ -182,11 +154,11 @@ export default function About() {
       <section className={styles.stats}>
         <div className={styles.statsGrid}>
           {STATS.map((stat, i) => (
-            <div className={styles.stat} key={stat.label}>
+            <div className={styles.stat} key={i}>
               <span className={styles.statNumber} ref={(node) => { statRefs[i].current = node; }}>
                 {counts[i]}+
               </span>
-              <span className={styles.statLabel}>{stat.label}</span>
+              <span className={styles.statLabel}>{t.stats[i]}</span>
             </div>
           ))}
         </div>
@@ -194,13 +166,13 @@ export default function About() {
 
       {/* Team Section */}
       <section className={styles.team}>
-        <h2>Leadership</h2>
-        <p className={styles.teamSubtitle}>Meet the people driving Thras forward</p>
+        <h2>{t.leadershipTitle}</h2>
+        <p className={styles.teamSubtitle}>{t.leadershipSub}</p>
         <div className={styles.teamGrid}>
-          {team.map((member, index) => (
+          {t.team.map((member, index) => (
             <div key={index} className={styles.teamCard}>
               <div className={styles.teamImagePlaceholder}>
-                <span>{member.initials}</span>
+                <span>{teamInitials[index]}</span>
               </div>
               <h3>{member.name}</h3>
               <span className={styles.teamRole}>{member.role}</span>
@@ -212,9 +184,9 @@ export default function About() {
 
       {/* CTA Section */}
       <section className={styles.cta}>
-        <h2>Ready to Work Together?</h2>
-        <p>Let&apos;s discuss how Thras can help transform your business</p>
-        <Link href="/contact" className={styles.ctaButton}>Get in Touch</Link>
+        <h2>{t.ctaTitle}</h2>
+        <p>{t.ctaText}</p>
+        <Link href="/contact" className={styles.ctaButton}>{t.ctaButton}</Link>
       </section>
     </>
   );

@@ -2,95 +2,27 @@ import styles from '../styles/Careers.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useState } from 'react';
+import { useT } from '../lib/i18n';
 
 const JOBS_OPEN = false;
 
 export default function Careers() {
+  const t = useT().careers;
   const [selectedDepartment, setSelectedDepartment] = useState('all');
 
-  const jobs = [
-    {
-      id: 1,
-      title: 'Senior Full-Stack Developer',
-      department: 'engineering',
-      location: 'Brussels / Remote',
-      type: 'Full-time',
-      description: 'Join our engineering team to build scalable web applications using React, Node.js, and cloud technologies.',
-      requirements: ['5+ years experience', 'React & Node.js', 'Cloud (AWS/Azure)', 'Agile methodology']
-    },
-    {
-      id: 2,
-      title: 'Cloud Architect',
-      department: 'engineering',
-      location: 'Brussels / Hybrid',
-      type: 'Full-time',
-      description: 'Design and implement cloud solutions for enterprise clients. Lead migration projects and establish best practices.',
-      requirements: ['7+ years experience', 'AWS/Azure certified', 'Infrastructure as Code', 'Security expertise']
-    },
-    {
-      id: 3,
-      title: 'Data Scientist',
-      department: 'data',
-      location: 'Brussels / Remote',
-      type: 'Full-time',
-      description: 'Apply machine learning and statistical analysis to solve complex business problems.',
-      requirements: ['3+ years experience', 'Python, SQL', 'ML frameworks', 'Strong communication']
-    },
-    {
-      id: 4,
-      title: 'Machine Learning Engineer',
-      department: 'data',
-      location: 'Brussels / Hybrid',
-      type: 'Full-time',
-      description: 'Build and deploy ML models at scale. Work on NLP, computer vision, and recommendation systems.',
-      requirements: ['4+ years experience', 'TensorFlow/PyTorch', 'MLOps', 'Production deployment']
-    },
-    {
-      id: 5,
-      title: 'IT Consultant',
-      department: 'consulting',
-      location: 'Brussels',
-      type: 'Full-time',
-      description: 'Advise clients on IT strategy, digital transformation, and technology adoption.',
-      requirements: ['5+ years experience', 'Consulting background', 'Strategic thinking', 'Client management']
-    },
-    {
-      id: 6,
-      title: 'Project Manager',
-      department: 'operations',
-      location: 'Brussels / Hybrid',
-      type: 'Full-time',
-      description: 'Lead cross-functional teams to deliver complex IT projects on time and within budget.',
-      requirements: ['4+ years PM experience', 'PMP or similar', 'Agile/Scrum', 'Technical background']
-    },
-    {
-      id: 7,
-      title: 'UX/UI Designer',
-      department: 'design',
-      location: 'Brussels / Remote',
-      type: 'Full-time',
-      description: 'Create intuitive, beautiful interfaces for web and mobile applications.',
-      requirements: ['3+ years experience', 'Figma expertise', 'Design systems', 'User research']
-    },
-    {
-      id: 8,
-      title: 'DevOps Engineer',
-      department: 'engineering',
-      location: 'Brussels / Remote',
-      type: 'Full-time',
-      description: 'Build and maintain CI/CD pipelines, automate infrastructure, and ensure system reliability.',
-      requirements: ['4+ years experience', 'Kubernetes', 'Terraform', 'Monitoring tools']
-    }
+  const jobMeta = [
+    { id: 1, department: 'engineering' },
+    { id: 2, department: 'engineering' },
+    { id: 3, department: 'data' },
+    { id: 4, department: 'data' },
+    { id: 5, department: 'consulting' },
+    { id: 6, department: 'operations' },
+    { id: 7, department: 'design' },
+    { id: 8, department: 'engineering' }
   ];
+  const jobs = jobMeta.map((meta, i) => ({ ...meta, ...t.jobs[i], type: t.fullTime }));
 
-  const departments = [
-    { value: 'all', label: 'All Departments' },
-    { value: 'engineering', label: 'Engineering' },
-    { value: 'data', label: 'Data & AI' },
-    { value: 'consulting', label: 'Consulting' },
-    { value: 'design', label: 'Design' },
-    { value: 'operations', label: 'Operations' }
-  ];
+  const departments = Object.keys(t.departments).map((value) => ({ value, label: t.departments[value] }));
 
   const filteredJobs = selectedDepartment === 'all' 
     ? jobs 
@@ -99,38 +31,34 @@ export default function Careers() {
   return (
     <>
       <Head>
-        <title>Careers | Join the Thras Team</title>
-        <meta name="description" content="Join Thras, a growing Brussels team building AI, Automation and Software." />
+        <title>{t.metaTitle}</title>
+        <meta name="description" content={t.metaDescription} />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
         <img src="/thras-logo-arc1.png" alt="" className={styles.heroDecorRing1} />
         <img src="/thras-logo-arc2.png" alt="" className={styles.heroDecorRing2} />
         <div className={styles.heroContent}>
-          <h1>Join Our Team</h1>
-          <p>We are growing and work with businesses of every kind. Would you like to join in?</p>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroSub}</p>
         </div>
       </section>
 
       {/* Intro Section */}
       <section className={styles.intro}>
         <div className={styles.introContent}>
-          <h2>Why Thras?</h2>
-          <p>
-            At Thras, we believe that great technology is built by great people. We&apos;re looking for passionate 
-            individuals who want to make a real impact. Join a team where your ideas matter, your growth is 
-            supported, and your work transforms businesses of every size and sector.
-          </p>
+          <h2>{t.introTitle}</h2>
+          <p>{t.introText}</p>
         </div>
       </section>
 
       {/* Jobs Section */}
       <section className={styles.jobs}>
         <div className={styles.jobsHeader}>
-          <h2>Open Positions</h2>
+          <h2>{t.positionsTitle}</h2>
           {JOBS_OPEN && (
             <div className={styles.filter}>
-              <label htmlFor="department">Filter by:</label>
+              <label htmlFor="department">{t.filterBy}</label>
               <select
                 id="department"
                 value={selectedDepartment}
@@ -160,7 +88,7 @@ export default function Careers() {
                   </div>
                   <div className={styles.jobSide}>
                     <div className={styles.jobRequirements}>
-                      <h4>Requirements</h4>
+                      <h4>{t.requirements}</h4>
                       <ul>
                         {job.requirements.map((req, i) => (
                           <li key={i}>{req}</li>
@@ -168,7 +96,7 @@ export default function Careers() {
                       </ul>
                     </div>
                     <Link href={`/contact?job=${encodeURIComponent(job.title)}`} className={styles.applyButton}>
-                      Apply Now
+                      {t.apply}
                     </Link>
                   </div>
                 </div>
@@ -177,15 +105,15 @@ export default function Careers() {
 
             {filteredJobs.length === 0 && (
               <div className={styles.noJobs}>
-                <p>No positions available in this department at the moment.</p>
-                <p>Check back soon or send us your CV for future opportunities!</p>
+                <p>{t.noneInDept[0]}</p>
+                <p>{t.noneInDept[1]}</p>
               </div>
             )}
           </>
         ) : (
           <div className={styles.noJobs}>
-            <p>We don&apos;t have any open positions right now.</p>
-            <p>Check back soon, or send us your CV, we are always happy to hear from great people.</p>
+            <p>{t.noneAtAll[0]}</p>
+            <p>{t.noneAtAll[1]}</p>
           </div>
         )}
       </section>
@@ -193,33 +121,23 @@ export default function Careers() {
       {/* Culture Section */}
       <section className={styles.culture}>
         <div className={styles.cultureContent}>
-          <h2>Our Culture</h2>
+          <h2>{t.cultureTitle}</h2>
           <div className={styles.cultureGrid}>
-            <div className={styles.cultureItem}>
-              <h3>Innovation First</h3>
-              <p>We encourage experimentation and aren&apos;t afraid to try new approaches.</p>
-            </div>
-            <div className={styles.cultureItem}>
-              <h3>Collaborative Spirit</h3>
-              <p>We believe the best solutions come from diverse perspectives working together.</p>
-            </div>
-            <div className={styles.cultureItem}>
-              <h3>Continuous Learning</h3>
-              <p>We invest in our people and support ongoing professional development.</p>
-            </div>
-            <div className={styles.cultureItem}>
-              <h3>Work-Life Balance</h3>
-              <p>We trust our team to manage their time and deliver great results.</p>
-            </div>
+            {t.culture.map((item) => (
+              <div key={item.title} className={styles.cultureItem}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className={styles.cta}>
-        <h2>Don&apos;t See Your Perfect Role?</h2>
-        <p>We&apos;re always looking for talented people. Send us your CV and let&apos;s talk!</p>
-        <Link href="/contact" className={styles.ctaButton}>Get in Touch</Link>
+        <h2>{t.ctaTitle}</h2>
+        <p>{t.ctaText}</p>
+        <Link href="/contact" className={styles.ctaButton}>{t.ctaButton}</Link>
       </section>
     </>
   );

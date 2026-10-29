@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:image" content={`${SITE}/favicon-512.png`} />
         <meta name="twitter:card" content="summary" />
       </Head>
-      <Component {...pageProps} />
+      <Component key={locale} {...pageProps} />
     </Layout>
   );
 }

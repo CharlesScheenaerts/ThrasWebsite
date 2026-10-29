@@ -11,11 +11,11 @@ export let externalScrollUpVisible = null;
 
 export function Header() {
     const t = useT().nav;
-    const { locale, asPath } = useRouter();
+    const { locale, pathname } = useRouter();
     const langSwitch = (extraClass = '', onClick) => (
         <div className={`${styles.langSwitch} ${extraClass}`} aria-label="Language">
             {LOCALES.map(([code, label]) => (
-                <Link key={code} href={asPath} locale={code} onClick={onClick} className={`${styles.langOption} ${code === locale ? styles.langActive : ''}`}>{label}</Link>
+                <Link key={code} href={pathname} locale={code} onClick={onClick} className={`${styles.langOption} ${code === locale ? styles.langActive : ''}`}>{label}</Link>
             ))}
         </div>
     );

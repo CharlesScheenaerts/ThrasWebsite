@@ -1,10 +1,10 @@
 import styles from '../styles/Contact.module.css';
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useT } from '../lib/i18n';
 
 export default function Contact() {
-  const router = useRouter();
+  const t = useT().contact;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,17 +17,16 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    if (router.query.job) {
-      setFormData(prev => ({
-        ...prev,
-        subject: `Job Application: ${router.query.job}`
-      }));
+    const params = new URLSearchParams(window.location.search);
+    const job = params.get('job');
+    if (job) {
+      setFormData(prev => ({ ...prev, subject: `${t.jobSubject} ${job}` }));
     }
-    const plan = String(router.query.plan || '').toLowerCase();
+    const plan = String(params.get('plan') || '').toLowerCase();
     if (['boost', 'sidekick', 'squad'].includes(plan)) {
       setFormData(prev => ({ ...prev, service: plan }));
     }
-  }, [router.query]);
+  }, [t.jobSubject]);
 
   const handleChange = (e) => {
     setFormData({
@@ -57,7 +56,7 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      title: 'Email Us',
+      title: t.emailTitle,
       href: 'mailto:contact@thras.tech',
       content: ['contact@thras.tech'],
       icon: (
@@ -68,7 +67,7 @@ export default function Contact() {
       )
     },
     {
-      title: 'Call Us',
+      title: t.callTitle,
       href: 'tel:+3221234567',
       content: ['+32 2 123 45 67'],
       icon: (
@@ -81,25 +80,25 @@ export default function Contact() {
   ];
 
   const services = [
-    { value: '', label: 'Not sure yet' },
-    { value: 'boost', label: 'Boost: a few tasks' },
-    { value: 'sidekick', label: 'Sidekick: your key workflows' },
-    { value: 'squad', label: 'Squad: all your workflows' }
+    { value: '', label: t.planOptions[0] },
+    { value: 'boost', label: t.planOptions[1] },
+    { value: 'sidekick', label: t.planOptions[2] },
+    { value: 'squad', label: t.planOptions[3] }
   ];
 
   return (
     <>
       <Head>
-        <title>Contact Thras | Let&apos;s Talk About Your Time</title>
-        <meta name="description" content="Tell us which repetitive work eats your hours. Thras builds the AI, Automation or Software that takes it off your plate. We reply within 24 hours." />
+        <title>{t.metaTitle}</title>
+        <meta name="description" content={t.metaDescription} />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
         <img src="/thras-logo-arc1.png" alt="" className={styles.heroDecorRing1} />
         <img src="/thras-logo-arc2.png" alt="" className={styles.heroDecorRing2} />
         <div className={styles.heroContent}>
-          <h1>Get in Touch</h1>
-          <p>Let&apos;s discuss how we can help your business grow</p>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroSub}</p>
         </div>
       </section>
 
@@ -123,8 +122,8 @@ export default function Contact() {
         <div className={styles.contactContainer}>
           {/* Form */}
           <div className={styles.formWrapper} id="form">
-            <h2>Let&apos;s Talk About Your Time</h2>
-            <p>Tell us what weighs on your team and pick the plan that feels closest. We come back to you within 24 hours.</p>
+            <h2>{t.formTitle}</h2>
+            <p>{t.formSub}</p>
             
             {submitted ? (
               <div className={styles.successMessage}>
@@ -132,14 +131,14 @@ export default function Contact() {
                   <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="3"/>
                   <path d="M20 32 L28 40 L44 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <h3>Thank You!</h3>
-                <p>We have received your request and will be in touch within 24 hours.</p>
+                <h3>{t.thanksTitle}</h3>
+                <p>{t.thanksText}</p>
               </div>
             ) : (
               <form className={styles.contactForm} onSubmit={handleSubmit}>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
-                    <label htmlFor="name">Full Name *</label>
+                    <label htmlFor="name">{t.name}</label>
                     <input
                       type="text"
                       id="name"
@@ -147,11 +146,11 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="John Doe"
+                      placeholder={t.namePh}
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label htmlFor="email">Email Address *</label>
+                    <label htmlFor="email">{t.email}</label>
                     <input
                       type="email"
                       id="email"
@@ -159,39 +158,39 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="john@company.com"
+                      placeholder={t.emailPh}
                     />
                   </div>
                 </div>
 
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
-                    <label htmlFor="company">Company</label>
+                    <label htmlFor="company">{t.company}</label>
                     <input
                       type="text"
                       id="company"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="Your Company"
+                      placeholder={t.companyPh}
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label htmlFor="phone">Phone Number</label>
+                    <label htmlFor="phone">{t.phone}</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+32 123 456 789"
+                      placeholder={t.phonePh}
                     />
                   </div>
                 </div>
 
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
-                    <label htmlFor="service">Plan</label>
+                    <label htmlFor="service">{t.plan}</label>
                     <select
                       id="service"
                       name="service"
@@ -206,32 +205,32 @@ export default function Contact() {
                     </select>
                   </div>
                   <div className={styles.formGroup}>
-                    <label htmlFor="subject">Subject</label>
+                    <label htmlFor="subject">{t.subject}</label>
                     <input
                       type="text"
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="What is it about?"
+                      placeholder={t.subjectPh}
                     />
                   </div>
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="message">Your message</label>
+                  <label htmlFor="message">{t.message}</label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     rows="6"
-                    placeholder="What would you like to take off your plate?"
+                    placeholder={t.messagePh}
                   ></textarea>
                 </div>
 
                 <button type="submit" className={styles.submitButton}>
-                  Let&apos;s talk
+                  {t.submit}
                 </button>
               </form>
             )}
@@ -245,21 +244,21 @@ export default function Contact() {
                   <path d="M32 8 C20 8 12 18 12 28 C12 44 32 56 32 56 C32 56 52 44 52 28 C52 18 44 8 32 8 Z" fill="none" stroke="currentColor" strokeWidth="2"/>
                   <circle cx="32" cy="28" r="6" fill="currentColor"/>
                 </svg>
-                <h3>Brussels, Belgium</h3>
-                <p>New offices coming soon</p>
+                <h3>{t.mapTitle}</h3>
+                <p>{t.mapText}</p>
                 <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className={styles.mapLink}>
-                  Open in Google Maps →
+                  {t.mapLink}
                 </a>
               </div>
             </div>
             
             <div className={styles.quickInfo}>
-              <h3>Quick Response</h3>
-              <p>Our team typically responds within 24 hours during business days.</p>
+              <h3>{t.quickTitle}</h3>
+              <p>{t.quickText}</p>
               
-              <h3>Schedule a Call</h3>
-              <p>Prefer to talk? Book a 30-minute discovery call with our team.</p>
-              <a href="#" className={styles.scheduleLink}>Book a Meeting</a>
+              <h3>{t.callTitle2}</h3>
+              <p>{t.callText}</p>
+              <a href="#" className={styles.scheduleLink}>{t.bookLink}</a>
             </div>
           </div>
         </div>

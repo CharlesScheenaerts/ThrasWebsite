@@ -5,12 +5,14 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
+import { useT } from '../lib/i18n';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 }
 
 export default function Expertise() {
+  const t = useT().expertise;
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
@@ -93,16 +95,6 @@ export default function Expertise() {
   const services = [
     {
       id: 'ai',
-      title: 'AI',
-      description: 'We build AI that takes over the work nobody wants to do: reading, sorting, drafting, answering. It learns from your data and keeps getting better.',
-      deliverables: [
-        'AI assistants and chatbots',
-        'Document and email processing',
-        'Data extraction and classification',
-        'Predictions and recommendations',
-        'Team training on AI tools',
-        'Monitoring and improvement'
-      ],
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" className={styles.serviceIcon}>
           <circle cx="14" cy="18" r="5" fill="none" stroke="currentColor" strokeWidth="2"/>
@@ -122,16 +114,6 @@ export default function Expertise() {
     },
     {
       id: 'automation',
-      title: 'Automation',
-      description: 'We connect your tools and let the routine run by itself: approvals, reports, reminders, hand-offs between teams. Less copy and paste, fewer mistakes.',
-      deliverables: [
-        'Workflow automation',
-        'Integrations between your tools',
-        'Automated reports and dashboards',
-        'Approvals and notifications',
-        'Data sync and clean-up',
-        'Ongoing monitoring'
-      ],
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" className={styles.serviceIcon}>
           <circle cx="32" cy="32" r="18" fill="none" stroke="currentColor" strokeWidth="3"/>
@@ -145,16 +127,6 @@ export default function Expertise() {
     },
     {
       id: 'custom-software',
-      title: 'Software',
-      description: 'When off-the-shelf tools do not fit, we build the one that does. Web and mobile applications designed around your process, then hosted and maintained for you.',
-      deliverables: [
-        'Web and mobile applications',
-        'Internal tools and dashboards',
-        'APIs and integrations',
-        'Websites and e-commerce',
-        'Cloud hosting and maintenance',
-        'Long-term support'
-      ],
       icon: (
         <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" className={styles.serviceIcon}>
           <path d="M20 16 L12 32 L20 48" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
@@ -167,31 +139,26 @@ export default function Expertise() {
   ];
 
   const plans = [
-    { name: 'Boost', text: 'A hand with your most annoying tasks.', items: ['Monitoring and fixes', 'Small adjustments', 'Email support'] },
-    { name: 'Sidekick', text: 'Your key workflows, kept running and always improving.', items: ['Everything in Boost', 'Evolves with your needs', 'Priority support'], featured: true },
-    { name: 'Squad', text: 'All your workflows, with a dedicated team behind them.', items: ['Everything in Sidekick', 'Dedicated contact', 'Quarterly time review'] }
+    { name: 'Boost' },
+    { name: 'Sidekick', featured: true },
+    { name: 'Squad' }
   ];
 
-  const process = [
-    { step: '01', title: 'Spot', description: 'We find what drains your time.' },
-    { step: '02', title: 'Build', description: 'We create the right mix of tools.' },
-    { step: '03', title: 'Run', description: 'We launch it and train your team.' },
-    { step: '04', title: 'Improve', description: 'We keep it working, month after month.' }
-  ];
+  const processSteps = ['01', '02', '03', '04'];
 
   return (
     <>
       <Head>
-        <title>Expertise | AI, Automation &amp; Software | Thras</title>
-        <meta name="description" content="Thras builds AI, Automation and Software that give your team its time back, with monthly plans that keep everything running." />
+        <title>{t.metaTitle}</title>
+        <meta name="description" content={t.metaDescription} />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
         <img src="/thras-logo-arc1.png" alt="" className={styles.heroDecorRing1} />
         <img src="/thras-logo-arc2.png" alt="" className={styles.heroDecorRing2} />
         <div className={styles.heroContent}>
-          <h1>Our Expertise</h1>
-          <p>What we build, and how we keep it running</p>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroSub}</p>
         </div>
       </section>
 
@@ -199,7 +166,7 @@ export default function Expertise() {
       <section className={styles.intro}>
         <div className={styles.introContent}>
           <p>
-            AI | Automation | Software
+            {t.intro}
           </p>
         </div>
       </section>
@@ -221,20 +188,20 @@ export default function Expertise() {
             </div>
             
             <div className={styles.serviceContent}>
-              <h2>{service.title}</h2>
-              <p className={styles.serviceDescription}>{service.description}</p>
+              <h2>{t.services[index].title}</h2>
+              <p className={styles.serviceDescription}>{t.services[index].description}</p>
               
               <div className={styles.deliverables}>
-                <h3>What we deliver:</h3>
+                <h3>{t.deliverTitle}</h3>
                 <ul>
-                  {service.deliverables.map((item, i) => (
+                  {t.services[index].deliverables.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
               </div>
               
               <Link href="/contact" className={styles.serviceButton}>
-                Discuss this service
+                {t.discuss}
               </Link>
             </div>
           </div>
@@ -244,21 +211,21 @@ export default function Expertise() {
       {/* Plans Section */}
       <section className={styles.plans} id="plans">
         <div className={styles.plansHeading}>
-          <h2>MONTHLY PLANS</h2>
-          <p>Pick the size of the help. Change it when your needs change.</p>
+          <h2>{t.plansTitle}</h2>
+          <p>{t.plansSub}</p>
         </div>
         <div className={styles.planGrid}>
-          {plans.map((plan) => (
+          {plans.map((plan, pi) => (
             <div key={plan.name} className={`${styles.planCard} ${plan.featured ? styles.planFeatured : ''}`}>
               <h3>{plan.name}</h3>
-              <p>{plan.text}</p>
+              <p>{t.plans[pi].text}</p>
               <ul>
-                {plan.items.map((item) => (
+                {t.plans[pi].items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
               <Link href={`/contact?plan=${plan.name.toLowerCase()}#form`} className={styles.planButton}>
-                Choose {plan.name}
+                {t.choose} {plan.name}
               </Link>
             </div>
           ))}
@@ -267,14 +234,14 @@ export default function Expertise() {
 
       {/* Process Section */}
       <section className={styles.process}>
-        <h2>How We Work</h2>
+        <h2>{t.processTitle}</h2>
         <div className={styles.processSteps}>
-          {process.map((item, index) => (
+          {processSteps.map((step, index) => (
             <div key={index} className={styles.processStep}>
-              <div className={styles.stepNumber}>{item.step}</div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              {index < process.length - 1 && <div className={styles.stepConnector}></div>}
+              <div className={styles.stepNumber}>{step}</div>
+              <h3>{t.process[index].title}</h3>
+              <p>{t.process[index].description}</p>
+              {index < processSteps.length - 1 && <div className={styles.stepConnector}></div>}
             </div>
           ))}
         </div>
@@ -282,11 +249,11 @@ export default function Expertise() {
 
       {/* CTA Section */}
       <section className={styles.cta}>
-        <h2>What can we take off your plate?</h2>
-        <p>Describe one task that eats your week. We&apos;ll tell you how to remove it.</p>
+        <h2>{t.ctaTitle}</h2>
+        <p>{t.ctaText}</p>
         <div className={styles.ctaButtons}>
-          <Link href="/contact" className={styles.ctaButtonPrimary}>Let&apos;s talk</Link>
-          <Link href="/about" className={styles.ctaButtonSecondary}>Learn about our team</Link>
+          <Link href="/contact" className={styles.ctaButtonPrimary}>{t.ctaPrimary}</Link>
+          <Link href="/about" className={styles.ctaButtonSecondary}>{t.ctaSecondary}</Link>
         </div>
       </section>
     </>
