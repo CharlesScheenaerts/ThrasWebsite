@@ -83,7 +83,7 @@
   height: 100svh;
   display: flex;
   align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/Image.hero.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/Image.hero.png');
   background-size: cover;
   background-position: center;
   color: #FFFFFF;
