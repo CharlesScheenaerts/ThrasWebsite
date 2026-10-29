@@ -31,4 +31,5 @@ footer a,
 footer li,
 [class*='copyright'] {
   font-family: 'Ubuntu', sans-serif;
+  font-size-adjust: 0.57;
 }
