@@ -20,9 +20,12 @@ export default function Contact() {
     if (router.query.job) {
       setFormData(prev => ({
         ...prev,
-        subject: `Job Application: ${router.query.job}`,
-        service: 'careers'
+        subject: `Job Application: ${router.query.job}`
       }));
+    }
+    const plan = String(router.query.plan || '').toLowerCase();
+    if (['boost', 'sidekick', 'squad'].includes(plan)) {
+      setFormData(prev => ({ ...prev, service: plan }));
     }
   }, [router.query]);
 
@@ -78,15 +81,10 @@ export default function Contact() {
   ];
 
   const services = [
-    { value: '', label: 'Select a service' },
-    { value: 'software', label: 'Software Development' },
-    { value: 'digital', label: 'Digital Transformation' },
-    { value: 'web', label: 'Website Creation' },
-    { value: 'consulting', label: 'IT Consulting' },
-    { value: 'data', label: 'Data Science' },
-    { value: 'ai', label: 'AI Solutions' },
-    { value: 'careers', label: 'Careers / Job Application' },
-    { value: 'other', label: 'Other' }
+    { value: '', label: 'Not sure yet' },
+    { value: 'boost', label: 'Boost: a few tasks' },
+    { value: 'sidekick', label: 'Sidekick: your key workflows' },
+    { value: 'squad', label: 'Squad: all your workflows' }
   ];
 
   return (
@@ -124,9 +122,9 @@ export default function Contact() {
       <section className={styles.contactSection}>
         <div className={styles.contactContainer}>
           {/* Form */}
-          <div className={styles.formWrapper}>
-            <h2>Send Us a Message</h2>
-            <p>Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
+          <div className={styles.formWrapper} id="form">
+            <h2>Let&apos;s Talk About Your Time</h2>
+            <p>Tell us what weighs on your team and pick the plan that feels closest. We come back to you within 24 hours.</p>
             
             {submitted ? (
               <div className={styles.successMessage}>
@@ -135,7 +133,7 @@ export default function Contact() {
                   <path d="M20 32 L28 40 L44 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 <h3>Thank You!</h3>
-                <p>Your message has been sent successfully. We&apos;ll be in touch soon.</p>
+                <p>We have received your request and will be in touch within 24 hours.</p>
               </div>
             ) : (
               <form className={styles.contactForm} onSubmit={handleSubmit}>
@@ -193,7 +191,7 @@ export default function Contact() {
 
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
-                    <label htmlFor="service">Service Interest</label>
+                    <label htmlFor="service">Plan</label>
                     <select
                       id="service"
                       name="service"
@@ -208,34 +206,32 @@ export default function Contact() {
                     </select>
                   </div>
                   <div className={styles.formGroup}>
-                    <label htmlFor="subject">Subject *</label>
+                    <label htmlFor="subject">Subject</label>
                     <input
                       type="text"
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      required
-                      placeholder="How can we help?"
+                      placeholder="What is it about?"
                     />
                   </div>
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="message">Message *</label>
+                  <label htmlFor="message">Your message</label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    required
                     rows="6"
-                    placeholder="Tell us about your project or inquiry..."
+                    placeholder="What would you like to take off your plate?"
                   ></textarea>
                 </div>
 
                 <button type="submit" className={styles.submitButton}>
-                  Send Message
+                  Let&apos;s talk
                 </button>
               </form>
             )}

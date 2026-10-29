@@ -57,6 +57,7 @@
   display: flex;
   gap: 1rem;
   margin-left: auto;
+  align-items: center;
 }
 
 .menuItem {
@@ -79,9 +80,10 @@
 
 .hero {
   height: 100vh;
+  height: 100svh;
   display: flex;
   align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/Image.hero.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/Image.hero.png');
   background-size: cover;
   background-position: center;
   color: #FFFFFF;
@@ -156,7 +158,7 @@
   font-size: 3.5rem;
   font-weight: 700;
   margin: 0 auto 1.5rem;
-  max-width: 700px;
+  max-width: 900px;
 }
 
 .heroContent p {
@@ -678,7 +680,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/Image.hero.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/Image.hero.png');
   background-size: cover;
   background-position: center;
   z-index: 1001;
@@ -858,33 +860,82 @@
 }
 
 .planCard {
+  position: relative;
+  overflow: hidden;
   display: block;
   text-decoration: none;
   cursor: pointer;
-  border: 1.5px solid #D1D5DB;
-  border-radius: 12px;
-  padding: 1.1rem 1rem;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 1.6rem 1rem 1.7rem;
   text-align: center;
   color: #555555;
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 5px 20px rgba(139, 92, 246, 0.14);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(to right, #6D28D9, #8B5CF6, #A78BFA);
+}
+
+.planCard::after {
+  content: '\2192';
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1.2rem;
+  color: #8B5CF6;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.planCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.28);
+}
+
+.planCard:hover::after {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .planCard b {
   display: block;
   font-family: 'Libre Baskerville', serif;
-  font-size: 1.25rem;
-  margin-bottom: 0.25rem;
+  font-size: 1.4rem;
+  color: #2B2F82;
+  margin-bottom: 0.3rem;
+  transition: color 0.3s ease;
 }
 
 .planCard span {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .planActive {
   background: linear-gradient(135deg, #1E4A8A 0%, #2A3C88 55%, #33227A 100%);
   color: #FFFFFF;
-  border-color: transparent;
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(42, 60, 136, 0.4);
+}
+
+.planActive b {
+  color: #FFFFFF;
+}
+
+.planActive::after {
+  color: #FFFFFF;
+}
+
+.planTouched::after {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 @media (max-width: 768px) {
@@ -897,4 +948,76 @@
 .planTicks,
 .planCard span {
   font-family: 'Ubuntu', sans-serif;
+}
+
+/* Language switcher */
+.langSwitch {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-left: 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.langOption {
+  color: rgba(255, 255, 255, 0.65);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.45rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.langOption:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.langActive {
+  color: #FFFFFF;
+  font-weight: 700;
+  background: rgba(139, 92, 246, 0.35);
+}
+
+.langSwitchMobile {
+  margin: 2rem 0 0;
+  padding: 0;
+  border-left: none;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.langSwitchMobile .langOption {
+  font-size: 1.1rem;
+  padding: 0.4rem 0.8rem;
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .menuItems {
+    gap: 0.1rem;
+  }
+
+  .menuItem {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.45rem;
+  }
+
+  .langSwitch {
+    margin-left: 0.6rem;
+    padding-left: 0.6rem;
+  }
+
+  .langOption {
+    padding: 0.25rem 0.3rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(html:not([lang='en'])) .heroContent h1 {
+    font-size: 2.1rem;
+  }
 }

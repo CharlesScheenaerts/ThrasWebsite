@@ -257,6 +257,9 @@ export default function Expertise() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              <Link href={`/contact?plan=${plan.name.toLowerCase()}#form`} className={styles.planButton}>
+                Choose {plan.name}
+              </Link>
             </div>
           ))}
         </div>

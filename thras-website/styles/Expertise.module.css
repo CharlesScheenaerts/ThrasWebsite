@@ -584,6 +584,8 @@
 }
 
 .planCard {
+  display: flex;
+  flex-direction: column;
   background: #FFFFFF;
   padding: 2.25rem 1.75rem;
   text-align: center;
@@ -652,6 +654,33 @@
   .planGrid {
     grid-template-columns: 1fr;
   }
+}
+
+.planButton {
+  margin-top: auto;
+  align-self: center;
+  padding: 0.75rem 1.8rem;
+  background: linear-gradient(135deg, #1E4A8A 0%, #2A3C88 55%, #33227A 100%);
+  color: #FFFFFF;
+  border-radius: 25px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.planCard ul {
+  margin-bottom: 1.75rem;
+}
+
+.planButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(42, 60, 136, 0.35);
+}
+
+.planFeatured .planButton {
+  background: #FFFFFF;
+  color: #1E4A8A;
 }
 
 /* Anchor targets: leave room for the fixed navigation bar */

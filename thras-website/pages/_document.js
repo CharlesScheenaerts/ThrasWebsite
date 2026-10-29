@@ -1,8 +1,8 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
+export default function Document(props) {
   return (
-    <Html lang="en">
+    <Html lang={props.locale || 'en'}>
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />

@@ -4,23 +4,26 @@ import Head from 'next/head';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useT } from '../lib/i18n';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function Home() {
+  const t = useT().home;
   const heroRef = useRef(null);
   const ring1Ref = useRef(null);
   const ring2Ref = useRef(null);
   const servicesRef = useRef(null);
   const helpButtonRef = useRef(null);
   const [procCount, setProcCount] = useState(6);
+  const [sliderTouched, setSliderTouched] = useState(false);
   const activePlan = procCount <= 3 ? 0 : procCount <= 8 ? 1 : 2;
   const plans = [
-    { name: 'Boost', scope: 'a few tasks' },
-    { name: 'Sidekick', scope: 'your key workflows' },
-    { name: 'Squad', scope: 'all your workflows' },
+    { name: 'Boost', scope: t.scopes[0] },
+    { name: 'Sidekick', scope: t.scopes[1] },
+    { name: 'Squad', scope: t.scopes[2] },
   ];
 
   useEffect(() => {
@@ -147,8 +150,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Thras | AI, Automation &amp; Software For Your Time</title>
-        <meta name="description" content="Time is money. Thras builds AI, Automation and Software that take repetitive work off your plate, with monthly plans that keep it running." />
+        <title>{t.metaTitle}</title>
+        <meta name="description" content={t.metaDescription} />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero} ref={heroRef}>
@@ -159,11 +162,11 @@ export default function Home() {
           <img src="/thras-logo-arc2.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc2}`} />
         </div>
         <div className={styles.heroContent}>
-          <h1>Smart Solutions<br/>For Your Time</h1>
-          <p>Time is money. Save both.</p>
+          <h1>{t.heroTitle1}<br/>{t.heroTitle2}</h1>
+          <p>{t.heroSub}</p>
           <div className={styles.heroCta}>
-            <Link href="/expertise" className={styles.primaryButton}>How it works</Link>
-            <Link href="/contact" className={styles.primaryButton}>Let&apos;s talk</Link>
+            <Link href="/expertise" className={styles.primaryButton}>{t.howItWorks}</Link>
+            <Link href="/contact" className={styles.primaryButton}>{t.letsTalk}</Link>
           </div>
         </div>
         <div className={styles.scrollDown} onClick={() => scrollToSection('.services')}>
@@ -176,8 +179,8 @@ export default function Home() {
       {/* Services Section */}
       <section className={`services ${styles.services}`} ref={servicesRef}>
         <div className={styles.sectionHeading}>
-          <h2>OUR EXPERTISE</h2>
-          <p>We mix what fits your problem best, not what is trendy</p>
+          <h2>{t.expertiseTitle}</h2>
+          <p>{t.expertiseSub}</p>
         </div>
         <div className={styles.serviceGrid}>
           <Link href="/expertise#ai" className={styles.serviceCard}>
@@ -203,8 +206,8 @@ export default function Home() {
               <line x1="36" y1="32" x2="44" y2="40" stroke="url(#purpleGradient)" strokeWidth="1.5" opacity="0.4"/>
               <circle cx="32" cy="32" r="2.5" fill="#2D1054"/>
             </svg>
-            <h3>AI</h3>
-            <p>Systems that take over repetitive work</p>
+            <h3>{t.aiTitle}</h3>
+            <p>{t.aiText}</p>
           </Link>
 
           <Link href="/expertise#automation" className={styles.serviceCard}>
@@ -216,8 +219,8 @@ export default function Home() {
               <path d="M32 52 L32 56 L26 50 L32 44 L32 48" fill="#2D1054"/>
               <path d="M12 32 L8 32 L14 26 L20 32 L16 32" fill="#2D1054"/>
             </svg>
-            <h3>Automation</h3>
-            <p>Tasks that run by themselves</p>
+            <h3>{t.autoTitle}</h3>
+            <p>{t.autoText}</p>
           </Link>
 
           <Link href="/expertise#custom-software" className={styles.serviceCard}>
@@ -227,15 +230,15 @@ export default function Home() {
               <line x1="36" y1="20" x2="28" y2="44" stroke="url(#purpleGradient)" strokeWidth="4" strokeLinecap="round"/>
               <circle cx="32" cy="32" r="2" fill="#2D1054"/>
             </svg>
-            <h3>Software</h3>
-            <p>Tools built around your business</p>
+            <h3>{t.softTitle}</h3>
+            <p>{t.softText}</p>
           </Link>
         </div>
 
         <div className={styles.planBlock}>
           <div className={styles.planHeading}>
-            <h3>WHICH PLAN FITS YOU?</h3>
-            <p>Slide to show how much repetitive work weighs on your team.</p>
+            <h3>{t.planTitle}</h3>
+            <p>{t.planSub}</p>
           </div>
           <div className={styles.planQuestion}>
             <span className={styles.planValue}>{plans[activePlan].scope}</span>
@@ -247,17 +250,17 @@ export default function Home() {
               max="15"
               step="1"
               value={procCount}
-              onChange={(e) => setProcCount(Number(e.target.value))}
-              aria-label="Amount of repetitive work"
+              onChange={(e) => { setProcCount(Number(e.target.value)); setSliderTouched(true); }}
+              aria-label={t.planAria}
             />
           </div>
           <div className={styles.planTicks} aria-hidden="true">
-            <i style={{ left: '0%', transform: 'none' }}>A little</i>
-            <i style={{ left: '100%', transform: 'translateX(-100%)' }}>A lot</i>
+            <i style={{ left: '0%', transform: 'none' }}>{t.little}</i>
+            <i style={{ left: '100%', transform: 'translateX(-100%)' }}>{t.lot}</i>
           </div>
           <div className={styles.planCards}>
             {plans.map((plan, idx) => (
-              <Link key={plan.name} href="/expertise#plans" className={`${styles.planCard} ${idx === activePlan ? styles.planActive : ''}`}>
+              <Link key={plan.name} href="/expertise#plans" className={`${styles.planCard} ${idx === activePlan ? styles.planActive : ''} ${idx === activePlan && sliderTouched ? styles.planTouched : ''}`}>
                 <b>{plan.name}</b>
                 <span>{plan.scope}</span>
               </Link>
@@ -271,9 +274,9 @@ export default function Home() {
         <div className={styles.aboutContainer}>
           <div className={styles.aboutContent}>
             <img src="/thras-logo-ring.png" alt="" className={styles.aboutRingDecor} />
-            <h2>ABOUT THRAS</h2>
-            <p>Based in Brussels, Thras builds AI, Automation and Software that give companies their time back. Less repetitive work, more room for the things that actually need a human.</p>
-            <Link href="/about" className={styles.textLink}>Learn more about us</Link>
+            <h2>{t.aboutTitle}</h2>
+            <p>{t.aboutText}</p>
+            <Link href="/about" className={styles.textLink}>{t.aboutLink}</Link>
           </div>
           <div className={styles.aboutImage}></div>
         </div>
@@ -281,15 +284,15 @@ export default function Home() {
 
       {/* Help Section */}
       <section className={styles.helpSection}>
-        <h2 className={styles.helpTitle}>HOW CAN WE HELP YOU</h2>
-        <Link ref={helpButtonRef} href="/contact" className={styles.contactButton}>Get in touch with us</Link>
+        <h2 className={styles.helpTitle}>{t.helpTitle}</h2>
+        <Link ref={helpButtonRef} href="/contact" className={styles.contactButton}>{t.helpButton}</Link>
       </section>
 
       {/* Footer */}
 <footer className={styles.footer}>
   <p className={styles.footerDescription}>
-    The Greek word <strong>θράσος</strong> (thrasos) means courage, boldness, or recklessness.<br/>
-    In Greek mythology, Thrasos is also the personification of insolence and excessive daring.
+    {t.greek1}<br/>
+    {t.greek2}
   </p>
 </footer>
 

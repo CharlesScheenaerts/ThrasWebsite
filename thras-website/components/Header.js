@@ -2,10 +2,23 @@ import styles from '../styles/Home.module.css';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useT } from '../lib/i18n';
+
+const LOCALES = [['en', 'EN'], ['fr', 'FR'], ['nl', 'NL']];
 
 export let externalScrollUpVisible = null;
 
 export function Header() {
+    const t = useT().nav;
+    const { locale, asPath } = useRouter();
+    const langSwitch = (extraClass = '', onClick) => (
+        <div className={`${styles.langSwitch} ${extraClass}`} aria-label="Language">
+            {LOCALES.map(([code, label]) => (
+                <Link key={code} href={asPath} locale={code} onClick={onClick} className={`${styles.langOption} ${code === locale ? styles.langActive : ''}`}>{label}</Link>
+            ))}
+        </div>
+    );
     const [scrollPercentage, setScrollPercentage] = useState(0);
     const [navbarScrolled, setNavbarScrolled] = useState(false);
     const [scrollUpVisible, setScrollUpVisible] = useState(false);
@@ -56,12 +69,13 @@ export function Header() {
                     
                     {/* Menu Desktop */}
                     <div className={styles.menuItems}>
-                        <Link href="/" className={styles.menuItem}>HOME</Link>
-                        <Link href="/about" className={styles.menuItem}>ABOUT US</Link>
-                        <Link href="/expertise" className={styles.menuItem}>EXPERTISE</Link>
-                        <Link href="/careers" className={styles.menuItem}>CAREERS</Link>
-                        <Link href="/news" className={styles.menuItem}>NEWS</Link>
-                        <Link href="/contact" className={styles.menuItem}>CONTACT</Link>
+                        <Link href="/" className={styles.menuItem}>{t.home}</Link>
+                        <Link href="/about" className={styles.menuItem}>{t.about}</Link>
+                        <Link href="/expertise" className={styles.menuItem}>{t.expertise}</Link>
+                        <Link href="/careers" className={styles.menuItem}>{t.careers}</Link>
+                        <Link href="/news" className={styles.menuItem}>{t.news}</Link>
+                        <Link href="/contact" className={styles.menuItem}>{t.contact}</Link>
+                        {langSwitch()}
                     </div>
 
                     {/* Burger Button */}
@@ -79,12 +93,13 @@ export function Header() {
             {/* Menu Mobile Overlay */}
             <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ''}`}>
                 <div className={styles.mobileMenuContent}>
-                    <Link href="/" className={styles.mobileMenuItem} onClick={handleLinkClick}>HOME</Link>
-                    <Link href="/about" className={styles.mobileMenuItem} onClick={handleLinkClick}>ABOUT US</Link>
-                    <Link href="/expertise" className={styles.mobileMenuItem} onClick={handleLinkClick}>EXPERTISE</Link>
-                    <Link href="/careers" className={styles.mobileMenuItem} onClick={handleLinkClick}>CAREERS</Link>
-                    <Link href="/news" className={styles.mobileMenuItem} onClick={handleLinkClick}>NEWS</Link>
-                    <Link href="/contact" className={styles.mobileMenuItem} onClick={handleLinkClick}>CONTACT</Link>
+                    <Link href="/" className={styles.mobileMenuItem} onClick={handleLinkClick}>{t.home}</Link>
+                    <Link href="/about" className={styles.mobileMenuItem} onClick={handleLinkClick}>{t.about}</Link>
+                    <Link href="/expertise" className={styles.mobileMenuItem} onClick={handleLinkClick}>{t.expertise}</Link>
+                    <Link href="/careers" className={styles.mobileMenuItem} onClick={handleLinkClick}>{t.careers}</Link>
+                    <Link href="/news" className={styles.mobileMenuItem} onClick={handleLinkClick}>{t.news}</Link>
+                    <Link href="/contact" className={styles.mobileMenuItem} onClick={handleLinkClick}>{t.contact}</Link>
+                    {langSwitch(styles.langSwitchMobile, handleLinkClick)}
                 </div>
             </div>
         </>

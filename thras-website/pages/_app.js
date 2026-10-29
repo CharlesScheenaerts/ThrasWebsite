@@ -6,12 +6,18 @@ import Layout from '../components/Layout';
 const SITE = 'https://www.thras.tech';
 
 function MyApp({ Component, pageProps }) {
-  const { asPath } = useRouter();
-  const url = SITE + (asPath.split(/[?#]/)[0] === '/' ? '' : asPath.split(/[?#]/)[0]);
+  const { asPath, locale, locales, defaultLocale } = useRouter();
+  const path = asPath.split(/[?#]/)[0];
+  const withLocale = (l) => SITE + (l === defaultLocale ? '' : '/' + l) + (path === '/' ? '' : path);
+  const url = withLocale(locale);
   return (
     <Layout>
       <Head>
         <link rel="canonical" href={url} />
+        {locales.map((l) => (
+          <link key={l} rel="alternate" hrefLang={l} href={withLocale(l)} />
+        ))}
+        <link rel="alternate" hrefLang="x-default" href={withLocale(defaultLocale)} />
         <meta property="og:site_name" content="Thras" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
