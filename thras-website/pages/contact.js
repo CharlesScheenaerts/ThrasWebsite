@@ -2,6 +2,8 @@ import styles from '../styles/Contact.module.css';
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { useT } from '../lib/i18n';
+import Link from 'next/link';
+import { COMPANY, LEGAL_READY } from '../lib/company';
 
 export default function Contact() {
   const t = useT().contact;
@@ -91,11 +93,15 @@ export default function Contact() {
       <Head>
         <title>{t.metaTitle}</title>
         <meta name="description" content={t.metaDescription} />
+        <meta property="og:title" content={t.metaTitle} />
+        <meta property="og:description" content={t.metaDescription} />
+        <meta name="twitter:title" content={t.metaTitle} />
+        <meta name="twitter:description" content={t.metaDescription} />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <img src="/thras-logo-arc1.png" alt="" className={styles.heroDecorRing1} />
-        <img src="/thras-logo-arc2.png" alt="" className={styles.heroDecorRing2} />
+        <img src="/thras-logo-arc1.webp" alt="" className={styles.heroDecorRing1} />
+        <img src="/thras-logo-arc2.webp" alt="" className={styles.heroDecorRing2} />
         <div className={styles.heroContent}>
           <h1>{t.heroTitle}</h1>
           <p>{t.heroSub}</p>
@@ -232,6 +238,10 @@ export default function Contact() {
                 <button type="submit" className={styles.submitButton}>
                   {t.submit}
                 </button>
+                <p className={styles.privacyNote}>
+                  {t.privacyNote}{' '}
+                  {LEGAL_READY && <Link href="/privacy">{t.privacyLink}</Link>}
+                </p>
               </form>
             )}
           </div>
@@ -256,9 +266,13 @@ export default function Contact() {
               <h3>{t.quickTitle}</h3>
               <p>{t.quickText}</p>
               
-              <h3>{t.callTitle2}</h3>
-              <p>{t.callText}</p>
-              <a href="#" className={styles.scheduleLink}>{t.bookLink}</a>
+              {COMPANY.bookingUrl && (
+                <>
+                <h3>{t.callTitle2}</h3>
+                <p>{t.callText}</p>
+                <a href={COMPANY.bookingUrl} className={styles.scheduleLink}>{t.bookLink}</a>
+                </>
+              )}
             </div>
           </div>
         </div>

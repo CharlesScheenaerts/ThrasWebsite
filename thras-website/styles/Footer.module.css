@@ -1,118 +1,137 @@
 .footer {
-  background-color: #272727;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #061024 0%, #0A1942 55%, #20165E 100%);
   color: #FFFFFF;
-  padding: 1rem 5%;
+  padding: 0 6%;
 }
 
-.helpSection {
-  text-align: center;
-  padding: 2rem 1rem;
-  background-color: rgba(232, 220, 203, 0.1);
-  margin-bottom: 2rem;
+.ring {
+  position: absolute;
+  top: -70px;
+  right: -40px;
+  width: 420px;
+  height: 420px;
+  opacity: 0.1;
+  pointer-events: none;
 }
 
-.helpTitle {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-.contactButton {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-  font-weight: 700;
-  transition: all var(--transition-speed);
-  border: 2px solid var(--secondary-color);
-}
-
-.contactButton:hover {
-  background-color: transparent;
-  color: var(--secondary-color);
-}
-
-.footerContent {
- max-width: 1200px;
+.story {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
   margin: 0 auto;
-  padding-bottom: 0rem;
+  padding: 3.5rem 0 2.5rem;
+  text-align: center;
 }
 
-.footerLogo {
- font-size: 2rem;
+.story p {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  opacity: 0.9;
+}
+
+.story p + p {
+  margin-top: 0.4rem;
+  opacity: 0.75;
+}
+
+.row {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 2rem;
+  flex-wrap: wrap;
+  padding: 1.75rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Libre Baskerville', serif;
   font-weight: 700;
-  margin-bottom: 2rem;
-}
-
-.footerLinks {
-    display: flex;
-  gap: 4rem;
-  margin-bottom: 3rem;
-}
-
-.linkColumn {
-  flex: 1;
-}
-
-.linkColumn h3 {
-   font-family: 'Ubuntu', sans-serif;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  color: #FFFFFF;
-}
-
-.linkColumn a, .linkColumn p {
- display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+  font-size: 1.8rem;
   color: #FFFFFF;
   text-decoration: none;
 }
 
-.linkColumn a:hover {
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.6rem;
+}
+
+.nav a,
+.contact a {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.nav a:hover,
+.contact a:hover {
   opacity: 1;
+  text-decoration: underline;
 }
 
-.footerDescription {
-  max-width: 900px;
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.bottom {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
   margin: 0 auto;
-  font-size: 0.95rem;
-  line-height: 1.8;
-  opacity: 0.9;
-  text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.copyright {
-  text-align: center;
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+  padding: 1rem 0 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: 'Ubuntu', sans-serif;
   font-size: 0.8rem;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
-@media (max-width: 768px) {
-  .footerLinks {
+.legal {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.legal a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .row {
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
     text-align: center;
   }
-  
-  .linkColumn {
-    flex: none;
-    width: 100%;
+
+  .contact {
+    align-items: center;
   }
-  
-  .footerLogo {
+
+  .bottom {
+    justify-content: center;
     text-align: center;
-  }
-  
-  .footerContent {
-    padding: 0 1rem;
   }
 }

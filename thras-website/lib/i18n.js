@@ -5,8 +5,10 @@ export const translations = {
   en: {
     nav: { home: 'HOME', about: 'ABOUT US', expertise: 'EXPERTISE', careers: 'CAREERS', news: 'NEWS', contact: 'CONTACT' },
     footer: {
-      company: 'COMPANY', about: 'About Us', expertise: 'Our Expertise', careers: 'Careers', news: 'News',
-      contact: 'CONTACT', getInTouch: 'Get in Touch', rights: 'All rights reserved.',
+      company: 'COMPANY', about: 'About Us', expertise: 'Expertise', careers: 'Careers', news: 'News',
+      contact: 'CONTACT', getInTouch: 'Get in Touch', rights: 'All rights reserved.', privacy: 'Privacy Policy', legal: 'Legal Notice',
+      home: 'Home', contactLink: 'Contact', greek1: 'The Greek word θράσος (thrasos) means courage, boldness, or recklessness.',
+      greek2: 'In Greek mythology, Thrasos is also the personification of insolence and excessive daring.',
     },
     home: {
       metaTitle: 'Thras | AI, Automation & Software For Your Time',
@@ -24,15 +26,15 @@ export const translations = {
       aboutText: 'Based in Brussels, Thras builds AI, Automation and Software that give companies their time back. Less repetitive work, more room for the things that actually need a human.',
       aboutLink: 'Learn more about us',
       helpTitle: 'HOW CAN WE HELP YOU', helpButton: 'Get in touch with us',
-      greek1: 'The Greek word θράσος (thrasos) means courage, boldness, or recklessness.',
-      greek2: 'In Greek mythology, Thrasos is also the personification of insolence and excessive daring.',
     },
   },
   fr: {
     nav: { home: 'ACCUEIL', about: 'À PROPOS', expertise: 'EXPERTISE', careers: 'CARRIÈRES', news: 'ACTUALITÉS', contact: 'CONTACT' },
     footer: {
-      company: 'ENTREPRISE', about: 'À propos', expertise: 'Notre expertise', careers: 'Carrières', news: 'Actualités',
-      contact: 'CONTACT', getInTouch: 'Contactez-nous', rights: 'Tous droits réservés.',
+      company: 'ENTREPRISE', about: 'À propos', expertise: 'Expertise', careers: 'Carrières', news: 'Actualités',
+      contact: 'CONTACT', getInTouch: 'Contactez-nous', rights: 'Tous droits réservés.', privacy: 'Politique de confidentialité', legal: 'Mentions légales',
+      home: 'Accueil', contactLink: 'Contact', greek1: 'Le mot grec θράσος (thrasos) signifie courage, audace ou témérité.',
+      greek2: "Dans la mythologie grecque, Thrasos est aussi la personnification de l'insolence et de l'audace excessive.",
     },
     home: {
       metaTitle: 'Thras | IA, automatisation et logiciels pour votre temps',
@@ -50,15 +52,15 @@ export const translations = {
       aboutText: "Basée à Bruxelles, Thras conçoit de l'IA, de l'automatisation et des logiciels qui rendent du temps aux entreprises. Moins de travail répétitif, plus de place pour ce qui demande vraiment un humain.",
       aboutLink: 'En savoir plus sur nous',
       helpTitle: 'COMMENT POUVONS-NOUS VOUS AIDER ?', helpButton: 'Contactez-nous',
-      greek1: 'Le mot grec θράσος (thrasos) signifie courage, audace ou témérité.',
-      greek2: "Dans la mythologie grecque, Thrasos est aussi la personnification de l'insolence et de l'audace excessive.",
     },
   },
   nl: {
     nav: { home: 'HOME', about: 'OVER ONS', expertise: 'EXPERTISE', careers: 'CARRIÈRE', news: 'NIEUWS', contact: 'CONTACT' },
     footer: {
-      company: 'BEDRIJF', about: 'Over ons', expertise: 'Onze expertise', careers: 'Carrière', news: 'Nieuws',
-      contact: 'CONTACT', getInTouch: 'Neem contact op', rights: 'Alle rechten voorbehouden.',
+      company: 'BEDRIJF', about: 'Over ons', expertise: 'Expertise', careers: 'Carrière', news: 'Nieuws',
+      contact: 'CONTACT', getInTouch: 'Neem contact op', rights: 'Alle rechten voorbehouden.', privacy: 'Privacybeleid', legal: 'Wettelijke vermeldingen',
+      home: 'Home', contactLink: 'Contact', greek1: 'Het Griekse woord θράσος (thrasos) betekent moed, durf of roekeloosheid.',
+      greek2: 'In de Griekse mythologie is Thrasos ook de personificatie van onbeschaamdheid en overmoed.',
     },
     home: {
       metaTitle: 'Thras | AI, automatisering en software voor uw tijd',
@@ -76,8 +78,6 @@ export const translations = {
       aboutText: 'Thras is gevestigd in Brussel en bouwt AI, automatisering en software die bedrijven hun tijd teruggeven. Minder repetitief werk, meer ruimte voor wat echt een mens vraagt.',
       aboutLink: 'Meer over ons',
       helpTitle: 'HOE KUNNEN WE U HELPEN?', helpButton: 'Neem contact met ons op',
-      greek1: 'Het Griekse woord θράσος (thrasos) betekent moed, durf of roekeloosheid.',
-      greek2: 'In de Griekse mythologie is Thrasos ook de personificatie van onbeschaamdheid en overmoed.',
     },
   },
 };

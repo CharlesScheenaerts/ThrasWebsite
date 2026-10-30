@@ -1,0 +1,70 @@
+.hero {
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #08152F 0%, #0D2156 50%, #2A1D76 100%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 7rem 5% 3rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 5% 6rem;
+}
+
+.updated {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+.content h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5rem;
+  color: #1E4A8A;
+  margin: 2.5rem 0 0.75rem;
+}
+
+.content p {
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.identity {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.6rem 1.5rem;
+  font-family: 'Ubuntu', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.identity dt {
+  font-weight: 700;
+  color: #1E4A8A;
+}
+
+.identity dd {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .identity {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .identity dd {
+    margin-bottom: 0.8rem;
+  }
+}

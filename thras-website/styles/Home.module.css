@@ -83,7 +83,7 @@
   height: 100svh;
   display: flex;
   align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/Image.hero.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/Image.hero.jpg');
   background-size: cover;
   background-position: center;
   color: #FFFFFF;
@@ -501,21 +501,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
-.footer {
-  background: linear-gradient(to bottom, #131313 25%, #161616 85%, #272727 100%);
-  color: #FFFFFF;
-  padding: 2.5rem 5%;
-  text-align: center;
-}
-
-.footerDescription {
-  max-width: 900px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  line-height: 2.5;
-  opacity: 0.9;
-}
-
 .scrollUp {
   position: fixed;
   bottom: 40px;
@@ -680,7 +665,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/Image.hero.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/Image.hero.jpg');
   background-size: cover;
   background-position: center;
   z-index: 1001;
@@ -842,7 +827,7 @@
   height: 26px;
   margin-top: 14px;
   font-size: 0.8rem;
-  color: #6B7280;
+  color: #4B5563;
 }
 
 .planTicks i {

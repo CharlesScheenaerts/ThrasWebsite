@@ -267,7 +267,7 @@
 
 .formGroup input::placeholder,
 .formGroup textarea::placeholder {
-  color: #aaa;
+  color: #757575;
 }
 
 .formGroup textarea {
@@ -480,4 +480,15 @@
   .formWrapper {
     padding: 2rem;
   }
+}
+
+.privacyNote {
+  font-size: 0.8rem;
+  color: #595959;
+  margin-top: 0.75rem;
+}
+
+.privacyNote a {
+  color: #1E4A8A;
+  text-decoration: underline;
 }

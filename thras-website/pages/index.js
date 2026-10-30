@@ -152,14 +152,18 @@ export default function Home() {
       <Head>
         <title>{t.metaTitle}</title>
         <meta name="description" content={t.metaDescription} />
+        <meta property="og:title" content={t.metaTitle} />
+        <meta property="og:description" content={t.metaDescription} />
+        <meta name="twitter:title" content={t.metaTitle} />
+        <meta name="twitter:description" content={t.metaDescription} />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero} ref={heroRef}>
         <div ref={ring1Ref} className={styles.heroLogoWrap}>
-          <img src="/thras-logo-arc1.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc1}`} />
+          <img src="/thras-logo-arc1.webp" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc1}`} />
         </div>
         <div ref={ring2Ref} className={styles.heroLogoWrap}>
-          <img src="/thras-logo-arc2.png" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc2}`} />
+          <img src="/thras-logo-arc2.webp" alt="" className={`${styles.heroLogoBackground} ${styles.heroLogoArc2}`} />
         </div>
         <div className={styles.heroContent}>
           <h1>{t.heroTitle1}<br/>{t.heroTitle2}</h1>
@@ -273,7 +277,7 @@ export default function Home() {
       <section className={styles.about}>
         <div className={styles.aboutContainer}>
           <div className={styles.aboutContent}>
-            <img src="/thras-logo-ring.png" alt="" className={styles.aboutRingDecor} />
+            <img src="/thras-logo-ring.webp" alt="" className={styles.aboutRingDecor} />
             <h2>{t.aboutTitle}</h2>
             <p>{t.aboutText}</p>
             <Link href="/about" className={styles.textLink}>{t.aboutLink}</Link>
@@ -287,15 +291,6 @@ export default function Home() {
         <h2 className={styles.helpTitle}>{t.helpTitle}</h2>
         <Link ref={helpButtonRef} href="/contact" className={styles.contactButton}>{t.helpButton}</Link>
       </section>
-
-      {/* Footer */}
-<footer className={styles.footer}>
-  <p className={styles.footerDescription}>
-    {t.greek1}<br/>
-    {t.greek2}
-  </p>
-</footer>
-
     </>
   );
 }

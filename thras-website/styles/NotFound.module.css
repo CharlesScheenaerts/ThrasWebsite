@@ -1,0 +1,61 @@
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 5%;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #08152F 0%, #0D2156 50%, #2A1D76 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.ring {
+  position: absolute;
+  right: 6%;
+  bottom: -100px;
+  width: 360px;
+  height: 360px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.code {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(5rem, 18vw, 10rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.content h1 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.content p {
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-family: 'Ubuntu', sans-serif;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background: #FFFFFF;
+  color: #1E4A8A;
+}

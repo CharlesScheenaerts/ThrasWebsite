@@ -110,6 +110,10 @@ export default function About() {
       <Head>
         <title>{t.metaTitle}</title>
         <meta name="description" content={t.metaDescription} />
+        <meta property="og:title" content={t.metaTitle} />
+        <meta property="og:description" content={t.metaDescription} />
+        <meta name="twitter:title" content={t.metaTitle} />
+        <meta name="twitter:description" content={t.metaDescription} />
       </Head>
       {/* Hero Section */}
       <section className={styles.hero}>
