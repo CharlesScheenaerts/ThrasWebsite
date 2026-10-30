@@ -5,6 +5,8 @@ export default function Document(props) {
     <Html lang={props.locale || 'en'}>
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
+        <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
         <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
         <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
         <link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512" />
